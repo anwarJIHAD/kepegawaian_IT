@@ -7,7 +7,7 @@
       <div class="main-content">
         <section class="section">
           <div class="section-header">
-            <h1>Surat Perizinan Cuti</h1>
+            <h1>Surat Perizinan Cutii</h1>
           </div>
 
           <div class="section-body">
