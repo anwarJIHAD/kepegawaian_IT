@@ -1,0 +1,89 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class PerizinanSakit extends CI_Controller {
+        public function __construct()
+        {
+            parent::__construct();
+            is_logged_in();
+            $this->load->model('PerizinanSakit_model');
+        }
+        public function index()
+	{
+        $data['pegawai'] = $this->db->get_where('pegawai', ['username' => $this->session->userdata['username']])->row_array();
+        $data['izin_sakit'] = $this->PerizinanSakit_model->get(); 
+        $this->load->view('layout/header',$data);
+        $this->load->view('Izinsakit/vw_izin_sakit',$data);
+        $this->load->view('layout/footer',$data);
+	}
+        public function tambahsakit()
+	{
+                $this->form_validation->set_rules('nama', 'nama', 'required|trim',[
+                        'required' => 'Nama Wajib di isi'
+                    ]);
+                    $this->form_validation->set_rules('tgl_izin', 'tgl_izin', 'required|trim',[
+                        'required' => 'Tanggal Wajib di isi'
+                    ]);
+                    $this->form_validation->set_rules('hingga_tgl', 'hingga_tgl', 'required|trim',[
+                        'required' => 'Tanggal Wajib di isi'
+                    ]);
+                    $this->form_validation->set_rules('ket_sakit', 'ket_sakit', 'required|trim',[
+                        'required' => 'Keterangan Sakit Wajib di isi'
+                    ]);
+                    if ($this->form_validation->run() == false) {
+                        $data['title'] = 'Data Perizinan Sakit';
+                    $data['pegawai'] = $this->db->get_where('pegawai', ['username' => $this->session->userdata['username']])->row_array();
+                    $this->load->view('layout/header',$data);
+        $data['pegawai'] = $this->db->get_where('pegawai', ['username' => $this->session->userdata['username']])->row_array();
+        $this->load->view('layout/header',$data);
+        $this->load->view('Izinsakit/vw_tambah_sakit',$data);
+        $this->load->view('layout/footer',$data);
+} else {
+        $data = [
+            'nama' => htmlspecialchars($this->input->post('nama', true)),
+            'tgl_izin' => htmlspecialchars($this->input->post('tgl_izin', true)),
+            'hingga_tgl' => htmlspecialchars($this->input->post('hingga_tgl', true)),
+            'ket_sakit' => htmlspecialchars($this->input->post('ket_sakit', true)),
+        ];
+    $upload_image = $_FILES['file_sakit']['name'];
+    if ($upload_image) {
+    $config['allowed_types'] = 'gif|jpg|png|pdf';
+    $config['max_size'] = '2048';
+    $config['upload_path'] = './template/assets/img/suratsakit/';
+    $this->load->library('upload', $config);
+    if ($this->upload->do_upload('file_sakit')) {
+    $new_image = $this->upload->data('file_name');
+    $this->db->set('file_sakit', $new_image);
+    } else {
+    echo $this->upload->display_errors();
+    }
+    }
+        $this->PerizinanSakit_model->insert($data, $upload_image);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat! 
+        data telah berhasil disimpan</div>');
+        redirect('PerizinanSakit');
+    }    
+}
+	
+        public function editsakit()
+	{
+        $data['pegawai'] = $this->db->get_where('pegawai', ['username' => $this->session->userdata['username']])->row_array();
+        $this->load->view('layout/header',$data);
+        $this->load->view('Izinsakit/vw_edit_sakit',$data);
+        $this->load->view('layout/footer',$data);
+	}   
+    public function hapus($id)
+{
+    $this->PerizinanSakit_model->delete($id);
+    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
+    redirect('PerizinanSakit');
+}
+
+        public function approvesakit()
+	{
+        $data['pegawai'] = $this->db->get_where('pegawai', ['username' => $this->session->userdata['username']])->row_array();
+        $this->load->view('layout/header',$data);
+        $this->load->view('Izinsakit/vw_approve_sakit',$data);
+        $this->load->view('layout/footer',$data);
+	}            
+}
