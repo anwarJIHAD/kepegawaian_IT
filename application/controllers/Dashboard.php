@@ -77,6 +77,45 @@ class Dashboard extends CI_Controller
 			echo json_encode(array('error' => $e->getMessage()));
 		}
 	}
-
+	public function getsakit_guru()
+	{
+		$tahun = $this->input->get('tahun'); // Ambil tahun dari permintaan GET
+		try {
+			// Lakukan filter data sesuai dengan tahun untuk cuti
+			$month_1 = '01';
+			$month_2 = '02';
+			$month_3 = '03';
+			$month_4 = '04';
+			$month_5 = '05';
+			$month_6 = '06';
+			$month_7 = '07';
+			$month_8 = '08';
+			$month_9 = '09';
+			$month_10 = '10';
+			$month_11 = '11';
+			$month_12 = '12';
+			$data['month_1_'] = $this->PerizinanSakit_model->getDataByYearId($tahun, $month_1);
+			$data['month_2_'] = $this->PerizinanSakit_model->getDataByYearId($tahun, $month_2);
+			$data['month_3_'] = $this->PerizinanSakit_model->getDataByYearId($tahun, $month_3);
+			$data['month_4_'] = $this->PerizinanSakit_model->getDataByYearId($tahun, $month_4);
+			$data['month_5_'] = $this->PerizinanSakit_model->getDataByYearId($tahun, $month_5);
+			$data['month_6_'] = $this->PerizinanSakit_model->getDataByYearId($tahun, $month_6);
+			$data['month_7_'] = $this->PerizinanSakit_model->getDataByYearId($tahun, $month_7);
+			$data['month_8_'] = $this->PerizinanSakit_model->getDataByYearId($tahun, $month_8);
+			$data['month_9_'] = $this->PerizinanSakit_model->getDataByYearId($tahun, $month_9);
+			$data['month_10_'] = $this->PerizinanSakit_model->getDataByYearId($tahun, $month_10);
+			$data['month_11_'] = $this->PerizinanSakit_model->getDataByYearId($tahun, $month_11);
+			$data['month_12_'] = $this->PerizinanSakit_model->getDataByYearId($tahun, $month_12);
+			
+			// Kirim data dalam format JSON
+			header('Content-Type: application/json');
+			echo json_encode($data);
+		} catch (Exception $e) {
+			// Tangkap kesalahan dan kirim pesan kesalahan dalam format JSON
+			header('HTTP/1.1 500 Internal Server Error');
+			header('Content-Type: application/json');
+			echo json_encode(array('error' => $e->getMessage()));
+		}
+	}
 
 }

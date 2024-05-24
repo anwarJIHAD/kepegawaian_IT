@@ -28,6 +28,7 @@ class Auth extends CI_Controller {
                 if (password_verify($password, $pegawai['password'])) {
                     $data = [
                         'username' => $pegawai['username'],
+                        'nama' => $pegawai['nama'],
                         'role' => $pegawai['role'],
                         'id' => $pegawai['id'],
                         'niy' => $pegawai['niy'],
