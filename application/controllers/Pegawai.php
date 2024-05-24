@@ -14,7 +14,7 @@ class Pegawai extends CI_Controller
 
 public function index()
 {
-    $data['pegawai'] = $this->db->get_where('pegawai', ['username' => $this->session->userdata['username']])->row_array();
+    $data['pegawai'] = $this->db->get_where('pegawai', ['id' => $this->session->userdata['id']])->row_array();
     $data['pegawai_m'] = $this->Pegawai_model->get();
     $this->load->view('layout/header',$data);
     $this->load->view('Pegawai/vw_pegawai',$data);
@@ -88,7 +88,7 @@ public function index()
 }
     public function edit_pegawai($id)
 {
-    $data['pegawai'] = $this->db->get_where('pegawai', ['username' => $this->session->userdata['username']])->row_array();
+    $data['pegawai'] = $this->db->get_where('pegawai', ['id' => $this->session->userdata['id']])->row_array();
     $data['pegawai_m'] = $this->Pegawai_model->getById($id);
 
     $this->form_validation->set_rules('niy', 'niy', 'required|trim',[

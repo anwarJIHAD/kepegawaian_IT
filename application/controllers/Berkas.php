@@ -11,7 +11,7 @@ class Berkas extends CI_Controller {
     }
 public function index()
 {
-    $data['pegawai'] = $this->db->get_where('pegawai', ['username' => $this->session->userdata['username']])->row_array();
+    $data['pegawai'] = $this->db->get_where('pegawai', ['id' => $this->session->userdata['id']])->row_array();
     $data['berkas'] = $this->Berkas_model->get();
     $this->load->view('layout/header',$data);
     $this->load->view('Berkas/vw_berkas',$data);

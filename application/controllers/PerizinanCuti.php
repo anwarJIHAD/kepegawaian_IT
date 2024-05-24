@@ -10,7 +10,7 @@ class PerizinanCuti extends CI_Controller {
         }
         public function index()
 	{
-        $data['pegawai'] = $this->db->get_where('pegawai', ['username' => $this->session->userdata['username']])->row_array(); 
+        $data['pegawai'] = $this->db->get_where('pegawai', ['id' => $this->session->userdata['id']])->row_array(); 
         $data['izin_cuti'] = $this->PerizinanCuti_model->get(); 
         $this->load->view('layout/header',$data);
         $this->load->view('Izincuti/vw_izin_cuti',$data);
@@ -62,7 +62,7 @@ class PerizinanCuti extends CI_Controller {
 }
         public function editcuti($id) 
 	{
-    $data['pegawai'] = $this->db->get_where('pegawai', ['username' => $this->session->userdata['username']])->row_array();
+    $data['pegawai'] = $this->db->get_where('pegawai', ['id' => $this->session->userdata['id']])->row_array();
     $data['izin_cuti'] = $this->PerizinanCuti_model->getById($id);
 
     $this->form_validation->set_rules('tgl_izin', 'tgl_izin', 'required|trim',[
@@ -109,7 +109,7 @@ class PerizinanCuti extends CI_Controller {
     
     public function approvecuti()
 	{
-        $data['pegawai'] = $this->db->get_where('pegawai', ['username' => $this->session->userdata['username']])->row_array();   
+        $data['pegawai'] = $this->db->get_where('pegawai', ['id' => $this->session->userdata['id']])->row_array();   
         $data['approvecuti'] = $this->PerizinanCuti_model->get();      
         $this->load->view('layout/header',$data);
         $this->load->view('Izincuti/vw_approvecuti',$data);
@@ -117,7 +117,7 @@ class PerizinanCuti extends CI_Controller {
 	}  
     public function ubahstatus($id) 
 	{
-    $data['pegawai'] = $this->db->get_where('pegawai', ['username' => $this->session->userdata['username']])->row_array();
+    $data['pegawai'] = $this->db->get_where('pegawai', ['id' => $this->session->userdata['id']])->row_array();
     $data['izin_cuti'] = $this->PerizinanCuti_model->getById($id);
 
             $data = [

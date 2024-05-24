@@ -10,7 +10,7 @@ class PerizinanSakit extends CI_Controller {
         }
         public function index()
 	{
-        $data['pegawai'] = $this->db->get_where('pegawai', ['username' => $this->session->userdata['username']])->row_array();
+        $data['pegawai'] = $this->db->get_where('pegawai', ['id' => $this->session->userdata['id']])->row_array();
         $data['izin_sakit'] = $this->PerizinanSakit_model->get(); 
         $this->load->view('layout/header',$data);
         $this->load->view('Izinsakit/vw_izin_sakit',$data);
@@ -63,7 +63,7 @@ class PerizinanSakit extends CI_Controller {
 	
         public function editsakit($id) 
 	{
-        $data['pegawai'] = $this->db->get_where('pegawai', ['username' => $this->session->userdata['username']])->row_array();
+        $data['pegawai'] = $this->db->get_where('pegawai', ['id' => $this->session->userdata['id']])->row_array();
         $data['izin_sakit'] = $this->PerizinanSakit_model->getById($id);
 
         $this->form_validation->set_rules('tgl_izin', 'tgl_izin', 'required|trim',[
@@ -115,7 +115,7 @@ class PerizinanSakit extends CI_Controller {
 
         public function approvesakit()
 	{
-        $data['pegawai'] = $this->db->get_where('pegawai', ['username' => $this->session->userdata['username']])->row_array();
+        $data['pegawai'] = $this->db->get_where('pegawai', ['id' => $this->session->userdata['id']])->row_array();
         $data['approvesakit'] = $this->PerizinanSakit_model->get();  
         $this->load->view('layout/header',$data);
         $this->load->view('Izinsakit/vw_approve_sakit',$data);
@@ -123,7 +123,7 @@ class PerizinanSakit extends CI_Controller {
 	} 
     public function ubahstatus($id) 
 	{
-    $data['pegawai'] = $this->db->get_where('pegawai', ['username' => $this->session->userdata['username']])->row_array();
+    $data['pegawai'] = $this->db->get_where('pegawai', ['id' => $this->session->userdata['id']])->row_array();
     $data['izin_sakit'] = $this->PerizinanSakit_model->getById($id);
 
             $data = [
