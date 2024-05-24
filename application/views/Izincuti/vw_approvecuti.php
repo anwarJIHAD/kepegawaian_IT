@@ -19,7 +19,7 @@
                     <th>No</th>
                     <th>Nama Pegawai</th>
                     <th>Tanggal Izin</th>
-                    <th>Waktu Izin</th>
+                    <th>Hingga Tanggal</th>
                     <th>No Hp Selama Izin</th>
                     <th>Pemilik No Hp</th>
                     <th>Keterangan Cuti</th>
@@ -28,22 +28,22 @@
                   </tr>
                 </thead>
                 <tbody>
-                <?php $i = 1; ?>
-                        <?php foreach ($approvecuti as $us) : ?>                                
-                          <tr>
-                          <td> <?= $i; ?>.</td>
-                                <td><?= $us['nama']; ?></td>
-                                <td><?= $us['tgl_izin']; ?></td>
-                                <td><?= $us['hingga_tgl']; ?></td>
-                                <td><?= $us['no_hp']; ?></td>
-                                <td><?= $us['pemilik_nohp']; ?></td>
-                                <td><?= $us['ket_cuti']; ?></td>
-                                <td><?= $us['status']; ?></td>
-                                <td><button class="btn btn-primary" data-toggle="modal" data-target="#modal<?= $us['id_cuti']; ?>">Ubah Status</button></td>
-                            </td>
-                          </tr>
-                          <?php $i++; ?>
-                        <?php endforeach; ?>
+                  <?php $i = 1; ?>
+                  <?php foreach ($approvecuti as $us) : ?>
+                    <tr>
+                      <td> <?= $i; ?>.</td>
+                      <td><?= $us['nama']; ?></td>
+                      <td><?= $us['tgl_izin']; ?></td>
+                      <td><?= $us['hingga_tgl']; ?></td>
+                      <td><?= $us['no_hp']; ?></td>
+                      <td><?= $us['pemilik_nohp']; ?></td>
+                      <td><?= $us['ket_cuti']; ?></td>
+                      <td><?= $us['status']; ?></td>
+                      <td><button class="btn btn-primary" data-toggle="modal" data-target="#modal<?= $us['id_cuti']; ?>">Ubah Status</button></td>
+                      </td>
+                    </tr>
+                    <?php $i++; ?>
+                  <?php endforeach; ?>
                 </tbody>
               </table>
             </div>
@@ -60,43 +60,43 @@
 </div>
 
 <<!-- Modal -->
-<?php foreach ($approvecuti as $us): ?>
-<div class="modal fade" tabindex="-1" role="dialog" id="modal<?= $us['id_cuti']; ?>">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Surat Perizinan Cuti</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form method="POST" action="<?= base_url('PerizinanCuti/ubahstatus/') . $us['id_cuti']; ?>"> 
-        <input type="hidden" name="id" value="<?= $us['id_cuti'] ?>;">
-          <div class="form-group">
-            <label>Keterangan</label>
-            <textarea name="ket_kepsek" class="form-control"></textarea>
+  <?php foreach ($approvecuti as $us) : ?>
+    <div class="modal fade" tabindex="-1" role="dialog" id="modal<?= $us['id_cuti']; ?>">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Surat Perizinan Cuti</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-          <div class="form-group">
-            <label>Status</label>
-            <select name="status" class="form-control">
-              <option value="Diterima">Diterima</option>
-              <option value="Ditolak">Ditolak</option>
-            </select>
+          <div class="modal-body">
+            <form method="POST" action="<?= base_url('PerizinanCuti/ubahstatus/') . $us['id_cuti']; ?>">
+              <input type="hidden" name="id" value="<?= $us['id_cuti'] ?>;">
+              <div class="form-group">
+                <label>Keterangan</label>
+                <textarea name="ket_kepsek" class="form-control"></textarea>
+              </div>
+              <div class="form-group">
+                <label>Status</label>
+                <select name="status" class="form-control">
+                  <option value="Diterima">Diterima</option>
+                  <option value="Ditolak">Ditolak</option>
+                </select>
+              </div>
+              <a href="<?= base_url('Console/pegawai') ?>" class="btn btn-light">Tutup</a>
+              <button type="submit" name="tambah" class="btn btn-primary float-right">Simpan</button>
+            </form>
           </div>
-          <a href="<?= base_url('Console/pegawai') ?>" class="btn btn-light">Tutup</a>
-          <button type="submit" name="tambah" class="btn btn-primary float-right">Simpan</button>
-        </form>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-<?php endforeach; ?>
+  <?php endforeach; ?>
 
   </section>
-</div>
+  </div>
 
-       <!-- </button> 
+  <!-- </button> 
       </div>
       <div class="modal-body">
       <div class="form-group">
