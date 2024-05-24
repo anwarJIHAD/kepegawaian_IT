@@ -18,9 +18,6 @@ class PerizinanSakit extends CI_Controller {
 	}
         public function tambahsakit()
 	{
-                $this->form_validation->set_rules('nama', 'nama', 'required|trim',[
-                        'required' => 'Nama Wajib di isi'
-                    ]);
                     $this->form_validation->set_rules('tgl_izin', 'tgl_izin', 'required|trim',[
                         'required' => 'Tanggal Wajib di isi'
                     ]);
@@ -40,7 +37,6 @@ class PerizinanSakit extends CI_Controller {
         $this->load->view('layout/footer',$data);
 } else {
         $data = [
-            'nama' => htmlspecialchars($this->input->post('nama', true)),
             'tgl_izin' => htmlspecialchars($this->input->post('tgl_izin', true)),
             'hingga_tgl' => htmlspecialchars($this->input->post('hingga_tgl', true)),
             'ket_sakit' => htmlspecialchars($this->input->post('ket_sakit', true)),
@@ -65,13 +61,51 @@ class PerizinanSakit extends CI_Controller {
     }    
 }
 	
-        public function editsakit()
+        public function editsakit($id) 
 	{
         $data['pegawai'] = $this->db->get_where('pegawai', ['username' => $this->session->userdata['username']])->row_array();
-        $this->load->view('layout/header',$data);
-        $this->load->view('Izinsakit/vw_edit_sakit',$data);
-        $this->load->view('layout/footer',$data);
-	}   
+        $data['izin_sakit'] = $this->PerizinanSakit_model->getById($id);
+
+        $this->form_validation->set_rules('tgl_izin', 'tgl_izin', 'required|trim',[
+            'required' => 'Tanggal Wajib di isi'
+        ]);
+        $this->form_validation->set_rules('hingga_tgl', 'hingga_tgl', 'required|trim',[
+            'required' => 'Tanggal Wajib di isi'
+        ]);
+        $this->form_validation->set_rules('ket_sakit', 'ket_sakit', 'required|trim',[
+            'required' => 'Keterangan Sakit Wajib di isi'
+        ]);
+        if ($this->form_validation->run() == false) {
+            $this->load->view('layout/header',$data);
+            $this->load->view('Izinsakit/vw_edit_sakit',$data);
+            $this->load->view('layout/footer',$data);
+            } else {
+                $data = [
+                    'tgl_izin' => $this->input->post('tgl_izin'),
+                    'hingga_tgl' => $this->input->post('hingga_tgl'),
+                    'ket_sakit' => $this->input->post('ket_cuti'),
+                ];
+                $upload_image = $_FILES['file_sakit']['name'];
+                if ($upload_image) {
+                $config['allowed_types'] = 'gif|jpg|png|pdf';
+                $config['max_size'] = '2048';
+                $config['upload_path'] = './template/assets/img/suratsakit/';
+                $this->load->library('upload', $config);
+                if ($this->upload->do_upload('file_sakit')) {
+                $new_image = $this->upload->data('file_name');
+                $this->db->set('file_sakit', $new_image);
+                } else {
+                echo $this->upload->display_errors();
+                }
+                }
+                    $this->PerizinanSakit_model->insert($data, $upload_image);
+                $id = $this->input->post('id');
+                    $this->PerizinanSakit_model->update(['id' => $id], $data);
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" 
+        role="alert">Data Sakit Berhasil DiUbah!</div>');
+                    redirect('PerizinanSakit');
+            }
+        } 
     public function hapus($id)
 {
     $this->PerizinanSakit_model->delete($id);
@@ -82,8 +116,24 @@ class PerizinanSakit extends CI_Controller {
         public function approvesakit()
 	{
         $data['pegawai'] = $this->db->get_where('pegawai', ['username' => $this->session->userdata['username']])->row_array();
+        $data['approvesakit'] = $this->PerizinanSakit_model->get();  
         $this->load->view('layout/header',$data);
         $this->load->view('Izinsakit/vw_approve_sakit',$data);
         $this->load->view('layout/footer',$data);
-	}            
-}
+	} 
+    public function ubahstatus($id) 
+	{
+    $data['pegawai'] = $this->db->get_where('pegawai', ['username' => $this->session->userdata['username']])->row_array();
+    $data['izin_sakit'] = $this->PerizinanSakit_model->getById($id);
+
+            $data = [
+                'status' => $this->input->post('status'),
+                
+            ];
+            $id = $this->input->post('id');
+                $this->PerizinanSakit_model->update(['id' => $id], $data);
+                $this->session->set_flashdata('message', '<div class="alert alert-success" 
+    role="alert">Data Cuti Berhasil DiUbah!</div>');
+                redirect('PerizinanSakit/approve_sakit');
+    }
+}           

@@ -10,9 +10,21 @@ class PerizinanSakit_model extends CI_Model
        
     }
     public function get()
-    {
+    { 
+        $role = $this->session->userdata('role');
+        if ($role == 'Admin' || $role == 'kepala sekolah') {
+        $this->db->select('pegawai.*, izin_sakit.id AS id_sakit, izin_sakit.*');
         $this->db->from($this->table);
+        $this->db->join('pegawai', 'izin_sakit.niy = pegawai.niy', 'inner');
         $query = $this->db->get();
+        } else {
+            $logged_in_user_id = $this->session->userdata('niy');
+            $this->db->select('pegawai.*, izin_sakit.id AS id_sakit, izin_sakit.*');
+            $this->db->from($this->table);
+            $this->db->join('pegawai', 'izin_sakit.niy = pegawai.niy', 'inner');
+            $this->db->where('izin_sakit.niy', $logged_in_user_id);
+            $query = $this->db->get();
+        }
         return $query->result_array();
     }
     public function getById($id)

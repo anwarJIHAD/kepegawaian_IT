@@ -30,6 +30,7 @@
                             <th>Waktu Izin</th>
                             <th>Keterangan Sakit</th>
                             <th>File Surat Sakit</th>
+                            <th>Status</th>
                             <th> <?php if ($pegawai['role'] == 'Admin') { ?>Action <?php } ?></th> 
                           </tr>
                         </thead>
