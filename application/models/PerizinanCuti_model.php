@@ -63,5 +63,18 @@ class PerizinanCuti_model extends CI_Model
 		$query = $this->db->get();
 		return $query->num_rows();
 	}
+	public function getDataByYearId($tahun, $month)
+	{
+		$this->db->select('month(tgl_izin)');
+		$this->db->from('izin_cuti'); // Ganti 'nama_tabel' dengan nama tabel Anda
+		if ($tahun != '') {
+			$this->db->where('YEAR(tgl_izin)', $tahun);
+		}
+		$this->db->where('niy', $this->session->userdata['niy']);
+		// 'tanggal' adalah nama kolom tanggal dalam tabel
+		$this->db->where('month(tgl_izin)', $month); // 'tanggal' adalah nama kolom tanggal dalam tabel
+		$query = $this->db->get();
+		return $query->num_rows();
+	}
 
 }
