@@ -22,7 +22,7 @@
                     <div class="form-group row">
                       <label class="col-sm-3 col-form-label">Nama Pegawai</label>
                       <div class="col-sm-9">
-                      <input type="text" class="form-control" id="nama" name="nama" value="<?= $lembur['nama']; ?>">
+                      <input type="text" class="form-control" id="nama" name="nama" value="<?= $pegawai['nama']; ?>" placeholder="Nama Pegawai" disabled>
                         <?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
                       </div>
                     </div>

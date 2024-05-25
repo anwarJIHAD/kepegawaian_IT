@@ -16,13 +16,12 @@
                     <h4>Edit Surat Perizinan</h4>
                   </div>
                   <div class="card-body">
-                    <form method="POST">
-                    <input type="hidden" name="id" value="<?= $izin_sakit['id'] ?>;">
-
+                    <form method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="<?= $izin_sakit['id'] ?> ">
                     <div class="form-group row">
                       <label class="col-sm-3 col-form-label">Nama Pegawai</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="nama" name="nama" value="<?= $izin_sakit['nama']; ?>" placeholder="Nama Pegawai">
+                      <input type="text" class="form-control" id="nama" name="nama" value="<?= $pegawai['nama']; ?>" placeholder="Nama Pegawai" disabled>
                         <?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
                       </div>
                     </div>
@@ -48,10 +47,10 @@
                     <div class="form-group row">
                       <label class="col-sm-3 col-form-label">Upload Surat Sakit</label>
                       <div class="col-sm-9">
-                        <input type="file" class="form-control custom-file-input" name="file" id="file" value="<?= $izin_sakit['file_sakit']; ?>" placeholder="Upload Surat Sakit">
+                      <input type="file" class="form-control" name="file_sakit" id="file_sakit">
                         <?= form_error('file_sakit', '<small class="text-danger pl-3">', '</small>'); ?>
-                        <div class="custom-file-label" for="customFile">
-                    </div>
+                       <!--  <div class="custom-file-label" for="customFile"> -->
+                    
                     </div>
                     </div>
                 

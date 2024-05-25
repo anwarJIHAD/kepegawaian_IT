@@ -40,7 +40,7 @@ class Dashboard_model extends CI_Model
 	{
 		$this->db->select('COUNT(*) as jumlah');
 		$this->db->from('izin_sakit');
-		$this->db->where('nama', $this->session->userdata['nama']);
+		$this->db->where('niy', $this->session->userdata['niy']);
 		$query = $this->db->get();
 		return $query->row()->jumlah;
 	}
@@ -48,7 +48,7 @@ class Dashboard_model extends CI_Model
 	{
 		$this->db->select('COUNT(*) as jumlah');
 		$this->db->from('lembur');
-		$this->db->where('nama', $this->session->userdata['nama']);
+		$this->db->where('niy', $this->session->userdata['niy']);
 		$query = $this->db->get();
 		return $query->row()->jumlah;
 	}
