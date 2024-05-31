@@ -51,6 +51,7 @@
                         </td>
                         <td> <?php if ($pegawai['role'] ==  $this->session->userdata('role') && $us['role'] == $this->session->userdata('role') && $us['status'] != 'Diterima' && $us['status'] != 'Ditolak') { ?>
                           <a href="<?= base_url('perizinanSakit/editsakit/') . $us['id_sakit']; ?>" class="btn btn-warning btn-sm">Edit</a>
+                          <a href="<?= base_url('perizinanSakit/hapus/') . $us['id_sakit']; ?>" class="btn btn-danger btn-sm">Hapus</a>
                         <?php } elseif ($us['status'] == 'Diajukan') { ?>
                           -
                         <?php } else { ?>

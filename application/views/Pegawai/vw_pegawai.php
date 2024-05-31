@@ -27,13 +27,9 @@
                             <th>Tempat Lahir</th>
                             <th>Tanggal Lahir</th>
                             <th>Pendidikan Terakhir</th>
-                            <th>TMT SMA IT</th>
                             <th>Jurusan</th>
                             <th>Jabatan</th>
                             <th>No Handphone</th>
-                            <th>Username</th>
-                            <th>Password</th>
-                            <th>Role</th>
                             <th> <?php if ($pegawai['role'] == 'Admin') { ?>Action<?php }?></th>
                           </tr>
                         </thead>
@@ -47,18 +43,13 @@
                                 <td><?= $us['tmpt_lahir']; ?></td>
                                 <td><?= $us['tgl_lahir']; ?></td>
                                 <td><?= $us['pnd_trkhr']; ?></td>
-                                <td><?= $us['tmt_smait']; ?></td>
                                 <td><?= $us['jurusan']; ?></td>
                                 <td><?= $us['jabatan']; ?></td>
                                 <td><?= $us['no_hp']; ?></td>
-                                <td><?= $us['username']; ?></td>
-                                <td><?= substr($us['password'], 0, 10); ?>...</td>
-
-                                <td><?= $us['role']; ?></td>
 
                             <td> <?php if ($pegawai['role'] == 'Admin') { ?>
                               <a href="<?= base_url('pegawai/edit_pegawai/') . $us['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
-                              <a href="<?= base_url('Pegawai/hapus/') . $us['id']; ?>" class="btn btn-danger btn-sm">Hapus</a><?php }?> </td>
+                              <a href="<?= base_url('Pegawai/hapus/') . $us['id']; ?>" class="btn btn-danger btn-sm">Hapus</a><?php }?></td>
                           </tr>
                           <?php $i++; ?>
                         <?php endforeach; ?>

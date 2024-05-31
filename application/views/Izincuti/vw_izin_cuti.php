@@ -53,6 +53,7 @@
                       </td>
                       <td> <?php if ($pegawai['role'] ==  $this->session->userdata('role') && $us['role'] == $this->session->userdata('role') && $us['status'] != 'Diterima' && $us['status'] != 'Ditolak') { ?>
                           <a href="<?= base_url('perizinanCuti/editcuti/') . $us['id_cuti']; ?>" class="btn btn-warning btn-sm">Edit</a>
+                          <a href="<?= base_url('perizinanCuti/hapus/') . $us['id_cuti']; ?>" class="btn btn-danger btn-sm">Hapus</a>
                         <?php } elseif ($us['status'] == 'Diajukan') { ?>
                           -
                         <?php } else { ?>
