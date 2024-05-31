@@ -125,7 +125,7 @@
                 <li><a href="<?= base_url() ?>PerizinanSakit/approvesakit">Pengajuan Surat Sakit</a></li> 
                 <?php } ?>
               </ul>
-              <li ><a class="nav-link" href="<?= base_url() ?>Berkas"><i class="far fa-square"></i> <span>Berkas</span></a></li>
+              <li ><a class="nav-link" href="<?= base_url() ?>Berkas"><i class="far fa-square"></i> <span>Pengembangan Diri</span></a></li>
             </li>
 
         
