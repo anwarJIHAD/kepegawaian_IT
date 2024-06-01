@@ -41,7 +41,7 @@
                       <td><?= $us['ket_sakit']; ?></td>
                       <td><?= $us['file_sakit']; ?></td>
                       <td>
-                        <?php if ($us['status'] == 'Diterima') { ?>
+                        <?php if ($us['status'] == 'Disetujui') { ?>
                           <span class="badge badge-success"><?= $us['status']; ?></span>
                         <?php } elseif ($us['status'] == 'Ditolak') { ?>
                           <span class="badge badge-danger"><?= $us['status']; ?></span>
