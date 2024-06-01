@@ -16,26 +16,24 @@
                 <tr class="table-success">
                     <th>No</th>
                     <th>Nama Pegawai</th>
-                    <th>Tanggal Izin </th>
-                    <th>Hingga Tanggal</th>
-                    <th>Keterangan Sakit</th>
-                    <th>File Surat Sakit</th>
+                    <th>Jenis Izin </th>
+                    <th>Tujuan Izin</th>
+                    <th>Alasan Izin</th>
                     <th>Status</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
                 <?php $i = 1; ?>
-                  <?php foreach ($approvesakit as $us) : ?>
+                  <?php foreach ($approveizin as $us) : ?>
                     <tr>
                       <td> <?= $i; ?>.</td>
                       <td><?= $us['nama']; ?></td>
-                      <td><?= $us['tgl_izin']; ?></td>
-                      <td><?= $us['hingga_tgl']; ?></td>
-                      <td><?= $us['ket_sakit']; ?></td>
-                      <td><?= $us['file_sakit']; ?></td>
+                      <td><?= $us['jenis_izin']; ?></td>
+                      <td><?= $us['tujuan_izin']; ?></td>
+                      <td><?= $us['alasan_izin']; ?></td>
                       <td>
-                        <?php if ($us['status'] == 'Disetujui') { ?>
+                        <?php if ($us['status'] == 'Diterima') { ?>
                           <span class="badge badge-success"><?= $us['status']; ?></span>
                         <?php } elseif ($us['status'] == 'Ditolak') { ?>
                           <span class="badge badge-danger"><?= $us['status']; ?></span>
@@ -43,7 +41,7 @@
                           <span class="badge badge-warning"><?= $us['status']; ?></span>
                         <?php } ?>
                         </td>
-                      <td><button class="btn btn-primary" data-toggle="modal" data-target="#modal<?= $us['id_sakit']; ?>">Ubah Status</button></td>
+                      <td><button class="btn btn-primary" data-toggle="modal" data-target="#modal<?= $us['id_izin']; ?>">Ubah Status</button></td>
                       </td>
                     </tr>
                     <?php $i++; ?>
@@ -64,23 +62,23 @@
 </div>
 
 <!-- Modal -->
-<?php foreach ($approvesakit as $us) : ?>
-<div class="modal fade" tabindex="-1" role="dialog" id="modal<?= $us['id_sakit']; ?>">
+<?php foreach ($approveizin as $us) : ?>
+<div class="modal fade" tabindex="-1" role="dialog" id="modal<?= $us['id_izin']; ?>">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Surat Perizinan Sakit</h5>
+        <h5 class="modal-title">Surat Perizinan</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="<?= base_url('PerizinanSakit/ubahstatus/') . $us['id_sakit']; ?>">
-        <input type="hidden" name="id" value="<?= $us['id_sakit'] ?>;">
+        <form method="POST" action="<?= base_url('PengajuanIzin/ubahstatus/') . $us['id_izin']; ?>">
+        <input type="hidden" name="id" value="<?= $us['id_izin'] ?>;">
           <div class="form-group">
             <label for="status">Status</label>
             <select class="form-control" id="status" name="status">
-            <option value="Disetujui">Disetujui</option>
+            <option value="Diterima">Diterima</option>
             <option value="Ditolak">Ditolak</option>
             </select>
           </div>

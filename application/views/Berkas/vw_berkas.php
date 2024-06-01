@@ -10,14 +10,12 @@
         <div class="row">
               <div class="col">
                 <div class="card">
-                  <div class="card-header ">
+                
                     <h4><a href="<?= base_url() ?>Berkas/tambah_berkas" class="btn btn-primary">Tambah Berkas</a> </h4>
                     <div class="card-header-form">
-                      <form>
-
-                      </form>
+                     
                     </div>
-                  </div>
+                
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">

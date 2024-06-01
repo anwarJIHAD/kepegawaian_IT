@@ -22,6 +22,7 @@
                   <tr class="table-success">
                     <th>No</th>
                     <th>Nama Pegawai</th>
+                    <th>Jenis Cuti</th>
                     <th>Tanggal Izin</th>
                     <th>Hingga Tanggal</th>
                     <th>No Hp Selama Izin</th>
@@ -37,6 +38,7 @@
                     <tr>
                       <td> <?= $i; ?>.</td>
                       <td><?= $us['nama']; ?></td>
+                      <td><?= $us['jenis_cuti']; ?></td>
                       <td><?= $us['tgl_izin']; ?></td>
                       <td><?= $us['hingga_tgl']; ?></td>
                       <td><?= $us['no_hp']; ?></td>

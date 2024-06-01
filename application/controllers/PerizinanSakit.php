@@ -157,6 +157,7 @@ class PerizinanSakit extends CI_Controller {
                 $this->PerizinanSakit_model->update(['id' => $id], $data);
                 $this->session->set_flashdata('message', '<div class="alert alert-success" 
     role="alert">Data Sakit Berhasil DiUbah!</div>');
-                redirect('PerizinanSakit/approve_sakit');
+                redirect('PerizinanSakit/approvesakit');
     }
+    
 }           

@@ -19,6 +19,9 @@ class PerizinanCuti extends CI_Controller {
         
         public function tambahcuti() 
 	{
+                    $this->form_validation->set_rules('jenis_cuti', 'jenis_cuti', 'required|trim',[
+                        'required' => 'Jenis Cuti Wajib di isi'
+                    ]);
                     $this->form_validation->set_rules('tgl_izin', 'tgl_izin', 'required|trim',[
                         'required' => 'Tanggal Izin Wajib di isi'
                     ]);
@@ -43,6 +46,7 @@ class PerizinanCuti extends CI_Controller {
                 } else {
                     $niy = $this->session->userdata('niy');
                     $data = [
+                        'jenis_cuti' => htmlspecialchars($this->input->post('jenis_cuti', true)),
                         'tgl_izin' => htmlspecialchars($this->input->post('tgl_izin', true)),
                         'hingga_tgl' => htmlspecialchars($this->input->post('hingga_tgl', true)),
                         'no_hp' => htmlspecialchars($this->input->post('no_hp', true)),
@@ -65,6 +69,9 @@ class PerizinanCuti extends CI_Controller {
     $data['pegawai'] = $this->db->get_where('pegawai', ['id' => $this->session->userdata['id']])->row_array();
     $data['izin_cuti'] = $this->PerizinanCuti_model->getById($id);
 
+    $this->form_validation->set_rules('jenis_cuti', 'jenis_cuti', 'required|trim',[
+        'required' => 'Jenis Cuti Wajib di isi'
+    ]);
     $this->form_validation->set_rules('tgl_izin', 'tgl_izin', 'required|trim',[
         'required' => 'Tanggal Izin Wajib di isi'
     ]);
@@ -86,6 +93,7 @@ class PerizinanCuti extends CI_Controller {
         $this->load->view('layout/footer',$data);
         } else {
             $data = [
+                'jenis_cuti' => $this->input->post('jenis_cuti'),
                 'tgl_izin' => $this->input->post('tgl_izin'),
                 'hingga_tgl' => $this->input->post('hingga_tgl'),
                 'no_hp' => $this->input->post('no_hp'),

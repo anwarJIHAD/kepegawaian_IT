@@ -25,6 +25,16 @@
                       </div>
                     </div>
                     <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Jenis Cuti</label>
+                <div class="col-sm-9">
+                  <select class="form-control" id="jenis_cuti" name="jenis_cuti" onchange="checkOtherOption()">
+                    <option>Cuti Biasa</option>
+                    <option>Cuti Bulanan</option>
+                    <option>Cuti Tahunan</option>
+                  </select>
+                </div>
+              </div>
+                    <div class="form-group row">
                       <label class="col-sm-3 col-form-label">Tanggal Izin</label>
                       <div class="col-sm-4">
                         <input type="date" class="form-control" id="tgl_izin" name="tgl_izin" value="" placeholder="Tanggal Izin">
