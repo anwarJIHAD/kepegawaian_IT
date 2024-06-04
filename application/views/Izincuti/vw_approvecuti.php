@@ -39,7 +39,7 @@
                       <td><?= $us['pemilik_nohp']; ?></td>
                       <td><?= $us['ket_cuti']; ?></td>
                       <td>
-                        <?php if ($us['status'] == 'Disetujui') { ?>
+                        <?php if ($us['status'] == 'Diterima') { ?>
                           <span class="badge badge-success"><?= $us['status']; ?></span>
                         <?php } elseif ($us['status'] == 'Ditolak') { ?>
                           <span class="badge badge-danger"><?= $us['status']; ?></span>
@@ -47,7 +47,7 @@
                           <span class="badge badge-warning"><?= $us['status']; ?></span>
                         <?php } ?>
                         </td>
-                      <td><button class="btn btn-primary" data-toggle="modal" data-target="#modal<?= $us['id_cuti']; ?>">Ubah Status</button></td>
+                      <td><button class="btn btn-primary" data-toggle="modal" data-target="#modal<?= $us['id_cuti']; ?>"> <i class="bi bi-pencil-square"></i> Ubah Status</button></td>
                       </td>
                     </tr>
                     <?php $i++; ?>

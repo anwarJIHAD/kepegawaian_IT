@@ -12,7 +12,7 @@
     </div>
 
     <div class="section-body">
-      <div class="card">
+      <div class="card" style="background-color:white">
         <div class="card-header">
           <h4>Edit Data Pegawai</h4>
         </div>
@@ -119,7 +119,16 @@
               </div>
             </div>
             <!-- End of form fields -->
-
+            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Status</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" id="status" name="status" placeholder="Status">
+                                        <option <?= $pegawai_m['status'] == 'Aktif' ? 'selected' : '' ?> value="Aktif">Aktif</option>
+                                        <option <?= $pegawai_m['status'] == 'Non Aktif' ? 'selected' : '' ?> value="Non Aktif">Non Aktif</option>
+                                    </select>
+                                    <?= form_error('status', '<small class="text-danger pl-3">', '</small>'); ?>
+                                </div>
+                            </div>
             <div class="form-group row">
               <div class="col-sm-12">
                 <a href="<?= base_url('Console/pegawai') ?>" class="btn btn-light">Tutup</a>

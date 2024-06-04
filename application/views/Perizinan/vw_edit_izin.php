@@ -50,7 +50,7 @@
                   <option <?= $izin['tujuan_izin'] == 'Pulang Cepat' ? 'selected' : '' ?>>Pulang Cepat</option>
                   <option <?= $izin['tujuan_izin'] == 'Terlambat Hadir Rapat' ? 'selected' : '' ?>>Terlambat Hadir Rapat</option>
                   <option <?= $izin['tujuan_izin'] == 'Tidak Ikut Rapat' ? 'selected' : '' ?>>Tidak Ikut Rapat</option>
-                  <option <?= $izin['tujuan_izin'] == 'Others' ? 'selected' : '' ?>>Others</option>
+                  <option id="option-other">Others</option>
                 </select>
 
 
@@ -79,26 +79,30 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
-
-$(document).ready(function() {
+  $(document).ready(function() {
     let tujuan = '<?= $izin['tujuan_izin'] ?>';
     if (tujuan == 'Tidak Hadir ke Sekolah' ||
-        tujuan == 'Terlambat Hadir ke Sekolah' ||
-        tujuan == 'Izin Keluar' ||
-        tujuan == 'Pulang Cepat' || 
-        tujuan == 'Terlambat Hadir Rapat' || 
-        tujuan == 'Tidak Ikut Rapat') {
-        $('#other_input').css('display', 'none');
+      tujuan == 'Terlambat Hadir ke Sekolah' ||
+      tujuan == 'Izin Keluar' ||
+      tujuan == 'Pulang Cepat' ||
+      tujuan == 'Terlambat Hadir Rapat' ||
+      tujuan == 'Tidak Ikut Rapat') {
+      $('#other_input').css('display', 'none');
+    } else {
+      $('#option-other').find(":selected");
+      $('#other_input').css({
+        display: 'block',
+        'margin-bottom': '2px'
+      })
     }
-});
-
+  });
 
   function checkOtherOption() {
     var selectElement = document.getElementById("tujuan_izin");
     var otherInput = document.getElementById("other_input");
 
     if (selectElement.value === "Others") {
-      console.log('tedt')
+
       $('#other_input').css({
         display: 'block',
         'margin-bottom': '2px'

@@ -24,8 +24,12 @@ class Auth extends CI_Controller {
             $username = $this->input->post('username');
             $password = $this->input->post('password');
             $pegawai = $this->db->get_where('pegawai', ['username' => $username])->row_array();
+
             if ($pegawai) {
-                if (password_verify($password, $pegawai['password'])) {
+                if ($pegawai['status'] != 'Aktif'){
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Tidak Aktif! </div>');
+                    redirect('Auth');
+                }elseif (password_verify($password, $pegawai['password'])) {
                     $data = [
                         'username' => $pegawai['username'],
                         'nama' => $pegawai['nama'],

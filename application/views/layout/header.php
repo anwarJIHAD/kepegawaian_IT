@@ -9,7 +9,7 @@
   <!-- General CSS Files -->
   <link rel="stylesheet" href="<?= base_url() ?>/template/dist/assets/modules/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?= base_url() ?>/template/dist/assets/modules/fontawesome/css/all.min.css">
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <!-- CSS Libraries -->
   <link rel="stylesheet" href="<?= base_url() ?>/template/dist/assets/modules/jqvmap/dist/jqvmap.min.css">
   <link rel="stylesheet" href="<?= base_url() ?>/template/dist/assets/modules/weather-icon/css/weather-icons.min.css">
@@ -109,12 +109,12 @@
               <a href="<?= base_url() ?>Dashboard" class="nav-link "><i class="fas fa-th-large test"></i><span>Dashboard</span></a>
             <li class="menu-header">Kepegawaian</li>
             <?php if ($pegawai['role'] == 'Admin' || $pegawai['role'] == 'kepala sekolah') { ?>
-            <li ><a class="nav-link" href="<?= base_url() ?>Pegawai"><i class="far fa-square"></i> <span>Data Pegawai</span></a></li>
+            <li ><a class="nav-link" href="<?= base_url() ?>Pegawai"><i class="fa fa-users" aria-hidden="true"></i> <span>Data Pegawai</span></a></li>
             <?php } ?>
-            <li ><a class="nav-link" href="#"><i class="far fa-square"></i> <span>Absensi</span></a></li>
-            <li ><a class="nav-link" href="<?= base_url() ?>Lembur"><i class="far fa-square"></i> <span>Lembur</span></a></li>
+            <li ><a class="nav-link" href="#"><i class="fa fa-address-book" aria-hidden="true"></i> <span>Absensi</span></a></li>
+            <li ><a class="nav-link" href="<?= base_url() ?>Lembur"><i class="fa fa-calendar" aria-hidden="true"></i> <span>Lembur</span></a></li>
             <li class="dropdown">
-              <a href="#" class="nav-link has-dropdown"><i class="far fa-square"></i> <span>Perizinan</span></a>
+              <a href="#" class="nav-link has-dropdown"><i class="fa fa-envelope" aria-hidden="true"></i> <span>Perizinan</span></a>
               <ul class="dropdown-menu">
               <?php if ($pegawai['role'] == 'Admin' || $pegawai['role'] == 'guru'|| $pegawai['role'] == 'pustakawati') { ?>
                 <li><a href="<?= base_url() ?>PerizinanCuti">Pengajuan Surat Cuti</a></li> 
@@ -127,7 +127,7 @@
                 <li><a href="<?= base_url() ?>PengajuanIzin/approveizin">Pengajuan Izin</a></li> 
                 <?php } ?>
               </ul>
-              <li ><a class="nav-link" href="<?= base_url() ?>Berkas"><i class="far fa-square"></i> <span>Pengembangan Diri</span></a></li>
+              <li ><a class="nav-link" href="<?= base_url() ?>Berkas"><i class="fa fa-file" aria-hidden="true"></i><span>Pengembangan Diri</span></a></li>
             </li>
 
         

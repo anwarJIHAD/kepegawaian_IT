@@ -1,5 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+require 'vendor/autoload.php';
+
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
@@ -12,6 +14,7 @@ class Pegawai extends CI_Controller
         parent::__construct();
         is_logged_in();
         $this->load->model('Pegawai_model');
+        $this->load->helper(array('url','download'));	
     }
 
     public function index()
@@ -80,10 +83,10 @@ class Pegawai extends CI_Controller
                 'username' => htmlspecialchars($this->input->post('username', true)),
                 'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
                 'role' => htmlspecialchars($this->input->post('role', true)),
+                'status' => htmlspecialchars($this->input->post('status', true)),
             ];
             $this->Pegawai_model->insert($data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat! 
-            data telah berhasil disimpan</div>');
+            $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
             redirect('Pegawai');
         }
     }
@@ -140,11 +143,11 @@ class Pegawai extends CI_Controller
                 'username' => $this->input->post('username'),
                 'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
                 'role' => $this->input->post('role'),
+                'status' => $this->input->post('status'),
             ];
             $id = $this->input->post('id');
             $this->Pegawai_model->update(['id' => $id], $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" 
-role="alert">Data Pegawai Berhasil DiUbah!</div>');
+            $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
             redirect('Pegawai');
         }
     }
@@ -205,4 +208,22 @@ role="alert">Data Pegawai Berhasil DiUbah!</div>');
             }
         }
     }
-}
+    public function getTemplate(){
+        force_download('./template/assets/datapegawai.xlsx',NULL);
+      }
+      public function ubahstatus($id) 
+      {
+      $data['pegawai'] = $this->db->get_where('pegawai', ['id' => $this->session->userdata['id']])->row_array();
+      $data['pegawai'] = $this->Pegawai_model->getById($id);
+  
+              $data = [
+                  'status' => $this->input->post('status'),
+                  
+              ];
+              $id = $this->input->post('id');
+                  $this->Pegawai_model->update(['id' => $id], $data);
+                  $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+            redirect('Pegawai');
+            }
+  }           
+

@@ -64,12 +64,12 @@
                 <div class="card-body">
                 <div style="margin-bottom: 20px;">
                 <?php if ($pegawai['role'] == 'Admin') { ?>
-                    <a href="<?= base_url() ?>Pegawai/tambah_pegawai" class="btn btn-primary">Tambah Data</a> 
-                   <a  class="btn btn-primary text-white" data-target="#exampleModal" data-toggle="modal">Export Excel</a> 
+                    <a href="<?= base_url() ?>Pegawai/tambah_pegawai" class="btn btn-outline-warning"><i class="bi bi-plus-circle"></i> Tambah Data</a> 
+                   <button  class="btn btn-outline-warning" data-target="#exampleModal" data-toggle="modal"><i class="bi bi-file-earmark-ruled"></i> Export Excel</button> 
                     <?php } ?>
                 </div>
                     <div class="table-responsive">
-                      <table class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0;width:100%;" id="table-1">
+                      <table class="table table-bordered nowrap" style="border-collapse: collapse; border-spacing: 0;width:100%;" id="table-1">
                         <thead>                                 
                           <tr class="table-success">
                             <th>No</th>
@@ -81,6 +81,7 @@
                             <th>Jurusan</th>
                             <th>Jabatan</th>
                             <th>No Handphone</th>
+                            <th>Status</th>
                             <th> <?php if ($pegawai['role'] == 'Admin') { ?>Action<?php }?></th>
                           </tr>
                         </thead>
@@ -97,10 +98,10 @@
                                 <td><?= $us['jurusan']; ?></td>
                                 <td><?= $us['jabatan']; ?></td>
                                 <td><?= $us['no_hp']; ?></td>
-
+                                <td><?= $us['status']; ?></td>
                             <td> <?php if ($pegawai['role'] == 'Admin') { ?>
-                              <a href="<?= base_url('pegawai/edit_pegawai/') . $us['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
-                              <a href="<?= base_url('Pegawai/hapus/') . $us['id']; ?>" class="btn btn-danger btn-sm">Hapus</a><?php }?></td>
+                              <a href="<?= base_url('pegawai/edit_pegawai/') . $us['id']; ?>" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i> Edit</a>
+                              <a href="<?= base_url('Pegawai/hapus/') . $us['id']; ?>" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Hapus</a><?php }?></td>
                           </tr>
                           <?php $i++; ?>
                         <?php endforeach; ?>
@@ -133,7 +134,7 @@
           <input type="file" name="myFile" class="drop-zone__input" >
         </div>
         <div>
-          <span>Download Excel template <a href="<?= base_url() ?>Extra/getTemplate" style="color:#b55050;">here</a></span>
+          <span>Download Excel template <a href="<?= base_url() ?>pegawai/getTemplate" style="color:#b55050;">here</a></span>
         </div>
       </div>
       <div class="modal-footer bg-whitesmoke br">

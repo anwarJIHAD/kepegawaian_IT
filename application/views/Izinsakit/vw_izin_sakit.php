@@ -7,17 +7,17 @@
     </div>
     <?= $this->session->flashdata('message'); ?>
     <div class="section-body">
+    <div class="card">
       <div class="row">
-        <div class="col">
-          <div class="card">
+      <div class="col">
+      <div class="card-body">
+      <div style="margin-bottom: 20px;">
             <?php if ($pegawai['role'] == 'Admin' || $pegawai['role'] == 'guru' || $pegawai['role'] == 'pustakawati' || $pegawai['role'] == 'kepala sekolah') { ?>
-              <h4><a href="<?= base_url() ?>perizinansakit/tambahsakit" class="btn btn-primary">Ajukan Izin Sakit</a> </h4>
+              <a href="<?= base_url() ?>perizinansakit/tambahsakit" class="btn btn-outline-warning"><i class="bi bi-plus-circle"></i> Ajukan Izin Sakit </a> 
             <?php } ?>
-
           </div>
-          <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0;width:100%;" id="table-1">
+              <table class="table table-bordered nowrap" style="border-collapse: collapse; border-spacing: 0;width:100%;" id="table-1">
                 <thead>
                   <tr class="table-success">
                     <th>No</th>
@@ -63,7 +63,7 @@
                         <?php } elseif ($us['status'] == 'Diajukan') { ?>
                           -
                         <?php } else { ?>
-                          -
+                          Telah Disetujui
                         <?php } ?>
                       </td>
                     </tr>
