@@ -39,7 +39,15 @@
                       <td><?= $us['tgl_izin']; ?></td>
                       <td><?= $us['hingga_tgl']; ?></td>
                       <td><?= $us['ket_sakit']; ?></td>
-                      <td><?= $us['file_sakit']; ?></td>
+                      <td>
+                        <div class="chocolat-parent">
+                          <a href="<?= base_url('template/assets/img/suratsakit/')  . $us['file_sakit']; ?>" class="chocolat-image" title="<?= $us['file_sakit']; ?>">
+                            <div>
+                              <a href="<?= base_url('template/assets/img/suratsakit/')  . $us['file_sakit']; ?>" class="chocolat-image" title="<?= $us['file_sakit']; ?>" style="color: #68A805;">Lihat File</a>
+                            </div>
+                          </a>
+                        </div>
+                      </td>
                       <td>
                         <?php if ($us['status'] == 'Disetujui') { ?>
                           <span class="badge badge-success"><?= $us['status']; ?></span>
@@ -48,8 +56,8 @@
                         <?php } else { ?>
                           <span class="badge badge-warning"><?= $us['status']; ?></span>
                         <?php } ?>
-                        </td>
-                        <td> <?php if ($pegawai['role'] ==  $this->session->userdata('role') && $us['role'] == $this->session->userdata('role') && $us['status'] != 'Diterima' && $us['status'] != 'Ditolak') { ?>
+                      </td>
+                      <td> <?php if ($pegawai['role'] ==  $this->session->userdata('role') && $us['role'] == $this->session->userdata('role') && $us['status'] != 'Diterima' && $us['status'] != 'Ditolak') { ?>
                           <a href="<?= base_url('perizinanSakit/editsakit/') . $us['id_sakit']; ?>" class="btn btn-warning btn-sm">Edit</a>
                           <a href="<?= base_url('perizinanSakit/hapus/') . $us['id_sakit']; ?>" class="btn btn-danger btn-sm">Hapus</a>
                         <?php } elseif ($us['status'] == 'Diajukan') { ?>
@@ -79,29 +87,29 @@
 
 <!-- Modal -->
 <?php foreach ($izin_sakit as $us) : ?>
-<div class="modal fade" tabindex="-1" role="dialog" id="modal<?= $us['id_sakit']; ?>">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Surat Perizinan Sakit</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+  <div class="modal fade" tabindex="-1" role="dialog" id="modal<?= $us['id_sakit']; ?>">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Surat Perizinan Sakit</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
       </div>
+    <?php endforeach; ?>
 
-</div>
-<?php endforeach; ?>
+    <script>
+      function confirm_delete(question) {
 
-<script>
-  function confirm_delete(question) {
+        if (confirm(question)) {
 
-    if (confirm(question)) {
+          alert("Action to delete");
 
-      alert("Action to delete");
+        } else {
+          return false;
+        }
 
-    } else {
-      return false;
-    }
-
-  }
-</script>
+      }
+    </script>

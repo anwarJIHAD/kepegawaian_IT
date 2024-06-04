@@ -39,5 +39,15 @@ class Pegawai_model extends CI_Model
         $this->db->delete($this->table);
         return $this->db->affected_rows();
     }
+    public function insert_batch($data){
+		$this->db->insert_batch('pegawai',$data);
+		if($this->db->affected_rows()>0)
+		{
+			return 1;
+		}
+		else{
+			return 0;
+		}
+	}
 
 }

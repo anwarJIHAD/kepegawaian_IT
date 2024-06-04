@@ -119,7 +119,7 @@
               <?php if ($pegawai['role'] == 'Admin' || $pegawai['role'] == 'guru'|| $pegawai['role'] == 'pustakawati') { ?>
                 <li><a href="<?= base_url() ?>PerizinanCuti">Pengajuan Surat Cuti</a></li> 
                 <li><a href="<?= base_url() ?>PerizinanSakit">Pengajuan Surat Sakit</a></li> 
-                <li><a href="<?= base_url() ?>Pe  ">Pengajuan Izin</a></li> 
+                <li><a href="<?= base_url() ?>PengajuanIzin">Pengajuan Izin</a></li> 
                 <?php }?>
                 <?php if ($pegawai['role'] == 'kepala sekolah') { ?>
                 <li><a href="<?= base_url() ?>PerizinanCuti/approvecuti">Pengajuan Surat Cuti</a></li> 

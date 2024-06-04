@@ -71,6 +71,7 @@
 <script>
   function checkOtherOption() {
     var selectElement = document.getElementById("tujuan_izin");
+    console.log(selectElement)
     var otherInput = document.getElementById("other_input");
     
     if (selectElement.value === "Others") {
