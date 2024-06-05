@@ -13,9 +13,9 @@
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-striped" id="table-1">
+            <table class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0;width:100%;" id="table-1">
                 <thead>
-                  <tr>
+                  <tr class="table-success">
                     <th>No</th>
                     <th>Nama Pegawai</th>
                     <th>Tanggal Izin</th>
@@ -38,7 +38,15 @@
                       <td><?= $us['no_hp']; ?></td>
                       <td><?= $us['pemilik_nohp']; ?></td>
                       <td><?= $us['ket_cuti']; ?></td>
-                      <td><?= $us['status']; ?></td>
+                      <td>
+                        <?php if ($us['status'] == 'Disetujui') { ?>
+                          <span class="badge badge-success"><?= $us['status']; ?></span>
+                        <?php } elseif ($us['status'] == 'Ditolak') { ?>
+                          <span class="badge badge-danger"><?= $us['status']; ?></span>
+                        <?php } else { ?>
+                          <span class="badge badge-warning"><?= $us['status']; ?></span>
+                        <?php } ?>
+                        </td>
                       <td><button class="btn btn-primary" data-toggle="modal" data-target="#modal<?= $us['id_cuti']; ?>">Ubah Status</button></td>
                       </td>
                     </tr>
