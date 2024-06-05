@@ -7,15 +7,13 @@
     </div>
     <?= $this->session->flashdata('message'); ?>
     <div class="section-body">
-      <div class="row">
-        <div class="col">
-          <div class="card">
-            <?php if ($pegawai['role'] == 'Admin' || $pegawai['role'] == 'guru' || $pegawai['role'] == 'pustakawati') { ?>
-              <h4><a href="<?= base_url() ?>PengajuanIzin/tambahizin" class="btn btn-primary">Ajukan Perizinan</a> </h4>
+    <div class="card">
+    <div class="card-body">
+    <div style="margin-bottom: 20px;">
+    <?php if ($pegawai['role'] == 'Admin' || $pegawai['role'] == 'guru' || $pegawai['role'] == 'pustakawati') { ?>
+              <h4><a href="<?= base_url() ?>PengajuanIzin/tambahizin" class="btn btn-outline-warning"><i class="bi bi-plus-circle"></i> Ajukan Perizinan</a> </h4>
             <?php } ?>
-
           </div>
-          <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0;width:100%;" id="table-1">
                 <thead>
@@ -48,8 +46,8 @@
                         <?php } ?>
                       </td>
                       <td> <?php if ($pegawai['role'] ==  $this->session->userdata('role') && $us['role'] == $this->session->userdata('role') && $us['status'] != 'Diterima' && $us['status'] != 'Ditolak') { ?>
-                          <a href="<?= base_url('PengajuanIzin/editizin/') . $us['id_izin']; ?>" class="btn btn-warning btn-sm">Edit</a>
-                          <a href="<?= base_url('PengajuanIzin/hapus/') . $us['id_izin']; ?>" class="btn btn-danger btn-sm">Hapus</a>
+                          <a href="<?= base_url('PengajuanIzin/editizin/') . $us['id_izin']; ?>" class="btn btn-light btn-sm"><i class="bi bi-pencil-square"></i> Edit</a>
+                          <a href="<?= base_url('PengajuanIzin/hapus/') . $us['id_izin']; ?>" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Hapus</a>
                         <?php } elseif ($us['status'] == 'Diajukan') { ?>
                           -
                         <?php } else { ?>
