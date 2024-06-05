@@ -1,0 +1,11 @@
+D:\C#\IFace_X64\Device Management\obj\x64\Release\Interop.zkemkeeper.dll
+D:\C#\IFace_X64\Device Management\obj\x64\Release\Device.csproj.ResolveComReference.cache
+D:\C#\IFace_X64\Device Management\bin\x64\Release\Device.exe
+D:\C#\IFace_X64\Device Management\bin\x64\Release\Device.pdb
+D:\C#\IFace_X64\Device Management\bin\x64\Release\Interop.zkemkeeper.dll
+D:\C#\IFace_X64\Device Management\obj\x64\Release\ResolveAssemblyReference.cache
+D:\C#\IFace_X64\Device Management\obj\x64\Release\Device.DeviceMain.resources
+D:\C#\IFace_X64\Device Management\obj\x64\Release\Device.Properties.Resources.resources
+D:\C#\IFace_X64\Device Management\obj\x64\Release\Device.csproj.GenerateResource.Cache
+D:\C#\IFace_X64\Device Management\obj\x64\Release\Device.exe
+D:\C#\IFace_X64\Device Management\obj\x64\Release\Device.pdb

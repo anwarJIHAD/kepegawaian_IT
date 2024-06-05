@@ -1,0 +1,12 @@
+E:\C#\TFT\ConsoleMThreads\obj\Release\Interop.zkemkeeper.dll
+E:\C#\TFT\ConsoleMThreads\obj\Release\ConsoleMThreads.csproj.ResolveComReference.cache
+E:\C#\TFT\ConsoleMThreads\bin\Release\ConsoleMThreads.exe
+E:\C#\TFT\ConsoleMThreads\bin\Release\ConsoleMThreads.pdb
+E:\C#\TFT\ConsoleMThreads\bin\Release\Interop.zkemkeeper.dll
+E:\C#\TFT\ConsoleMThreads\obj\Release\ResolveAssemblyReference.cache
+E:\C#\TFT\ConsoleMThreads\obj\Release\ConsoleMThreads.exe
+E:\C#\TFT\ConsoleMThreads\obj\Release\ConsoleMThreads.pdb
+D:\C#\TFT_X64\ConsoleMThreads\obj\Release\Interop.zkemkeeper.dll
+D:\C#\TFT_X64\ConsoleMThreads\obj\Release\ConsoleMThreads.csproj.ResolveComReference.cache
+D:\C#\TFT_X64\ConsoleMThreads\obj\Release\ConsoleMThreads.exe
+D:\C#\TFT_X64\ConsoleMThreads\obj\Release\ConsoleMThreads.pdb

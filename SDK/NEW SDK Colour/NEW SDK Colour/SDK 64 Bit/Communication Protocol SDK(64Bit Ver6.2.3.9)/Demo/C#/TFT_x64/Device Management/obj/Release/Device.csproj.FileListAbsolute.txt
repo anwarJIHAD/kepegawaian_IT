@@ -1,0 +1,15 @@
+E:\C#\TFT\Device Management\obj\Release\Interop.zkemkeeper.dll
+E:\C#\TFT\Device Management\obj\Release\Device.csproj.ResolveComReference.cache
+E:\C#\TFT\Device Management\bin\Release\Device.exe
+E:\C#\TFT\Device Management\bin\Release\Device.pdb
+E:\C#\TFT\Device Management\bin\Release\Interop.zkemkeeper.dll
+E:\C#\TFT\Device Management\obj\Release\ResolveAssemblyReference.cache
+E:\C#\TFT\Device Management\obj\Release\Device.DeviceMain.resources
+E:\C#\TFT\Device Management\obj\Release\Device.Properties.Resources.resources
+E:\C#\TFT\Device Management\obj\Release\Device.csproj.GenerateResource.Cache
+E:\C#\TFT\Device Management\obj\Release\Device.exe
+E:\C#\TFT\Device Management\obj\Release\Device.pdb
+D:\C#\TFT_X64\Device Management\obj\Release\Interop.zkemkeeper.dll
+D:\C#\TFT_X64\Device Management\obj\Release\Device.csproj.ResolveComReference.cache
+D:\C#\TFT_X64\Device Management\obj\Release\Device.exe
+D:\C#\TFT_X64\Device Management\obj\Release\Device.pdb

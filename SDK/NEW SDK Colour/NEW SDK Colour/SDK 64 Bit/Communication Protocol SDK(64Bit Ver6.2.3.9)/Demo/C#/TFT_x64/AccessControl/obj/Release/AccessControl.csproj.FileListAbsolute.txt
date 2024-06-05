@@ -1,0 +1,15 @@
+E:\C#\TFT\AccessControl\obj\Release\Interop.zkemkeeper.dll
+E:\C#\TFT\AccessControl\obj\Release\AccessControl.csproj.ResolveComReference.cache
+E:\C#\TFT\AccessControl\bin\Release\AccessControl.exe
+E:\C#\TFT\AccessControl\bin\Release\AccessControl.pdb
+E:\C#\TFT\AccessControl\bin\Release\Interop.zkemkeeper.dll
+E:\C#\TFT\AccessControl\obj\Release\ResolveAssemblyReference.cache
+E:\C#\TFT\AccessControl\obj\Release\AccessControl.ACMain.resources
+E:\C#\TFT\AccessControl\obj\Release\AccessControl.Properties.Resources.resources
+E:\C#\TFT\AccessControl\obj\Release\AccessControl.csproj.GenerateResource.Cache
+E:\C#\TFT\AccessControl\obj\Release\AccessControl.exe
+E:\C#\TFT\AccessControl\obj\Release\AccessControl.pdb
+D:\C#\TFT_X64\AccessControl\obj\Release\Interop.zkemkeeper.dll
+D:\C#\TFT_X64\AccessControl\obj\Release\AccessControl.csproj.ResolveComReference.cache
+D:\C#\TFT_X64\AccessControl\obj\Release\AccessControl.exe
+D:\C#\TFT_X64\AccessControl\obj\Release\AccessControl.pdb

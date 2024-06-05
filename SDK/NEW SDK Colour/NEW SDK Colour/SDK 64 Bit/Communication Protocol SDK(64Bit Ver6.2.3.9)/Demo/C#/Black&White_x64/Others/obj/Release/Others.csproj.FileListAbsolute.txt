@@ -1,0 +1,15 @@
+E:\C#\Black&White\Others\obj\Release\Interop.zkemkeeper.dll
+E:\C#\Black&White\Others\obj\Release\Others.csproj.ResolveComReference.cache
+E:\C#\Black&White\Others\bin\Release\Others.exe
+E:\C#\Black&White\Others\bin\Release\Others.pdb
+E:\C#\Black&White\Others\bin\Release\Interop.zkemkeeper.dll
+E:\C#\Black&White\Others\obj\Release\ResolveAssemblyReference.cache
+E:\C#\Black&White\Others\obj\Release\Others.OthersMain.resources
+E:\C#\Black&White\Others\obj\Release\Others.Properties.Resources.resources
+E:\C#\Black&White\Others\obj\Release\Others.csproj.GenerateResource.Cache
+E:\C#\Black&White\Others\obj\Release\Others.exe
+E:\C#\Black&White\Others\obj\Release\Others.pdb
+D:\C#\Black&White_X64\Others\obj\Release\Interop.zkemkeeper.dll
+D:\C#\Black&White_X64\Others\obj\Release\Others.csproj.ResolveComReference.cache
+D:\C#\Black&White_X64\Others\obj\Release\Others.exe
+D:\C#\Black&White_X64\Others\obj\Release\Others.pdb

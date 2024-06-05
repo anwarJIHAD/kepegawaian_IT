@@ -1,0 +1,11 @@
+D:\C#\TFT_X64\AttLogs\obj\x64\Release\Interop.zkemkeeper.dll
+D:\C#\TFT_X64\AttLogs\obj\x64\Release\AttLogs.csproj.ResolveComReference.cache
+D:\C#\TFT_X64\AttLogs\bin\x64\Release\AttLogs.exe
+D:\C#\TFT_X64\AttLogs\bin\x64\Release\AttLogs.pdb
+D:\C#\TFT_X64\AttLogs\bin\x64\Release\Interop.zkemkeeper.dll
+D:\C#\TFT_X64\AttLogs\obj\x64\Release\ResolveAssemblyReference.cache
+D:\C#\TFT_X64\AttLogs\obj\x64\Release\AttLogs.AttLogsMain.resources
+D:\C#\TFT_X64\AttLogs\obj\x64\Release\AttLogs.Properties.Resources.resources
+D:\C#\TFT_X64\AttLogs\obj\x64\Release\AttLogs.csproj.GenerateResource.Cache
+D:\C#\TFT_X64\AttLogs\obj\x64\Release\AttLogs.exe
+D:\C#\TFT_X64\AttLogs\obj\x64\Release\AttLogs.pdb

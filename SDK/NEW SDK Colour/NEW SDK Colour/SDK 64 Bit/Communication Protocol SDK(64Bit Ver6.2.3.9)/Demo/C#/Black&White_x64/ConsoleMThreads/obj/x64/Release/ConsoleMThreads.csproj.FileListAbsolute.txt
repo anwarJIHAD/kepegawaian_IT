@@ -1,0 +1,8 @@
+D:\C#\Black&White_X64\ConsoleMThreads\obj\x64\Release\Interop.zkemkeeper.dll
+D:\C#\Black&White_X64\ConsoleMThreads\obj\x64\Release\ConsoleMThreads.csproj.ResolveComReference.cache
+D:\C#\Black&White_X64\ConsoleMThreads\bin\x64\Release\ConsoleMThreads.exe
+D:\C#\Black&White_X64\ConsoleMThreads\bin\x64\Release\ConsoleMThreads.pdb
+D:\C#\Black&White_X64\ConsoleMThreads\bin\x64\Release\Interop.zkemkeeper.dll
+D:\C#\Black&White_X64\ConsoleMThreads\obj\x64\Release\ResolveAssemblyReference.cache
+D:\C#\Black&White_X64\ConsoleMThreads\obj\x64\Release\ConsoleMThreads.exe
+D:\C#\Black&White_X64\ConsoleMThreads\obj\x64\Release\ConsoleMThreads.pdb

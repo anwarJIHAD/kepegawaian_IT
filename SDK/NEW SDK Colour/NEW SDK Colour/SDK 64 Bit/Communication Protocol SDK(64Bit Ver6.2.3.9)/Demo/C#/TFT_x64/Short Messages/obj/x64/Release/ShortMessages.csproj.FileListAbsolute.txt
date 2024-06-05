@@ -1,0 +1,11 @@
+D:\C#\TFT_X64\Short Messages\obj\x64\Release\Interop.zkemkeeper.dll
+D:\C#\TFT_X64\Short Messages\obj\x64\Release\ShortMessages.csproj.ResolveComReference.cache
+D:\C#\TFT_X64\Short Messages\bin\x64\Release\ShortMessages.exe
+D:\C#\TFT_X64\Short Messages\bin\x64\Release\ShortMessages.pdb
+D:\C#\TFT_X64\Short Messages\bin\x64\Release\Interop.zkemkeeper.dll
+D:\C#\TFT_X64\Short Messages\obj\x64\Release\ResolveAssemblyReference.cache
+D:\C#\TFT_X64\Short Messages\obj\x64\Release\ShortMessages.SMSMain.resources
+D:\C#\TFT_X64\Short Messages\obj\x64\Release\ShortMessages.Properties.Resources.resources
+D:\C#\TFT_X64\Short Messages\obj\x64\Release\ShortMessages.csproj.GenerateResource.Cache
+D:\C#\TFT_X64\Short Messages\obj\x64\Release\ShortMessages.exe
+D:\C#\TFT_X64\Short Messages\obj\x64\Release\ShortMessages.pdb

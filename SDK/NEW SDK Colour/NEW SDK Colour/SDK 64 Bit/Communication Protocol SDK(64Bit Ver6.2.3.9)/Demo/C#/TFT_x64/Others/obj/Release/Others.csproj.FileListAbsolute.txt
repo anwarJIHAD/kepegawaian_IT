@@ -1,0 +1,15 @@
+E:\C#\TFT\Others\obj\Release\Interop.zkemkeeper.dll
+E:\C#\TFT\Others\obj\Release\Others.csproj.ResolveComReference.cache
+E:\C#\TFT\Others\bin\Release\Others.exe
+E:\C#\TFT\Others\bin\Release\Others.pdb
+E:\C#\TFT\Others\bin\Release\Interop.zkemkeeper.dll
+E:\C#\TFT\Others\obj\Release\ResolveAssemblyReference.cache
+E:\C#\TFT\Others\obj\Release\Others.OthersMain.resources
+E:\C#\TFT\Others\obj\Release\Others.Properties.Resources.resources
+E:\C#\TFT\Others\obj\Release\Others.csproj.GenerateResource.Cache
+E:\C#\TFT\Others\obj\Release\Others.exe
+E:\C#\TFT\Others\obj\Release\Others.pdb
+D:\C#\TFT_X64\Others\obj\Release\Interop.zkemkeeper.dll
+D:\C#\TFT_X64\Others\obj\Release\Others.csproj.ResolveComReference.cache
+D:\C#\TFT_X64\Others\obj\Release\Others.exe
+D:\C#\TFT_X64\Others\obj\Release\Others.pdb

@@ -1,0 +1,15 @@
+E:\C#\Black&White\UserInfo\obj\Release\Interop.zkemkeeper.dll
+E:\C#\Black&White\UserInfo\obj\Release\UserInfo.csproj.ResolveComReference.cache
+E:\C#\Black&White\UserInfo\bin\Release\UserInfo.exe
+E:\C#\Black&White\UserInfo\bin\Release\UserInfo.pdb
+E:\C#\Black&White\UserInfo\bin\Release\Interop.zkemkeeper.dll
+E:\C#\Black&White\UserInfo\obj\Release\ResolveAssemblyReference.cache
+E:\C#\Black&White\UserInfo\obj\Release\UserInfo.UserInfoMain.resources
+E:\C#\Black&White\UserInfo\obj\Release\UserInfo.Properties.Resources.resources
+E:\C#\Black&White\UserInfo\obj\Release\UserInfo.csproj.GenerateResource.Cache
+E:\C#\Black&White\UserInfo\obj\Release\UserInfo.exe
+E:\C#\Black&White\UserInfo\obj\Release\UserInfo.pdb
+D:\C#\Black&White_X64\UserInfo\obj\Release\Interop.zkemkeeper.dll
+D:\C#\Black&White_X64\UserInfo\obj\Release\UserInfo.csproj.ResolveComReference.cache
+D:\C#\Black&White_X64\UserInfo\obj\Release\UserInfo.exe
+D:\C#\Black&White_X64\UserInfo\obj\Release\UserInfo.pdb

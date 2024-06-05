@@ -64,7 +64,7 @@
 				</div>
 			</div> -->
 
-			<!-- kepala sekolah -->
+			<!-- kepala sekolah -->		
 			<?php if ($this->session->userdata('role') == 'kepala sekolah') { ?>
 				<div class="row">
 					<div class="col-lg-3 col-md-6 col-sm-6 col-12">

@@ -1,0 +1,11 @@
+D:\C#\Black&White_X64\OpLogs\obj\x64\Release\Interop.zkemkeeper.dll
+D:\C#\Black&White_X64\OpLogs\obj\x64\Release\OpLogs.csproj.ResolveComReference.cache
+D:\C#\Black&White_X64\OpLogs\bin\x64\Release\OpLogs.exe
+D:\C#\Black&White_X64\OpLogs\bin\x64\Release\OpLogs.pdb
+D:\C#\Black&White_X64\OpLogs\bin\x64\Release\Interop.zkemkeeper.dll
+D:\C#\Black&White_X64\OpLogs\obj\x64\Release\ResolveAssemblyReference.cache
+D:\C#\Black&White_X64\OpLogs\obj\x64\Release\OpLogs.OpLogsMain.resources
+D:\C#\Black&White_X64\OpLogs\obj\x64\Release\OpLogs.Properties.Resources.resources
+D:\C#\Black&White_X64\OpLogs\obj\x64\Release\OpLogs.csproj.GenerateResource.Cache
+D:\C#\Black&White_X64\OpLogs\obj\x64\Release\OpLogs.exe
+D:\C#\Black&White_X64\OpLogs\obj\x64\Release\OpLogs.pdb

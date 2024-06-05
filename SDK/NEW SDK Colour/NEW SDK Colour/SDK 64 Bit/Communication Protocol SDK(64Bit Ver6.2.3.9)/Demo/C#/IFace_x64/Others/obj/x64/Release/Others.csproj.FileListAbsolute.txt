@@ -1,0 +1,11 @@
+D:\C#\IFace_X64\Others\obj\x64\Release\Interop.zkemkeeper.dll
+D:\C#\IFace_X64\Others\obj\x64\Release\Others.csproj.ResolveComReference.cache
+D:\C#\IFace_X64\Others\bin\x64\Release\Others.exe
+D:\C#\IFace_X64\Others\bin\x64\Release\Others.pdb
+D:\C#\IFace_X64\Others\bin\x64\Release\Interop.zkemkeeper.dll
+D:\C#\IFace_X64\Others\obj\x64\Release\ResolveAssemblyReference.cache
+D:\C#\IFace_X64\Others\obj\x64\Release\Others.OthersMain.resources
+D:\C#\IFace_X64\Others\obj\x64\Release\Others.Properties.Resources.resources
+D:\C#\IFace_X64\Others\obj\x64\Release\Others.csproj.GenerateResource.Cache
+D:\C#\IFace_X64\Others\obj\x64\Release\Others.exe
+D:\C#\IFace_X64\Others\obj\x64\Release\Others.pdb
