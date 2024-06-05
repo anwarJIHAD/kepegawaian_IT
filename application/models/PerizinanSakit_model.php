@@ -70,7 +70,7 @@ class PerizinanSakit_model extends CI_Model
 		if ($tahun != '') {
 			$this->db->where('YEAR(tgl_izin)', $tahun);
 		}
-		$this->db->where('nama', $this->session->userdata['nama']);
+		$this->db->where('niy', $this->session->userdata['niy']);
 		// 'tanggal' adalah nama kolom tanggal dalam tabel
 		$this->db->where('month(tgl_izin)', $month); // 'tanggal' adalah nama kolom tanggal dalam tabel
 		$query = $this->db->get();

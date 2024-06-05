@@ -1,0 +1,8 @@
+C:\Users\SHERENE\Desktop\C#Demo第二版-64位\IFace\ConsoleMThreads\bin\x86\Release\ConsoleMThreads.exe
+C:\Users\SHERENE\Desktop\C#Demo第二版-64位\IFace\ConsoleMThreads\bin\x86\Release\ConsoleMThreads.pdb
+C:\Users\SHERENE\Desktop\C#Demo第二版-64位\IFace\ConsoleMThreads\bin\x86\Release\Interop.zkemkeeper.dll
+C:\Users\SHERENE\Desktop\C#Demo第二版-64位\IFace\ConsoleMThreads\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\SHERENE\Desktop\C#Demo第二版-64位\IFace\ConsoleMThreads\obj\x86\Release\Interop.zkemkeeper.dll
+C:\Users\SHERENE\Desktop\C#Demo第二版-64位\IFace\ConsoleMThreads\obj\x86\Release\ConsoleMThreads.csproj.ResolveComReference.cache
+C:\Users\SHERENE\Desktop\C#Demo第二版-64位\IFace\ConsoleMThreads\obj\x86\Release\ConsoleMThreads.exe
+C:\Users\SHERENE\Desktop\C#Demo第二版-64位\IFace\ConsoleMThreads\obj\x86\Release\ConsoleMThreads.pdb

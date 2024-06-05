@@ -1,0 +1,15 @@
+E:\C#\TFT\Card Management\obj\Release\Interop.zkemkeeper.dll
+E:\C#\TFT\Card Management\obj\Release\Card.csproj.ResolveComReference.cache
+E:\C#\TFT\Card Management\bin\Release\CardManagement.exe
+E:\C#\TFT\Card Management\bin\Release\CardManagement.pdb
+E:\C#\TFT\Card Management\bin\Release\Interop.zkemkeeper.dll
+E:\C#\TFT\Card Management\obj\Release\ResolveAssemblyReference.cache
+E:\C#\TFT\Card Management\obj\Release\Card.CardMain.resources
+E:\C#\TFT\Card Management\obj\Release\Card.Properties.Resources.resources
+E:\C#\TFT\Card Management\obj\Release\Card.csproj.GenerateResource.Cache
+E:\C#\TFT\Card Management\obj\Release\CardManagement.exe
+E:\C#\TFT\Card Management\obj\Release\CardManagement.pdb
+D:\C#\TFT_X64\Card Management\obj\Release\Interop.zkemkeeper.dll
+D:\C#\TFT_X64\Card Management\obj\Release\Card.csproj.ResolveComReference.cache
+D:\C#\TFT_X64\Card Management\obj\Release\CardManagement.exe
+D:\C#\TFT_X64\Card Management\obj\Release\CardManagement.pdb

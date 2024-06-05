@@ -1,0 +1,8 @@
+D:\C#\IFace_X64\Udisk Data Management\bin\x64\Release\Udisk.exe
+D:\C#\IFace_X64\Udisk Data Management\bin\x64\Release\Udisk.pdb
+D:\C#\IFace_X64\Udisk Data Management\obj\x64\Release\ResolveAssemblyReference.cache
+D:\C#\IFace_X64\Udisk Data Management\obj\x64\Release\UdiskData.UDiskDataMain.resources
+D:\C#\IFace_X64\Udisk Data Management\obj\x64\Release\UdiskData.Properties.Resources.resources
+D:\C#\IFace_X64\Udisk Data Management\obj\x64\Release\Udisk.csproj.GenerateResource.Cache
+D:\C#\IFace_X64\Udisk Data Management\obj\x64\Release\Udisk.exe
+D:\C#\IFace_X64\Udisk Data Management\obj\x64\Release\Udisk.pdb

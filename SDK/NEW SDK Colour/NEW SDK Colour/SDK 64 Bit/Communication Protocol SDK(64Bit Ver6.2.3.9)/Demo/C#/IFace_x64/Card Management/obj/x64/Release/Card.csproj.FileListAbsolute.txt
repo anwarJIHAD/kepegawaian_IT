@@ -1,0 +1,13 @@
+D:\C#\IFace_X64\Card Management\obj\x64\Release\Interop.zkemkeeper.dll
+D:\C#\IFace_X64\Card Management\obj\x64\Release\AxInterop.zkemkeeper.dll
+D:\C#\IFace_X64\Card Management\obj\x64\Release\Card.csproj.ResolveComReference.cache
+D:\C#\IFace_X64\Card Management\bin\x64\Release\CardManagement.exe
+D:\C#\IFace_X64\Card Management\bin\x64\Release\CardManagement.pdb
+D:\C#\IFace_X64\Card Management\bin\x64\Release\Interop.zkemkeeper.dll
+D:\C#\IFace_X64\Card Management\bin\x64\Release\AxInterop.zkemkeeper.dll
+D:\C#\IFace_X64\Card Management\obj\x64\Release\ResolveAssemblyReference.cache
+D:\C#\IFace_X64\Card Management\obj\x64\Release\Card.CardMain.resources
+D:\C#\IFace_X64\Card Management\obj\x64\Release\Card.Properties.Resources.resources
+D:\C#\IFace_X64\Card Management\obj\x64\Release\Card.csproj.GenerateResource.Cache
+D:\C#\IFace_X64\Card Management\obj\x64\Release\CardManagement.exe
+D:\C#\IFace_X64\Card Management\obj\x64\Release\CardManagement.pdb

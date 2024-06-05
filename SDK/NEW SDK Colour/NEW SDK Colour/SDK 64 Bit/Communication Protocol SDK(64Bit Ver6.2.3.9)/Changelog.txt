@@ -1,0 +1,3 @@
+6.2.3.9
+	1. Can get real-time event from console program when Calling RegEvent.
+	2. Supports 64-bit SDK.

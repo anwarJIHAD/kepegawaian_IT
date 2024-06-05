@@ -1,0 +1,16 @@
+E:\C#\Black&White\AccessControl\obj\Release\Interop.zkemkeeper.dll
+E:\C#\Black&White\AccessControl\obj\Release\AccessControl.csproj.ResolveComReference.cache
+E:\C#\Black&White\AccessControl\bin\Release\AccessControl.exe
+E:\C#\Black&White\AccessControl\bin\Release\AccessControl.pdb
+E:\C#\Black&White\AccessControl\bin\Release\Interop.zkemkeeper.dll
+E:\C#\Black&White\AccessControl\obj\Release\ResolveAssemblyReference.cache
+E:\C#\Black&White\AccessControl\obj\Release\AccessControl.ACMain.resources
+E:\C#\Black&White\AccessControl\obj\Release\AccessControl.Properties.Resources.resources
+E:\C#\Black&White\AccessControl\obj\Release\AccessControl.csproj.GenerateResource.Cache
+E:\C#\Black&White\AccessControl\obj\Release\AccessControl.exe
+E:\C#\Black&White\AccessControl\obj\Release\AccessControl.pdb
+D:\C#\Black&White_X64\AccessControl\obj\Release\ResolveAssemblyReference.cache
+D:\C#\Black&White_X64\AccessControl\obj\Release\AccessControl.csproj.ResolveComReference.cache
+D:\C#\Black&White_X64\AccessControl\obj\Release\AccessControl.ACMain.resources
+D:\C#\Black&White_X64\AccessControl\obj\Release\AccessControl.Properties.Resources.resources
+D:\C#\Black&White_X64\AccessControl\obj\Release\AccessControl.csproj.GenerateResource.Cache

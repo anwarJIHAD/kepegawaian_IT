@@ -1,0 +1,11 @@
+E:\SDK\脱机通讯开发包-6.3.1.41\Demo\C#\TFT\AttLogs-Temp\bin\x86\Release\AttLogs.exe
+E:\SDK\脱机通讯开发包-6.3.1.41\Demo\C#\TFT\AttLogs-Temp\bin\x86\Release\AttLogs.pdb
+E:\SDK\脱机通讯开发包-6.3.1.41\Demo\C#\TFT\AttLogs-Temp\bin\x86\Release\Interop.zkemkeeper.dll
+E:\SDK\脱机通讯开发包-6.3.1.41\Demo\C#\TFT\AttLogs-Temp\obj\x86\Release\ResolveAssemblyReference.cache
+E:\SDK\脱机通讯开发包-6.3.1.41\Demo\C#\TFT\AttLogs-Temp\obj\x86\Release\Interop.zkemkeeper.dll
+E:\SDK\脱机通讯开发包-6.3.1.41\Demo\C#\TFT\AttLogs-Temp\obj\x86\Release\AttLogs.csproj.ResolveComReference.cache
+E:\SDK\脱机通讯开发包-6.3.1.41\Demo\C#\TFT\AttLogs-Temp\obj\x86\Release\AttLogs.AttLogsMain.resources
+E:\SDK\脱机通讯开发包-6.3.1.41\Demo\C#\TFT\AttLogs-Temp\obj\x86\Release\AttLogs.Properties.Resources.resources
+E:\SDK\脱机通讯开发包-6.3.1.41\Demo\C#\TFT\AttLogs-Temp\obj\x86\Release\AttLogs.csproj.GenerateResource.Cache
+E:\SDK\脱机通讯开发包-6.3.1.41\Demo\C#\TFT\AttLogs-Temp\obj\x86\Release\AttLogs.exe
+E:\SDK\脱机通讯开发包-6.3.1.41\Demo\C#\TFT\AttLogs-Temp\obj\x86\Release\AttLogs.pdb

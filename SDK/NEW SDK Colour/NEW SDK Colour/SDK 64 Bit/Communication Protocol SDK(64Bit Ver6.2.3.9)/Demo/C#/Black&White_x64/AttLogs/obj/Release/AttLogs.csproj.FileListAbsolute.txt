@@ -1,0 +1,15 @@
+E:\C#\Black&White\AttLogs\obj\Release\Interop.zkemkeeper.dll
+E:\C#\Black&White\AttLogs\obj\Release\AttLogs.csproj.ResolveComReference.cache
+E:\C#\Black&White\AttLogs\bin\Release\AttLogs.exe
+E:\C#\Black&White\AttLogs\bin\Release\AttLogs.pdb
+E:\C#\Black&White\AttLogs\bin\Release\Interop.zkemkeeper.dll
+E:\C#\Black&White\AttLogs\obj\Release\ResolveAssemblyReference.cache
+E:\C#\Black&White\AttLogs\obj\Release\AttLogs.AttLogsMain.resources
+E:\C#\Black&White\AttLogs\obj\Release\AttLogs.Properties.Resources.resources
+E:\C#\Black&White\AttLogs\obj\Release\AttLogs.csproj.GenerateResource.Cache
+E:\C#\Black&White\AttLogs\obj\Release\AttLogs.exe
+E:\C#\Black&White\AttLogs\obj\Release\AttLogs.pdb
+D:\C#\Black&White_X64\AttLogs\obj\Release\Interop.zkemkeeper.dll
+D:\C#\Black&White_X64\AttLogs\obj\Release\AttLogs.csproj.ResolveComReference.cache
+D:\C#\Black&White_X64\AttLogs\obj\Release\AttLogs.exe
+D:\C#\Black&White_X64\AttLogs\obj\Release\AttLogs.pdb

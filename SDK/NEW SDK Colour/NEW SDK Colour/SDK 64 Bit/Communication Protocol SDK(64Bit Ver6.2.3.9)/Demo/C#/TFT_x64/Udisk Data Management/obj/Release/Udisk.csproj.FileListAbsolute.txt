@@ -1,0 +1,10 @@
+E:\C#\TFT\Udisk Data Management\bin\Release\Udisk.exe
+E:\C#\TFT\Udisk Data Management\bin\Release\Udisk.pdb
+E:\C#\TFT\Udisk Data Management\obj\Release\ResolveAssemblyReference.cache
+E:\C#\TFT\Udisk Data Management\obj\Release\UdiskData.UDiskDataMain.resources
+E:\C#\TFT\Udisk Data Management\obj\Release\UdiskData.Properties.Resources.resources
+E:\C#\TFT\Udisk Data Management\obj\Release\Udisk.csproj.GenerateResource.Cache
+E:\C#\TFT\Udisk Data Management\obj\Release\Udisk.exe
+E:\C#\TFT\Udisk Data Management\obj\Release\Udisk.pdb
+D:\C#\TFT_X64\Udisk Data Management\obj\Release\Udisk.exe
+D:\C#\TFT_X64\Udisk Data Management\obj\Release\Udisk.pdb

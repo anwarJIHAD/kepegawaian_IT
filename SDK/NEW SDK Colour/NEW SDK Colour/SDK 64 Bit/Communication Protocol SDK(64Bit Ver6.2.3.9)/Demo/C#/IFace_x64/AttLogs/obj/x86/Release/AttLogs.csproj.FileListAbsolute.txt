@@ -1,0 +1,3 @@
+D:\C#\IFace_X64\AttLogs\obj\x86\Release\Interop.zkemkeeper.dll
+D:\C#\IFace_X64\AttLogs\obj\x86\Release\AttLogs.csproj.ResolveComReference.cache
+D:\C#\IFace_X64\AttLogs\obj\x86\Release\ResolveAssemblyReference.cache

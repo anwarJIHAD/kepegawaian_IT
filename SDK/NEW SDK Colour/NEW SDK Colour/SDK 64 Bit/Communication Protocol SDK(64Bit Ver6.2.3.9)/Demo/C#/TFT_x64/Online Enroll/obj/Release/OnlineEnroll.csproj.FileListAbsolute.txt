@@ -1,0 +1,15 @@
+E:\C#\TFT\Online Enroll\obj\Release\Interop.zkemkeeper.dll
+E:\C#\TFT\Online Enroll\obj\Release\OnlineEnroll.csproj.ResolveComReference.cache
+E:\C#\TFT\Online Enroll\bin\Release\OnlineEnroll.exe
+E:\C#\TFT\Online Enroll\bin\Release\OnlineEnroll.pdb
+E:\C#\TFT\Online Enroll\bin\Release\Interop.zkemkeeper.dll
+E:\C#\TFT\Online Enroll\obj\Release\ResolveAssemblyReference.cache
+E:\C#\TFT\Online Enroll\obj\Release\OnlineEnroll.OnEnrollMain.resources
+E:\C#\TFT\Online Enroll\obj\Release\OnlineEnroll.Properties.Resources.resources
+E:\C#\TFT\Online Enroll\obj\Release\OnlineEnroll.csproj.GenerateResource.Cache
+E:\C#\TFT\Online Enroll\obj\Release\OnlineEnroll.exe
+E:\C#\TFT\Online Enroll\obj\Release\OnlineEnroll.pdb
+D:\C#\TFT_X64\Online Enroll\obj\Release\Interop.zkemkeeper.dll
+D:\C#\TFT_X64\Online Enroll\obj\Release\OnlineEnroll.csproj.ResolveComReference.cache
+D:\C#\TFT_X64\Online Enroll\obj\Release\OnlineEnroll.exe
+D:\C#\TFT_X64\Online Enroll\obj\Release\OnlineEnroll.pdb

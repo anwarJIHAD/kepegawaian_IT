@@ -1,0 +1,13 @@
+D:\C#\IFace_X64\RTEvents\obj\x64\Release\Interop.zkemkeeper.dll
+D:\C#\IFace_X64\RTEvents\obj\x64\Release\AxInterop.zkemkeeper.dll
+D:\C#\IFace_X64\RTEvents\obj\x64\Release\RTEvents.csproj.ResolveComReference.cache
+D:\C#\IFace_X64\RTEvents\bin\x64\Release\RTEvents.exe
+D:\C#\IFace_X64\RTEvents\bin\x64\Release\RTEvents.pdb
+D:\C#\IFace_X64\RTEvents\bin\x64\Release\Interop.zkemkeeper.dll
+D:\C#\IFace_X64\RTEvents\bin\x64\Release\AxInterop.zkemkeeper.dll
+D:\C#\IFace_X64\RTEvents\obj\x64\Release\ResolveAssemblyReference.cache
+D:\C#\IFace_X64\RTEvents\obj\x64\Release\RTEvents.RTEventsMain.resources
+D:\C#\IFace_X64\RTEvents\obj\x64\Release\RTEvents.Properties.Resources.resources
+D:\C#\IFace_X64\RTEvents\obj\x64\Release\RTEvents.csproj.GenerateResource.Cache
+D:\C#\IFace_X64\RTEvents\obj\x64\Release\RTEvents.exe
+D:\C#\IFace_X64\RTEvents\obj\x64\Release\RTEvents.pdb

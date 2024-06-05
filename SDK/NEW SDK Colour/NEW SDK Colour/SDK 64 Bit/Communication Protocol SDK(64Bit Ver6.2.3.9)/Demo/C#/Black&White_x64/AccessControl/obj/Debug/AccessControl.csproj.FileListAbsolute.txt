@@ -1,0 +1,11 @@
+E:\C#\Black&White\AccessControl\obj\Debug\Interop.zkemkeeper.dll
+E:\C#\Black&White\AccessControl\obj\Debug\AccessControl.csproj.ResolveComReference.cache
+E:\C#\Black&White\AccessControl\bin\Debug\AccessControl.exe
+E:\C#\Black&White\AccessControl\bin\Debug\AccessControl.pdb
+E:\C#\Black&White\AccessControl\bin\Debug\Interop.zkemkeeper.dll
+E:\C#\Black&White\AccessControl\obj\Debug\ResolveAssemblyReference.cache
+E:\C#\Black&White\AccessControl\obj\Debug\AccessControl.ACMain.resources
+E:\C#\Black&White\AccessControl\obj\Debug\AccessControl.Properties.Resources.resources
+E:\C#\Black&White\AccessControl\obj\Debug\AccessControl.csproj.GenerateResource.Cache
+E:\C#\Black&White\AccessControl\obj\Debug\AccessControl.exe
+E:\C#\Black&White\AccessControl\obj\Debug\AccessControl.pdb
