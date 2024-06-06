@@ -33,14 +33,24 @@
 	<section class="section">
 		<div class="section-header">
 			<h1>Dashboard</h1>
-			<div class="section-header-breadcrumb">
-				<div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-				<div class="breadcrumb-item"><a href="#">Modules</a></div>
-				<div class="breadcrumb-item">Chart.js</div>
-			</div>
+			
 		</div>
 
 		<div class="section-body">
+		<div class="hero mb-4" style="background-color: #F1F8F2;padding: 20px 30px;">
+             <div class="hero-inner container p-0">
+               <div class="row align-items-center">
+                 <div class="col-md-8">
+                   <h2> <span style="font-weight: lighter;color:#000000">السلام عليك, <?= $pegawai['nama']; ?> </span></h2>
+                     <p class="text-justify">Nikmati kemudahan akses informasi dan layanan terkait kepegawaian untuk mendukung karir dan kesejahteraan Anda.
+                     </p>
+                 </div>
+                 <div class="col-md-4 text-center">
+                   <img src="<?= base_url('template/assets/img/logo-dashboard.png') ?>" alt="" class="img-fluid" style="max-width: 50%;">
+                 </div>
+               </div>
+             </div>
+           </div>
 			<!-- <div class="row">
 				<div class="col-12 col-md-6 col-lg-6">
 					<div class="card">

@@ -22,7 +22,9 @@
   <link rel="stylesheet" href="<?= base_url() ?>/template/dist/assets/modules/chocolat/dist/css/chocolat.css">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- Template CSS -->
+
   <link rel="stylesheet" href="<?= base_url() ?>/template/dist/assets/css/style.css">
+  
   <link rel="stylesheet" href="<?= base_url() ?>/template/dist/assets/css/components.css">
   <!-- Start GA -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
@@ -40,6 +42,7 @@
     gtag('config', 'UA-94034622-3');
   </script>
   <!-- /END GA -->
+  <link rel="stylesheet" href="<?= base_url() ?>/template/assets/css/console.css">
   <style>
     @import url('https://fonts.googleapis.com/css?family=Poppins');
 
@@ -68,7 +71,7 @@
 <body>
   <div id="app">
     <div class="main-wrapper main-wrapper-1">
-      <div class="navbar-bg" style="background-color:#81c408;"></div>
+      <div class="navbar-bg" style="background-color:#398B3F;"></div>
       <nav class="navbar navbar-expand-lg main-navbar">
         <form class="form-inline mr-auto">
           <ul class="navbar-nav mr-3">
