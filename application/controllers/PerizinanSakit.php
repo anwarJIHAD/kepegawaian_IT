@@ -7,6 +7,7 @@ class PerizinanSakit extends CI_Controller {
             parent::__construct();
             is_logged_in();
             $this->load->model('PerizinanSakit_model');
+            $this->load->model('Notifikasi_model');
         }
         public function index()
 	{
@@ -57,10 +58,19 @@ class PerizinanSakit extends CI_Controller {
     echo $this->upload->display_errors();
     }
     }
+   
     
         $this->PerizinanSakit_model->insert($data, $upload_image);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat! 
-        data telah berhasil disimpan</div>');
+        $izin_id = $this->db->insert_id();
+        $notif = [
+            'niy' => $niy,
+            'message' => $this->session->userdata('nama') . ' Mengajukan surat sakit', 
+            'created_at' => date('Y-m-d H:i:s'),
+            'jenis' => 'Surat Sakit',
+            'izin_id' => $izin_id, // Menyimpan ID izin ke dalam notifikasi
+        ];
+        $this->Notifikasi_model->insert($notif);
+        $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
         redirect('PerizinanSakit');
     }    
 }
@@ -132,7 +142,7 @@ class PerizinanSakit extends CI_Controller {
     public function hapus($id)
 {
     $this->PerizinanSakit_model->delete($id);
-    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
+    $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
     redirect('PerizinanSakit');
 }
 
@@ -155,8 +165,7 @@ class PerizinanSakit extends CI_Controller {
             ];
             $id = $this->input->post('id');
                 $this->PerizinanSakit_model->update(['id' => $id], $data);
-                $this->session->set_flashdata('message', '<div class="alert alert-success" 
-    role="alert">Data Sakit Berhasil DiUbah!</div>');
+                $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
                 redirect('PerizinanSakit/approvesakit');
     }
     

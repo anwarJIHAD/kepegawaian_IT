@@ -41,20 +41,19 @@ public function tambah_lembur()
     $this->load->view('Lembur/vw_tambah_lembur',$data);
     $this->load->view('layout/footer',$data);
 } else {
-    $niy = $this->session->userdata('niy');
-    $data = [
-        'tanggal' => htmlspecialchars($this->input->post('tanggal', true)),
-        'masuk' => htmlspecialchars($this->input->post('masuk', true)),
-        'pulang' => htmlspecialchars($this->input->post('pulang', true)),
-        'lama_lembur' => htmlspecialchars($this->input->post('lama_lembur', true)),
-        'ket_lembur' => htmlspecialchars($this->input->post('ket_lembur', true)),
-        'niy' => $niy,
-    ];
-    $this->Lembur_model->insert($data);
-    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat! 
-    data telah berhasil disimpan</div>');
-    redirect('Lembur');
-}
+            $niy = $this->session->userdata('niy');
+            $data = [
+                'tanggal' => htmlspecialchars($this->input->post('tanggal', true)),
+                'masuk' => htmlspecialchars($this->input->post('masuk', true)),
+                'pulang' => htmlspecialchars($this->input->post('pulang', true)),
+                'lama_lembur' => htmlspecialchars($this->input->post('lama_lembur', true)),
+                'ket_lembur' => htmlspecialchars($this->input->post('ket_lembur', true)),
+                'niy' => $niy,
+            ];
+            $this->Lembur_model->insert($data);
+            $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+            redirect('Lembur');
+        }
 
 }
 public function edit_lembur($id)
@@ -91,16 +90,15 @@ public function edit_lembur($id)
         ];
         $id = $this->input->post('id');
             $this->Lembur_model->update(['id' => $id], $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" 
-role="alert">Data Lembur Berhasil DiUbah!</div>');
+            $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
             redirect('Lembur');
     }
 }
 
-public function hapus($id)
-{
-    $this->Lembur_model->delete($id);
-    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Lembur Berhasil Dihapus!</div>');
-    redirect('Lembur');
-}
+    public function hapus($id)
+    {
+        $this->Lembur_model->delete($id);
+        $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+        redirect('Lembur');
+    }
 }

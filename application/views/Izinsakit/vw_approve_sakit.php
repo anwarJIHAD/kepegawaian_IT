@@ -11,7 +11,7 @@
         <div class="col">
           <div class="card-body">
             <div class="table-responsive">
-            <table class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0;width:100%;" id="table-1">
+            <table class="table table-bordered  nowrap" style="border-collapse: collapse; border-spacing: 0;width:100%;" id="table-1">
                 <thead>
                 <tr class="table-success">
                     <th>No</th>

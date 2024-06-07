@@ -155,8 +155,8 @@ class Pegawai extends CI_Controller
     public function hapus($id)
     {
         $this->Pegawai_model->delete($id);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Pegawai Berhasil Dihapus!</div>');
-        redirect('Pegawai');
+        $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+            redirect('Pegawai');
     }
 
 

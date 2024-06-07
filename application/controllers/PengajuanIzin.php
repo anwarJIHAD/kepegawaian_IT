@@ -7,6 +7,7 @@ class PengajuanIzin extends CI_Controller {
             parent::__construct();
             is_logged_in();
             $this->load->model('Perizinan_model');
+            $this->load->model('Notifikasi_model');
         }
         public function index()
 	{
@@ -47,12 +48,20 @@ class PengajuanIzin extends CI_Controller {
                         'niy' => $niy,
                         'status' => 'Diajukan',
                     ];
-
+                    
                     // print_r($this->session->userdata());
                     
                     $this->Perizinan_model->insert($data);
-                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat! 
-                    data telah berhasil disimpan</div>');
+                    $izin_id = $this->db->insert_id();
+                    $notif = [
+                        'niy' => $niy,
+                        'message' => $this->session->userdata('nama') . ' Mengajukan surat izin', 
+                        'created_at' => date('Y-m-d H:i:s'),
+                        'jenis' => 'Surat Izin',
+                        'izin_id' => $izin_id, // Menyimpan ID izin ke dalam notifikasi
+                    ];
+                    $this->Notifikasi_model->insert($notif);
+                    $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
                     redirect('PengajuanIzin');
                 }    
 }
@@ -88,7 +97,7 @@ public function editizin($id)
         ];
         
         $this->Perizinan_model->update(['id' => $izin_id], $data);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Izin Berhasil DiUbah!</div>');
+        $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
         redirect('PengajuanIzin');
     }
 }
@@ -96,7 +105,7 @@ public function editizin($id)
     public function hapus($id)
     {
         $this->Perizinan_model->delete($id);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Izin Berhasil Dihapus!</div>');
+        $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
         redirect('PengajuanIzin');
     }
     
@@ -118,8 +127,7 @@ public function editizin($id)
             ];
             $id = $this->input->post('id');
                 $this->Perizinan_model->update(['id' => $id], $data);
-                $this->session->set_flashdata('message', '<div class="alert alert-success" 
-    role="alert">Data Izin Berhasil DiUbah!</div>');
+                $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
                 redirect('PengajuanIzin/approveizin');
     }
 } 

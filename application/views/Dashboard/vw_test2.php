@@ -1,3 +1,31 @@
+<style>
+	.card-body {
+		font-size: 14px;
+	}
+
+	.info {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 8px;
+	}
+
+	.info .details {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.info .details .id-name {
+		font-weight: bold;
+	}
+
+	.info .timestamp {
+		background-color: #e0e0e0;
+		padding: 5px 10px;
+		border-radius: 5px;
+		font-size: 12px;
+	}
+</style>
 <!-- <div class="main-content">
 		<section class="section">
 				<div class="section-header">
@@ -33,24 +61,25 @@
 	<section class="section">
 		<div class="section-header">
 			<h1>Dashboard</h1>
-			
+
 		</div>
 
 		<div class="section-body">
-		<div class="hero mb-4" style="background-color: #F1F8F2;padding: 20px 30px;">
-             <div class="hero-inner container p-0">
-               <div class="row align-items-center">
-                 <div class="col-md-8">
-                   <h2> <span style="font-weight: lighter;color:#000000">السلام عليك, <?= $pegawai['nama']; ?> </span></h2>
-                     <p class="text-justify">Nikmati kemudahan akses informasi dan layanan terkait kepegawaian untuk mendukung karir dan kesejahteraan Anda.
-                     </p>
-                 </div>
-                 <div class="col-md-4 text-center">
-                   <img src="<?= base_url('template/assets/img/logo-dashboard.png') ?>" alt="" class="img-fluid" style="max-width: 50%;">
-                 </div>
-               </div>
-             </div>
-           </div>
+			<div class="hero mb-4" style="background-color: #F1F8F2;padding: 20px 30px;">
+				<div class="hero-inner container p-0">
+					<div class="row align-items-center">
+						<div class="col-md-8">
+							<h2> <span style="font-weight: lighter;color:#000000">السلام عليك, <?= $pegawai['nama']; ?> </span></h2>
+							<p class="text-justify">Nikmati kemudahan akses informasi dan layanan terkait kepegawaian untuk mendukung karir dan kesejahteraan Anda.
+							</p>
+						</div>
+						<div class="col-md-4 text-center">
+							<img src="<?= base_url('template/assets/img/logo-dashboard.png') ?>" alt="" class="img-fluid" style="max-width: 50%;">
+						</div>
+					</div>
+				</div>
+				          
+			</div>
 			<!-- <div class="row">
 				<div class="col-12 col-md-6 col-lg-6">
 					<div class="card">
@@ -74,7 +103,7 @@
 				</div>
 			</div> -->
 
-			<!-- kepala sekolah -->		
+			<!-- kepala sekolah -->
 			<?php if ($this->session->userdata('role') == 'kepala sekolah') { ?>
 				<div class="row">
 					<div class="col-lg-3 col-md-6 col-sm-6 col-12">
@@ -138,296 +167,343 @@
 						</div>
 					</div>
 				</div>
-
+				<div class="row">
+					<div class="col">
+						<div class="card card-primary">
+							<div class="card-header">
+								<h4>Pengajuan Surat Cuti</h4>
+							</div>
+							<div class="card-body">
+							<?php foreach ($notif_cuti as $us) : ?>
+								<div class="info">
+									<div class="details">
+										<div><?= $us['message']; ?></div>
+									</div>
+									<div class="timestamp"><?= $us['created_at']; ?></div>
+								</div>
+								<?php endforeach; ?>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card card-primary">
+							<div class="card-header">
+								<h4>Pengajuan Surat Sakit</h4>
+							</div>
+							<div class="card-body">
+							<?php foreach ($notif_sakit as $us) : ?>
+								<div class="info">
+									<div class="details">
+										<div><?= $us['message']; ?></div>
+									</div>
+									<div class="timestamp"><?= $us['created_at']; ?></div>
+								</div>
+								<?php endforeach; ?>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card card-primary">
+							<div class="card-header">
+								<h4>Pengajuan Surat Izin</h4>
+							</div>
+							<div class="card-body">
+							<?php foreach ($notif_izin as $us) : ?>
+								<div class="info">
+									<div class="details">
+										<div><?= $us['message']; ?></div>
+									</div>
+									<div class="timestamp"><?= $us['created_at']; ?></div>
+								</div>
+								<?php endforeach; ?>
+							</div>
+						</div>
+				</div>
 				<!-- pegawai -->
 			<?php } else if ($this->session->userdata('role') == 'guru' || $this->session->userdata('role') == 'pustakawati') { ?>
-					<div class="row">
-						<div class="col-lg-3 col-md-6 col-sm-6 col-12">
-							<div class="card card-statistic-1">
-								<div class="card-icon bg-success">
-									<i class="far fa-newspaper"></i>
+				<div class="row">
+					<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+						<div class="card card-statistic-1">
+							<div class="card-icon bg-success">
+								<i class="far fa-newspaper"></i>
+							</div>
+							<div class="card-wrap">
+								<div class="card-header">
+									<h4>Jumlah Izin Cuti (Total)</h4>
 								</div>
-								<div class="card-wrap">
-									<div class="card-header">
-										<h4>Jumlah Izin Cuti (Total)</h4>
-									</div>
-									<div class="card-body">
+								<div class="card-body">
 									<?php echo $jumlah_cuti_pegawai; ?>
-									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-3 col-md-6 col-sm-6 col-12">
-							<div class="card card-statistic-1">
-								<div class="card-icon bg-danger">
-									<i class="far fa-file"></i>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+						<div class="card card-statistic-1">
+							<div class="card-icon bg-danger">
+								<i class="far fa-file"></i>
+							</div>
+							<div class="card-wrap">
+								<div class="card-header">
+									<h4>Jumlah Izin Sakit (Total)</h4>
 								</div>
-								<div class="card-wrap">
-									<div class="card-header">
-										<h4>Jumlah Izin Sakit (Total)</h4>
-									</div>
-									<div class="card-body">
+								<div class="card-body">
 									<?php echo $jumlah_sakit_pegawai; ?>
-									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-3 col-md-6 col-sm-6 col-12">
-							<div class="card card-statistic-1">
-								<div class="card-icon bg-warning">
-									<i class="far fa-file"></i>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+						<div class="card card-statistic-1">
+							<div class="card-icon bg-warning">
+								<i class="far fa-file"></i>
+							</div>
+							<div class="card-wrap">
+								<div class="card-header">
+									<h4>Jumlah Pegawai Lembur (Total)</h4>
 								</div>
-								<div class="card-wrap">
-									<div class="card-header">
-										<h4>Jumlah Pegawai Lembur (Total)</h4>
-									</div>
-									<div class="card-body">
+								<div class="card-body">
 									<?php echo $jumlah_lembur_pegawai; ?>
-									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="row">
+				</div>
+				<div class="row">
 
-						<!-- chart guru - jumlah cuti sakit -->
-						<div class="col-lg-6">
-							<div class="card">
-								<div class="card-header border-0">
-									<div class="d-flex justify-content-between">
-										<h4 class="card-title">Izin Sakit </h4>
-									</div>
+					<!-- chart guru - jumlah cuti sakit -->
+					<div class="col-lg-6">
+						<div class="card">
+							<div class="card-header border-0">
+								<div class="d-flex justify-content-between">
+									<h4 class="card-title">Izin Sakit </h4>
 								</div>
-								<div class="card-body">
-									<div class="d-flex- flex-row-reverse col-sm-4 ml-auto">
-										<div class="input-group">
-											<select style="width:20%;" id="search_sakitguru" name="keyword" class="form-control"
-												value="<?= set_value('keyword'); ?>">
-												<option class='text-center dropdown-toggle' value="">Semua</option>
-											<?php foreach ($tahun as $p): ?>
-													<option value="<?= $p; ?>">
+							</div>
+							<div class="card-body">
+								<div class="d-flex- flex-row-reverse col-sm-4 ml-auto">
+									<div class="input-group">
+										<select style="width:20%;" id="search_sakitguru" name="keyword" class="form-control" value="<?= set_value('keyword'); ?>">
+											<option class='text-center dropdown-toggle' value="">Semua</option>
+											<?php foreach ($tahun as $p) : ?>
+												<option value="<?= $p; ?>">
 													<?= $p; ?>
-													</option>
-											<?php endforeach; ?>>
+												</option>
+												<?php endforeach; ?>>
 
-											</select>
-										</div>
-										<p class="d-flex flex-column">
-
-										</p>
-										<p class="ml-auto d-flex flex-column text-right">
-
-											<span class="text-muted"></span>
-										</p>
+										</select>
 									</div>
-									<!-- /.d-flex -->
+									<p class="d-flex flex-column">
 
-									<div class="d-flex flex-row-reverse col-sm-6 ml-auto">
-										<div class='coba3'>
-											<div id="sakit_guru" style="height:350px; width:500px;" height="163"></div>
-										</div>
+									</p>
+									<p class="ml-auto d-flex flex-column text-right">
+
+										<span class="text-muted"></span>
+									</p>
+								</div>
+								<!-- /.d-flex -->
+
+								<div class="d-flex flex-row-reverse col-sm-6 ml-auto">
+									<div class='coba3'>
+										<div id="sakit_guru" style="height:350px; width:500px;" height="163"></div>
 									</div>
 								</div>
 							</div>
-							<!-- /.card -->
 						</div>
-						<div class="col-lg-6">
-							<div class="card">
-								<div class="card-header border-0">
-									<div class="d-flex justify-content-between">
-										<h4 class="card-title">izin Cuti</h4>
-									</div>
-
-
+						<!-- /.card -->
+					</div>
+					<div class="col-lg-6">
+						<div class="card">
+							<div class="card-header border-0">
+								<div class="d-flex justify-content-between">
+									<h4 class="card-title">izin Cuti</h4>
 								</div>
-								<div class="ml-4" style="color:red">
-									<div class="d-flex justify-content-start">
-										<div class="col-3">Sisa Izin Cuti : </div>
-										<div id="sisa" class="col-2 text-success ml-0">
+
+
+							</div>
+							<div class="ml-4" style="color:red">
+								<div class="d-flex justify-content-start">
+									<div class="col-3">Sisa Izin Cuti : </div>
+									<div id="sisa" class="col-2 text-success ml-0">
 										<?php echo (22 - $jumlah_cuti_pegawai); ?>
-										</div>
-									</div>
-								</div>
-
-								<div class="card-body">
-									<div class="d-flex- flex-row-reverse col-sm-4 ml-auto">
-										<div class="input-group d-flex justify-content-between">
-											<select style="width:20%;" id="search_cutiguru" name="keyword" class="form-control"
-												value="<?= set_value('keyword'); ?>">
-												<option class='text-center dropdown-toggle' value="">Semua</option>
-											<?php foreach ($tahun as $p): ?>
-													<option value="<?= $p; ?>">
-													<?= $p; ?>
-													</option>
-											<?php endforeach; ?>>
-											</select>
-										</div>
-										<p class="d-flex flex-column">
-										</p>
-										<p class="ml-auto d-flex flex-column text-right">
-											<span class="text-muted"></span>
-										</p>
-									</div>
-									<!-- /.d-flex -->
-
-									<div class="d-flex flex-row-reverse col-sm-6 ml-auto">
-										<div class='coba3'>
-											<div id="cuti_guru" style="height:350px; width:500px;" height="163"></div>
-										</div>
 									</div>
 								</div>
 							</div>
-							<!-- /.card -->
-						</div>div>
-					</div>
+
+							<div class="card-body">
+								<div class="d-flex- flex-row-reverse col-sm-4 ml-auto">
+									<div class="input-group d-flex justify-content-between">
+										<select style="width:20%;" id="search_cutiguru" name="keyword" class="form-control" value="<?= set_value('keyword'); ?>">
+											<option class='text-center dropdown-toggle' value="">Semua</option>
+											<?php foreach ($tahun as $p) : ?>
+												<option value="<?= $p; ?>">
+													<?= $p; ?>
+												</option>
+												<?php endforeach; ?>>
+										</select>
+									</div>
+									<p class="d-flex flex-column">
+									</p>
+									<p class="ml-auto d-flex flex-column text-right">
+										<span class="text-muted"></span>
+									</p>
+								</div>
+								<!-- /.d-flex -->
+
+								<div class="d-flex flex-row-reverse col-sm-6 ml-auto">
+									<div class='coba3'>
+										<div id="cuti_guru" style="height:350px; width:500px;" height="163"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /.card -->
+					</div>div>
+				</div>
 
 
-					<!-- Tata Usaha -->
+				<!-- Tata Usaha -->
 			<?php } else if ($this->session->userdata('role') == 'Admin') { ?>
-						<div class="row">
-							<div class="col-lg-3 col-md-6 col-sm-6 col-12">
-								<div class="card card-statistic-1">
-									<div class="card-icon bg-primary">
-										<i class="far fa-user"></i>
-									</div>
-									<div class="card-wrap">
-										<div class="card-header">
-											<h4>Total Pegawai</h4>
-										</div>
-										<div class="card-body">
+				<div class="row">
+					<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+						<div class="card card-statistic-1">
+							<div class="card-icon bg-primary">
+								<i class="far fa-user"></i>
+							</div>
+							<div class="card-wrap">
+								<div class="card-header">
+									<h4>Total Pegawai</h4>
+								</div>
+								<div class="card-body">
 									<?php echo $jumlah_pegawai; ?>
-										</div>
-									</div>
 								</div>
 							</div>
-							<div class="col-lg-3 col-md-6 col-sm-6 col-12">
-								<div class="card card-statistic-1">
-									<div class="card-icon bg-success">
-										<i class="far fa-newspaper"></i>
-									</div>
-									<div class="card-wrap">
-										<div class="card-header">
-											<h4>Jumlah Izin Cuti</h4>
-										</div>
-										<div class="card-body">
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+						<div class="card card-statistic-1">
+							<div class="card-icon bg-success">
+								<i class="far fa-newspaper"></i>
+							</div>
+							<div class="card-wrap">
+								<div class="card-header">
+									<h4>Jumlah Izin Cuti</h4>
+								</div>
+								<div class="card-body">
 									<?php echo $jumlah_cuti; ?>
-										</div>
-									</div>
 								</div>
 							</div>
-							<div class="col-lg-3 col-md-6 col-sm-6 col-12">
-								<div class="card card-statistic-1">
-									<div class="card-icon bg-danger">
-										<i class="far fa-file"></i>
-									</div>
-									<div class="card-wrap">
-										<div class="card-header">
-											<h4>Jumlah Izin Sakit</h4>
-										</div>
-										<div class="card-body">
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+						<div class="card card-statistic-1">
+							<div class="card-icon bg-danger">
+								<i class="far fa-file"></i>
+							</div>
+							<div class="card-wrap">
+								<div class="card-header">
+									<h4>Jumlah Izin Sakit</h4>
+								</div>
+								<div class="card-body">
 									<?php echo $jumlah_sakit; ?>
-										</div>
-									</div>
 								</div>
 							</div>
-							<div class="col-lg-3 col-md-6 col-sm-6 col-12">
-								<div class="card card-statistic-1">
-									<div class="card-icon bg-warning">
-										<i class="far fa-file"></i>
-									</div>
-									<div class="card-wrap">
-										<div class="card-header">
-											<h4>Jumlah Pegawai Lembur</h4>
-										</div>
-										<div class="card-body">
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+						<div class="card card-statistic-1">
+							<div class="card-icon bg-warning">
+								<i class="far fa-file"></i>
+							</div>
+							<div class="card-wrap">
+								<div class="card-header">
+									<h4>Jumlah Pegawai Lembur</h4>
+								</div>
+								<div class="card-body">
 									<?php echo $jumlah_lembur; ?>
-										</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="card">
+							<div class="card-header border-0">
+								<div class="d-flex justify-content-between">
+									<h4 class="card-title">Jumlah Perizinan</h4>
+								</div>
+							</div>
+							<div class="card-body">
+								<div class="d-flex- flex-row-reverse col-sm-4 ml-auto">
+									<div class="input-group">
+										<select style="width:20%;" id="Psearch1" name="keyword" class="form-control" value="<?= set_value('pelaksana'); ?>">
+											<option class='text-center dropdown-toggle' value="">Semua</option>
+											<?php foreach ($tahun as $p) : ?>
+												<option value="<?= $p; ?>">
+													<?= $p; ?>
+												</option>
+												<?php endforeach; ?>>
+
+										</select>
+									</div>
+									<p class="d-flex flex-column">
+
+									</p>
+									<p class="ml-auto d-flex flex-column text-right">
+
+										<span class="text-muted"></span>
+									</p>
+								</div>
+								<!-- /.d-flex -->
+
+								<div class="d-flex flex-row-reverse col-sm-6 ml-auto">
+									<div class='coba3'>
+										<div id="colChart" style="height:350px; width:500px;" height="163"></div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-lg-6">
-								<div class="card">
-									<div class="card-header border-0">
-										<div class="d-flex justify-content-between">
-											<h4 class="card-title">Jumlah Perizinan</h4>
-										</div>
-									</div>
-									<div class="card-body">
-										<div class="d-flex- flex-row-reverse col-sm-4 ml-auto">
-											<div class="input-group">
-												<select style="width:20%;" id="Psearch1" name="keyword" class="form-control"
-													value="<?= set_value('pelaksana'); ?>">
-													<option class='text-center dropdown-toggle' value="">Semua</option>
-											<?php foreach ($tahun as $p): ?>
-														<option value="<?= $p; ?>">
-													<?= $p; ?>
-														</option>
-											<?php endforeach; ?>>
-
-												</select>
-											</div>
-											<p class="d-flex flex-column">
-
-											</p>
-											<p class="ml-auto d-flex flex-column text-right">
-
-												<span class="text-muted"></span>
-											</p>
-										</div>
-										<!-- /.d-flex -->
-
-										<div class="d-flex flex-row-reverse col-sm-6 ml-auto">
-											<div class='coba3'>
-												<div id="colChart" style="height:350px; width:500px;" height="163"></div>
-											</div>
-										</div>
-									</div>
+						<!-- /.card -->
+					</div>
+					<div class="col-lg-6">
+						<div class="card">
+							<div class="card-header border-0">
+								<div class="d-flex justify-content-between">
+									<h4 class="card-title">Jabatan</h4>
 								</div>
-								<!-- /.card -->
 							</div>
-							<div class="col-lg-6">
-								<div class="card">
-									<div class="card-header border-0">
-										<div class="d-flex justify-content-between">
-											<h4 class="card-title">Jabatan</h4>
-										</div>
-									</div>
-									<div class="card-body">
-										<div class="d-flex- flex-row-reverse col-sm-4 ml-auto">
-											<div class="input-group">
-												<select style="width:20%;" id="Psearch1" name="keyword" class="form-control"
-													value="<?= set_value('pelaksana'); ?>">
-													<option class='text-center dropdown-toggle' value="">Semua</option>
-											<?php foreach ($tahun as $p): ?>
-														<option value="<?= $p; ?>">
+							<div class="card-body">
+								<div class="d-flex- flex-row-reverse col-sm-4 ml-auto">
+									<div class="input-group">
+										<select style="width:20%;" id="Psearch1" name="keyword" class="form-control" value="<?= set_value('pelaksana'); ?>">
+											<option class='text-center dropdown-toggle' value="">Semua</option>
+											<?php foreach ($tahun as $p) : ?>
+												<option value="<?= $p; ?>">
 													<?= $p; ?>
-														</option>
-											<?php endforeach; ?>>
+												</option>
+												<?php endforeach; ?>>
 
-												</select>
-											</div>
-											<p class="d-flex flex-column">
+										</select>
+									</div>
+									<p class="d-flex flex-column">
 
-											</p>
-											<p class="ml-auto d-flex flex-column text-right">
+									</p>
+									<p class="ml-auto d-flex flex-column text-right">
 
-												<span class="text-muted"></span>
-											</p>
-										</div>
-										<!-- /.d-flex -->
+										<span class="text-muted"></span>
+									</p>
+								</div>
+								<!-- /.d-flex -->
 
-										<div class="d-flex flex-row-reverse col-sm-6 ml-auto">
-											<div class='coba3'>
-												<div id="colChart" style="height:350px; width:500px;" height="163"></div>
-											</div>
-										</div>
+								<div class="d-flex flex-row-reverse col-sm-6 ml-auto">
+									<div class='coba3'>
+										<div id="colChart" style="height:350px; width:500px;" height="163"></div>
 									</div>
 								</div>
-								<!-- /.card -->
 							</div>
 						</div>
+						<!-- /.card -->
+					</div>
+				</div>
 			<?php } else { ?>
 
 			<?php } ?>
@@ -437,19 +513,20 @@
 		</div>
 	</section>
 
-	<script src="https://code.jquery.com/jquery-3.7.1.js"
-		integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 	<script>
-		$(document).ready(function () {
+		$(document).ready(function() {
 			let tahun = '';
 
 			//dashboard TU - perizinan
 			$.ajax({
 				url: '<?php echo base_url('Dashboard/getPerizinan'); ?>',
 				type: 'GET',
-				data: { tahun: tahun },
+				data: {
+					tahun: tahun
+				},
 				dataType: 'json',
-				success: function (response) {
+				success: function(response) {
 					// alert(response);
 					// Tampilkan data yang diterima dari server
 					var month_1 = response['month_1']
@@ -478,7 +555,9 @@
 					var month_11_ = response['month_11_']
 					var month_12_ = response['month_12_']
 
-					google.charts.load('current', { 'packages': ['bar'] });
+					google.charts.load('current', {
+						'packages': ['bar']
+					});
 					google.charts.setOnLoadCallback(drawChart);
 
 					function drawChart() {
@@ -512,7 +591,7 @@
 
 
 				},
-				error: function (xhr, textStatus, errorThrown) {
+				error: function(xhr, textStatus, errorThrown) {
 					if (xhr.status === 500) {
 						// Kesalahan server internal, tampilkan pesan kesalahan
 						alert('Terjadi kesalahan saat mengambil data1: ');
@@ -522,14 +601,16 @@
 					}
 				}
 			});
-			$('#Psearch1').change(function () {
+			$('#Psearch1').change(function() {
 				var tahun = $(this).val().toLowerCase();
 				$.ajax({
 					url: '<?php echo base_url('Dashboard/getPerizinan'); ?>',
 					type: 'GET',
-					data: { tahun: tahun },
+					data: {
+						tahun: tahun
+					},
 					dataType: 'json',
-					success: function (response) {
+					success: function(response) {
 						// alert(response);
 						// Tampilkan data yang diterima dari server
 						var month_1 = response['month_1']
@@ -558,7 +639,9 @@
 						var month_11_ = response['month_11_']
 						var month_12_ = response['month_12_']
 
-						google.charts.load('current', { 'packages': ['bar'] });
+						google.charts.load('current', {
+							'packages': ['bar']
+						});
 						google.charts.setOnLoadCallback(drawChart);
 
 						function drawChart() {
@@ -593,7 +676,7 @@
 
 
 					},
-					error: function (xhr, textStatus, errorThrown) {
+					error: function(xhr, textStatus, errorThrown) {
 						if (xhr.status === 500) {
 							// Kesalahan server internal, tampilkan pesan kesalahan
 							alert('Terjadi kesalahan saat mengambil data1: ');
@@ -609,9 +692,11 @@
 			$.ajax({
 				url: '<?php echo base_url('Dashboard/getsakit_guru'); ?>',
 				type: 'GET',
-				data: { tahun: tahun },
+				data: {
+					tahun: tahun
+				},
 				dataType: 'json',
-				success: function (response) {
+				success: function(response) {
 					// alert(response);
 					// Tampilkan data yang diterima dari server
 					var month_1_ = response['month_1_']
@@ -627,7 +712,9 @@
 					var month_11_ = response['month_11_']
 					var month_12_ = response['month_12_']
 
-					google.charts.load('current', { 'packages': ['bar'] });
+					google.charts.load('current', {
+						'packages': ['bar']
+					});
 					google.charts.setOnLoadCallback(drawChart);
 
 					function drawChart() {
@@ -661,7 +748,7 @@
 
 
 				},
-				error: function (xhr, textStatus, errorThrown) {
+				error: function(xhr, textStatus, errorThrown) {
 					if (xhr.status === 500) {
 						// Kesalahan server internal, tampilkan pesan kesalahan
 						alert('Terjadi kesalahan saat mengambil data1: ');
@@ -671,14 +758,16 @@
 					}
 				}
 			});
-			$('#search_sakitguru').change(function () {
+			$('#search_sakitguru').change(function() {
 				var tahun = $(this).val().toLowerCase();
 				$.ajax({
 					url: '<?php echo base_url('Dashboard/getsakit_guru'); ?>',
 					type: 'GET',
-					data: { tahun: tahun },
+					data: {
+						tahun: tahun
+					},
 					dataType: 'json',
-					success: function (response) {
+					success: function(response) {
 						// alert(response);
 						// Tampilkan data yang diterima dari server
 						var month_1_ = response['month_1_']
@@ -694,7 +783,9 @@
 						var month_11_ = response['month_11_']
 						var month_12_ = response['month_12_']
 
-						google.charts.load('current', { 'packages': ['bar'] });
+						google.charts.load('current', {
+							'packages': ['bar']
+						});
 						google.charts.setOnLoadCallback(drawChart2);
 
 						function drawChart2() {
@@ -728,7 +819,7 @@
 
 
 					},
-					error: function (xhr, textStatus, errorThrown) {
+					error: function(xhr, textStatus, errorThrown) {
 						if (xhr.status === 500) {
 							// Kesalahan server internal, tampilkan pesan kesalahan
 							alert('Terjadi kesalahan saat mengambil data1: ');
@@ -744,9 +835,11 @@
 			$.ajax({
 				url: '<?php echo base_url('Dashboard/getcuti_guru'); ?>',
 				type: 'GET',
-				data: { tahun: tahun },
+				data: {
+					tahun: tahun
+				},
 				dataType: 'json',
-				success: function (response) {
+				success: function(response) {
 					// alert(response);
 					// Tampilkan data yang diterima dari server
 					var month_1_ = response['month_1_']
@@ -762,7 +855,9 @@
 					var month_11_ = response['month_11_']
 					var month_12_ = response['month_12_']
 
-					google.charts.load('current', { 'packages': ['bar'] });
+					google.charts.load('current', {
+						'packages': ['bar']
+					});
 					google.charts.setOnLoadCallback(drawChart);
 
 					function drawChart() {
@@ -796,7 +891,7 @@
 
 
 				},
-				error: function (xhr, textStatus, errorThrown) {
+				error: function(xhr, textStatus, errorThrown) {
 					if (xhr.status === 500) {
 						// Kesalahan server internal, tampilkan pesan kesalahan
 						alert('Terjadi kesalahan saat mengambil data1: ');
@@ -806,14 +901,16 @@
 					}
 				}
 			});
-			$('#search_cutiguru').change(function () {
+			$('#search_cutiguru').change(function() {
 				var tahun = $(this).val().toLowerCase();
 				$.ajax({
 					url: '<?php echo base_url('Dashboard/getcuti_guru'); ?>',
 					type: 'GET',
-					data: { tahun: tahun },
+					data: {
+						tahun: tahun
+					},
 					dataType: 'json',
-					success: function (response) {
+					success: function(response) {
 						// alert(response);
 						// Tampilkan data yang diterima dari server
 						var month_1_ = response['month_1_']
@@ -829,7 +926,9 @@
 						var month_11_ = response['month_11_']
 						var month_12_ = response['month_12_']
 
-						google.charts.load('current', { 'packages': ['bar'] });
+						google.charts.load('current', {
+							'packages': ['bar']
+						});
 						google.charts.setOnLoadCallback(drawChart2);
 
 						function drawChart2() {
@@ -869,7 +968,7 @@
 
 
 					},
-					error: function (xhr, textStatus, errorThrown) {
+					error: function(xhr, textStatus, errorThrown) {
 						if (xhr.status === 500) {
 							// Kesalahan server internal, tampilkan pesan kesalahan
 							alert('Terjadi kesalahan saat mengambil data1: ');
@@ -887,8 +986,11 @@
 
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script type="text/javascript">
-		google.charts.load("current", { packages: ["corechart"] });
+		google.charts.load("current", {
+			packages: ["corechart"]
+		});
 		google.charts.setOnLoadCallback(drawChart);
+
 		function drawChart() {
 			var data = google.visualization.arrayToDataTable([
 				['Task', 'Hours per Day'],

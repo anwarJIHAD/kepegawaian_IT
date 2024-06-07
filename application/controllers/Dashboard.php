@@ -9,7 +9,10 @@ class Dashboard extends CI_Controller
 		is_logged_in();
 		$this->load->model('PerizinanCuti_model');
 		$this->load->model('PerizinanSakit_model');
+		$this->load->model('Perizinan_model');
 		$this->load->model('Dashboard_model');
+		$this->load->model('Notifikasi_model');
+
 
 	}
 	public function index()
@@ -22,6 +25,9 @@ class Dashboard extends CI_Controller
 		$data['jumlah_sakit_pegawai'] = $this->Dashboard_model->jumlah_sakit_pegawai();
 		$data['jumlah_lembur_pegawai'] = $this->Dashboard_model->jumlah_lembur_pegawai();
 		$data['jumlah_cuti_pegawai'] = $this->Dashboard_model->jumlah_cuti_pegawai();
+		$data['notif_cuti'] = $this->Notifikasi_model->getcuti(); 
+		$data['notif_sakit'] = $this->Notifikasi_model->getsakit(); 
+		$data['notif_izin'] = $this->Notifikasi_model->getizin(); 
 		// var_dump($data['jumlah_pegawai']);
 		// die;
 		$tahun_sekarang = date('Y');
