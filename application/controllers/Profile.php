@@ -67,8 +67,7 @@ class Profile extends CI_Controller
 			$user = $this->db->get_where('pegawai', ['niy' => $this->session->userdata('niy')])->row_array();
 			$id = $user['id'];
 			$this->Pegawai_model->update(['id' => $id], $data);
-			$this->session->set_flashdata('message', '<div class="alert alert-success" 
-			role="alert">Profil Berhasil Diubah!</div>');
+			$this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
 			redirect('Profile');
 		}
 	}

@@ -43,7 +43,7 @@
                           <span class="badge badge-warning"><?= $us['status']; ?></span>
                         <?php } ?>
                         </td>
-                      <td><button class="btn btn-primary" data-toggle="modal" data-target="#modal<?= $us['id_sakit']; ?>">Ubah Status</button></td>
+                      <td><button class="btn btn-light" data-toggle="modal" data-target="#modal<?= $us['id_sakit']; ?>"><i class="bi bi-pencil-square"></i> Ubah Status</button></td>
                       </td>
                     </tr>
                     <?php $i++; ?>
