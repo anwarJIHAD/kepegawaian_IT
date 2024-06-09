@@ -59,7 +59,7 @@
                   <?= form_error('alasan_izin', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
               </div>
-              <a href="<?= base_url('Console/izin') ?>" class="btn btn-light">Tutup</a>
+              <a href="<?= base_url('PengajuanIzin') ?>" class="btn btn-light">Tutup</a>
               <button type="submit" name="tambah" class="btn btn-primary float-right">Simpan</button>
             </form>
           </div>

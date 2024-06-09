@@ -63,7 +63,7 @@
                       Login
                     </button>
                     <div class="float-right">
-                        <a href="auth-forgot-password.html" class="text-small">
+                        <a href="<?= base_url('auth/forgetpass')?>" class="text-small">
                           Forgot Password?
                         </a>
                       </div>

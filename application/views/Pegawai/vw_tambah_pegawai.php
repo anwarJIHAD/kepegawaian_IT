@@ -116,7 +116,7 @@
             </div>
         </div>
       </div>
-      <a href="<?= base_url('Console/pegawai') ?>" class="btn btn-light">Tutup</a>
+      <a href="<?= base_url('pegawai') ?>" class="btn btn-light">Tutup</a>
       <button type="submit" name="tambah" class="btn btn-primary float-right">Simpan</button>
 
       </form>
