@@ -40,10 +40,23 @@
                       <td><?= $us['hingga_tgl']; ?></td>
                       <td><?= $us['ket_sakit']; ?></td>
                       <td>
+                        <?php
+                          $file = explode(".", $us['file_sakit']);
+                          $file_ext = $file[count($file) - 1];
+                          $output_html = "                              
+                            <a href='" . base_url('template/assets/img/suratsakit/') . $us['file_sakit'] . "' class='chocolat-image' title='" . $us['file_sakit'] . "' style='color: #68A805;'>Lihat File</a>
+                          ";
+
+                          if(strtolower($file_ext) == "pdf") {
+                            $output_html = "                              
+                              <a href='" . base_url('template/assets/img/suratsakit/') . $us['file_sakit'] . "' target='  _blank' style='color: #68A805;'>Lihat File</a>
+                            ";
+                          }
+                        ?>
                         <div class="chocolat-parent">
                           <a href="<?= base_url('template/assets/img/suratsakit/')  . $us['file_sakit']; ?>" class="chocolat-image" title="<?= $us['file_sakit']; ?>">
                             <div>
-                              <a href="<?= base_url('template/assets/img/suratsakit/')  . $us['file_sakit']; ?>" class="chocolat-image" title="<?= $us['file_sakit']; ?>" style="color: #68A805;">Lihat File</a>
+                              <?= $output_html ?>
                             </div>
                           </a>
                         </div>

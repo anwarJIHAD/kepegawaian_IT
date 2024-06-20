@@ -43,6 +43,17 @@
             <div class="form-group row">
               <label class="col-sm-3 col-form-label">Tujuan Izin</label>
               <div class="col-sm-9">
+
+                <?php
+                  $jenis_tujuan_izin = [
+                    'Tidak Hadir ke Sekolah',
+                    'Terlambat Hadir ke Sekolah',
+                    'Izin Keluar',
+                    'Pulang Cepat',
+                    'Terlambat Hadir Rapat',
+                    'Tidak Ikut Rapat'
+                  ];
+                ?>
                 <select class="form-control" id="tujuan_izin" name="tujuan_izin" onchange="checkOtherOption()">
                   <option <?= $izin['tujuan_izin'] == 'Tidak Hadir ke Sekolah' ? 'selected' : '' ?>>Tidak Hadir ke Sekolah</option>
                   <option <?= $izin['tujuan_izin'] == 'Terlambat Hadir ke Sekolah' ? 'selected' : '' ?>>Terlambat Hadir ke Sekolah</option>
@@ -50,11 +61,11 @@
                   <option <?= $izin['tujuan_izin'] == 'Pulang Cepat' ? 'selected' : '' ?>>Pulang Cepat</option>
                   <option <?= $izin['tujuan_izin'] == 'Terlambat Hadir Rapat' ? 'selected' : '' ?>>Terlambat Hadir Rapat</option>
                   <option <?= $izin['tujuan_izin'] == 'Tidak Ikut Rapat' ? 'selected' : '' ?>>Tidak Ikut Rapat</option>
-                  <option id="option-other">Others</option>
+                  <option <?= (!in_array($izin['tujuan_izin'], $jenis_tujuan_izin)) ? 'selected' : '' ?> id="option-other">Others</option>
                 </select>
 
 
-                <input type="text" class="form-control" id="other_input" name="other_input" value="Please specify" />
+                <input type="text" class="form-control" id="other_input" name="other_input" value="<?= (!in_array($izin['tujuan_izin'], $jenis_tujuan_izin)) ? $izin['tujuan_izin'] : '' ?>" />
 
 
 
