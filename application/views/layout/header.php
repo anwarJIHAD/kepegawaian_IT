@@ -78,7 +78,9 @@
             <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
             <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
           </ul>
-       
+          <div class="search-element">
+            <a h class="nav-link nav-link-lg nav-link-user" style="font-size: 30px;"> SMA IT AL ITTIHAD</a>
+          </div>
         </form>
         <ul class="navbar-nav navbar-right" >
         
@@ -101,7 +103,7 @@
       <div class="main-sidebar" style="background-color:#FFFFFF;">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="index.html">Kepegawaian IT</a>
+          <img alt="image" src="././template/assets/img/logo_it.png" width = "30" height = "30" class="rounded-circle mr-1"><a href="index.html">Kepegawaian IT</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
             <a href="index.html">IT</a>

@@ -59,7 +59,7 @@
 </div> -->
 <div class="main-content">
 	<section class="section">
-		<div class="section-header">
+		<div class="section-header" >
 			<h1>Dashboard</h1>
 
 		</div>
@@ -176,10 +176,18 @@
 							<div class="card-body">
 							<?php foreach ($notif_cuti as $us) : ?>
 								<div class="info">
+									<div class="row">
+										<div class="col-6">
 									<div class="details">
 										<div><?= $us['message']; ?></div>
 									</div>
-									<div class="timestamp"><?= $us['created_at']; ?></div>
+									</div>
+									<div class="col">
+									<div class="timestamp">
+									<?= $us['created_at']; ?>
+									</div>
+									</div>
+									</div>
 								</div>
 								<?php endforeach; ?>
 							</div>
@@ -193,10 +201,18 @@
 							<div class="card-body">
 							<?php foreach ($notif_sakit as $us) : ?>
 								<div class="info">
+									<div class="row">
+								<div class="col-6">
 									<div class="details">
 										<div><?= $us['message']; ?></div>
 									</div>
-									<div class="timestamp"><?= $us['created_at']; ?></div>
+									</div>
+									<div class="col">
+									<div class="timestamp">
+									<?= $us['created_at']; ?>
+									</div>
+									</div>
+									</div>
 								</div>
 								<?php endforeach; ?>
 							</div>
@@ -210,10 +226,18 @@
 							<div class="card-body">
 							<?php foreach ($notif_izin as $us) : ?>
 								<div class="info">
+									<div class="row">
+								<div class="col-6">
 									<div class="details">
 										<div><?= $us['message']; ?></div>
 									</div>
-									<div class="timestamp"><?= $us['created_at']; ?></div>
+									</div>
+									<div class="col">
+									<div class="timestamp">
+										<?= $us['created_at']; ?>
+								</div>
+								</div>
+								</div>
 								</div>
 								<?php endforeach; ?>
 							</div>
