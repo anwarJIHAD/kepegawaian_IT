@@ -6,6 +6,7 @@ class PerizinanSakit extends CI_Controller {
         {
             parent::__construct();
             is_logged_in();
+            date_default_timezone_set('Asia/Jakarta');
             $this->load->model('PerizinanSakit_model');
             $this->load->model('Notifikasi_model');
         }
@@ -67,7 +68,7 @@ class PerizinanSakit extends CI_Controller {
             'message' => $this->session->userdata('nama') . ' Mengajukan surat sakit', 
             'created_at' => date('Y-m-d H:i:s'),
             'jenis' => 'Surat Sakit',
-            'izin_id' => $izin_id, // Menyimpan ID izin ke dalam notifikasi
+            'izin_sakit_id' => $izin_id, // Menyimpan ID izin ke dalam notifikasi
         ];
         $this->Notifikasi_model->insert($notif);
         $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');

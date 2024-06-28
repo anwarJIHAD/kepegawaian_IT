@@ -51,7 +51,7 @@ public function tambah_lembur()
                 'niy' => $niy,
             ];
             $this->Lembur_model->insert($data);
-            $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+            $this->session->set_flashdata('message', '<script type="text/javascript">swal("Berhasil ditambahkan!", "Success!", "success");</script>');
             redirect('Lembur');
         }
 

@@ -28,8 +28,6 @@ class Dashboard extends CI_Controller
 		$data['notif_cuti'] = $this->Notifikasi_model->getcuti(); 
 		$data['notif_sakit'] = $this->Notifikasi_model->getsakit(); 
 		$data['notif_izin'] = $this->Notifikasi_model->getizin(); 
-		// var_dump($data['jumlah_pegawai']);
-		// die;
 		$tahun_sekarang = date('Y');
 		$tahun_range = range($tahun_sekarang, $tahun_sekarang - 20, -1);
 		$data['tahun'] = $tahun_range;

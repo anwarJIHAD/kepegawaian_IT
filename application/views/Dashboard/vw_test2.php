@@ -57,20 +57,21 @@
 				</div>
 		</section>
 </div> -->
-<div class="main-content">
-	<section class="section">
+<div class="main-content" style="background-color: #F1F8F2">
+
+	<section class="section" >
 		<div class="section-header" >
 			<h1>Dashboard</h1>
 
 		</div>
 
-		<div class="section-body">
-			<div class="hero mb-4" style="background-color: #F1F8F2;padding: 20px 30px;">
+		<div class="section-body" >
+			<div class="hero mb-4" style="background-color: #D1E5D3;padding: 20px 30px;">
 				<div class="hero-inner container p-0">
 					<div class="row align-items-center">
 						<div class="col-md-8">
-							<h2> <span style="font-weight: lighter;color:#000000">السلام عليك, <?= $pegawai['nama']; ?> </span></h2>
-							<p class="text-justify">Nikmati kemudahan akses informasi dan layanan terkait kepegawaian untuk mendukung karir dan kesejahteraan Anda.
+							<h2> <span style="font-weight: bold;color:#333333">السلام عليك, <?= $pegawai['nama']; ?> </span></h2>
+							<p class="text-justify" style="color:#333333">Nikmati kemudahan akses informasi dan layanan terkait kepegawaian untuk mendukung karir dan kesejahteraan Anda.
 							</p>
 						</div>
 						<div class="col-md-4 text-center">

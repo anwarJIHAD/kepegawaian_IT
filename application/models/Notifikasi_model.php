@@ -24,7 +24,7 @@ class Notifikasi_model extends CI_Model
     {
         $this->db->select('notifikasi.*, izin_cuti.*');
         $this->db->from('notifikasi');
-        $this->db->join('izin_cuti', 'notifikasi.izin_id = izin_cuti.id');
+        $this->db->join('izin_cuti', 'notifikasi.izin_cuti_id = izin_cuti.id');
         $this->db->where('izin_cuti.status', 'Diajukan'); // Filter berdasarkan status izin cuti
         $query = $this->db->get();
         return $query->result_array();
@@ -33,7 +33,7 @@ class Notifikasi_model extends CI_Model
     {
         $this->db->select('notifikasi.*, izin_sakit.*');
         $this->db->from('notifikasi');
-        $this->db->join('izin_sakit', 'notifikasi.izin_id = izin_sakit.id');
+        $this->db->join('izin_sakit', 'notifikasi.izin_sakit_id = izin_sakit.id');
         $this->db->where('izin_sakit.status', 'Diajukan'); // Filter berdasarkan status izin cuti
         $query = $this->db->get();
         return $query->result_array();

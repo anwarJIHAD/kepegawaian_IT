@@ -26,7 +26,7 @@
                             <th>Pulang</th>
                             <th>Lama Lembur</th>
                             <th>Keterangan Lembur</th>
-                            <th>Action</th> 
+                            <th>Aksi</th> 
                           </tr>
                         </thead>
                         <tbody>                                 
@@ -41,7 +41,7 @@
                                 <td><?= $us['lama_lembur']; ?></td>
                                 <td><?= $us['ket_lembur']; ?></td>
                             <td> <?php if ($pegawai['role'] == 'Admin') { ?>
-                              <a href="<?= base_url('Lembur/edit_lembur/') . $us['id']; ?>" class="btn btn-light btn-sm"><i class="bi bi-pencil-square"></i> Edit</a>
+                              <a href="<?= base_url('Lembur/edit_lembur/') . $us['id']; ?>" class="btn btn-light btn-sm mr-1"><i class="bi bi-pencil-square"></i> Edit</a>
                               <a href="<?= base_url('Lembur/hapus/') . $us['id']; ?>" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Hapus</a><?php } else {?> -<?php }?> </td>
                           </tr>
                           <?php $i++; ?>

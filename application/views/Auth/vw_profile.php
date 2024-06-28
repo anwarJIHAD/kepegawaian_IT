@@ -1,7 +1,16 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <style>
+    .rounded-circle {
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto;
+    }
+    .small-img {
+        width: 250px; /* Adjust the size as needed */
+        height: 250px; /* Adjust the size as needed */
+        object-fit: cover;
+    }
 </style>
-
 <!-- Main Content -->
 <div class="main-content">
 	<section class="section">
@@ -11,7 +20,22 @@
 
 		<div class="section-body">
 			<div class="container">
-				<div class="row justify-content-center">
+				<div class="row ">
+				<div class="col-md-4">
+				<div class="card border rounded shadow-lg p-3 mb-5">
+				<div class="card-header">
+								<h4>Edit Profile</h4>
+								</div>
+								<div class="card-body d-flex flex-column align-items-center justify-content-center">
+									<img src="<?= base_url('template/assets/img/profil/') .$pegawai['gambar'] ?>" alt="" class="rounded-circle small-img mb-3">
+									<a href="<?= base_url('Dashboard') ?>" class="btn btn-light ">Tutup</a>
+								</div>
+
+						
+				</div>
+
+</div>
+
 					<div class="col-md-8">
 						<div class="card border rounded shadow-lg p-3 mb-5">
 							<div class="card-header">
@@ -36,7 +60,7 @@
 												</div>
 											</div>
 											<div class="form-group row">
-												<label for="inputEmail3" class="col-sm-3 col-form-label">Usrname</label>
+												<label for="inputEmail3" class="col-sm-3 col-form-label">Username</label>
 												<div class="col-sm-9">
 													<input type="text"
 													value="<?= $pegawai['username'] ?>"
@@ -153,7 +177,7 @@
 
 											</div>
 											<a href="<?= base_url('Dashboard') ?>" class="btn btn-light">Tutup</a>
-											<button type="submit" name="tambah" class="btn btn-success float-right">Edit
+											<button type="submit" name="tambah" class="btn btn-primary float-right">Edit
 												Profile</button>
 										</form>
 									</div>

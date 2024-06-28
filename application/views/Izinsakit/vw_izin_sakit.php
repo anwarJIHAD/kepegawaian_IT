@@ -27,7 +27,7 @@
                     <th>Keterangan Sakit</th>
                     <th>File Surat Sakit</th>
                     <th>Status</th>
-                    <th> <?php if ($pegawai['role'] == 'Admin' || $pegawai['role'] == 'guru' || $pegawai['role'] == 'pustakawati') { ?>Action <?php } ?></th>
+                    <th> <?php if ($pegawai['role'] == 'Admin' || $pegawai['role'] == 'guru' || $pegawai['role'] == 'pustakawati') { ?>Aksi <?php } ?></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -71,7 +71,7 @@
                         <?php } ?>
                       </td>
                       <td> <?php if ($pegawai['role'] ==  $this->session->userdata('role') && $us['role'] == $this->session->userdata('role') && $us['status'] != 'Diterima' && $us['status'] != 'Ditolak') { ?>
-                          <a href="<?= base_url('perizinanSakit/editsakit/') . $us['id_sakit']; ?>" class="btn btn-light btn-sm"><i class="bi bi-pencil-square"></i> Edit</a>
+                          <a href="<?= base_url('perizinanSakit/editsakit/') . $us['id_sakit']; ?>" class="btn btn-light btn-sm mr-1"><i class="bi bi-pencil-square"></i> Edit</a>
                           <a href="<?= base_url('perizinanSakit/hapus/') . $us['id_sakit']; ?>" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Hapus</a>
                         <?php } elseif ($us['status'] == 'Diajukan') { ?>
                           -

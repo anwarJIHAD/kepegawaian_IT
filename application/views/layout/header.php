@@ -70,9 +70,9 @@
 
 <body>
   <div id="app">
-    <div class="main-wrapper main-wrapper-1">
+    <div class="main-wrapper main-wrapper-1"  >
       <div class="navbar-bg" style="background-color:#398B3F;"></div>
-      <nav class="navbar navbar-expand-lg main-navbar">
+      <nav class="navbar navbar-expand-lg main-navbar" style="background-color:#398B3F;">
         <form class="form-inline mr-auto">
           <ul class="navbar-nav mr-3">
             <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
@@ -85,8 +85,8 @@
         <ul class="navbar-nav navbar-right" >
         
 
-          <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-            <img alt="image" src="././template/assets/img/logo_it.png" width = "30" height = "30" class="rounded-circle mr-1">
+          <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user d-flex align-items-center">
+           <img alt="image" src="<?= base_url('template/assets/img/profil/') . $pegawai['gambar']?>" class="rounded-circle mr-1">
             <div class="d-sm-none d-lg-inline-block"><?= $pegawai['nama']; ?> </div></a>
             <div class="dropdown-menu dropdown-menu-right">
               <a href="<?= base_url() ?>Profile" class="dropdown-item has-icon">
@@ -103,7 +103,7 @@
       <div class="main-sidebar" style="background-color:#FFFFFF;">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-          <img alt="image" src="././template/assets/img/logo_it.png" width = "30" height = "30" class="rounded-circle mr-1"><a href="index.html">Kepegawaian IT</a>
+          <img alt="image" src="<?= base_url() ?>/template/assets/img/logo_it.png" width = "30" height = "30" class="rounded-circle mr-1"><a href="index.html">Kepegawaian IT</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
             <a href="index.html">IT</a>

@@ -82,7 +82,7 @@
                             <th>Jabatan</th>
                             <th>No Handphone</th>
                             <th>Status</th>
-                            <th> <?php if ($pegawai['role'] == 'Admin') { ?>Action<?php }?></th>
+                            <th> <?php if ($pegawai['role'] == 'Admin') { ?>Aksi<?php }?></th>
                           </tr>
                         </thead>
                         <tbody> 
@@ -100,7 +100,7 @@
                                 <td><?= $us['no_hp']; ?></td>
                                 <td><?= $us['status']; ?></td>
                             <td> <?php if ($pegawai['role'] == 'Admin') { ?>
-                              <a href="<?= base_url('pegawai/edit_pegawai/') . $us['id']; ?>" class="btn btn-light btn-sm"><i class="bi bi-pencil-square"></i> Edit</a>
+                              <a href="<?= base_url('pegawai/edit_pegawai/') . $us['id']; ?>" class="btn btn-light btn-sm mr-1"><i class="bi bi-pencil-square"></i> Edit</a>
                               <a href="<?= base_url('Pegawai/hapus/') . $us['id']; ?>" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Hapus</a><?php }?></td>
                           </tr>
                           <?php $i++; ?>
