@@ -12,7 +12,7 @@
           <h4>Form Surat Perizinan</h4>
         </div>
         <div class="card-body">
-          <form method="POST" action="<?= base_url('PengajuanIzin/tambahizin') ?>">
+          <form id="myForm" method="POST" action="<?= base_url('PengajuanIzin/tambahizin') ?>">
             <div class="form-group row">
               <label class="col-sm-3 col-form-label">Nama Pegawai</label>
               <div class="col-sm-9">
@@ -92,7 +92,7 @@
               </div>
             </div>
             <a href="<?= base_url('PengajuanIzin') ?>" class="btn btn-light">Tutup</a>
-            <button type="submit" name="tambah" class="btn btn-primary float-right">Simpan</button>
+            <button type="button" name="tambah" class="btn btn-primary float-right" onclick="confirmSubmit()">Simpan</button>
           </form>
         </div>
       </div>
@@ -141,3 +141,22 @@
             $('#waktu_izin, #hingga_waktu').on('change', calculatePengajuanIzin);
         });
     </script>
+
+<script>
+  function confirmSubmit() {
+    Swal.fire({
+      title: 'Konfirmasi Aksi',
+      text: "Aksi ini tidak dapat di ubah, apakah anda yakin?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Ya, lanjutkan!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        document.getElementById('myForm').submit(); // Submit the form
+      }
+    })
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

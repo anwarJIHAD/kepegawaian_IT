@@ -103,7 +103,7 @@
       <div class="main-sidebar" style="background-color:#FFFFFF;">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-          <img alt="image" src="<?= base_url() ?>/template/assets/img/logo_it.png" width = "30" height = "30" class="rounded-circle mr-1"><a href="index.html">Kepegawaian IT</a>
+          <img alt="image" src="<?= base_url() ?>/template/assets/img/logo_it.png" width = "30" height = "30" class="rounded-circle mr-1"><a href="<?= base_url() ?>Dashboard">Kepegawaian IT</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
             <a href="index.html">IT</a>

@@ -52,12 +52,11 @@
                         <?php } ?>
                       </td>
                       <td> <?php if ($pegawai['role'] ==  $this->session->userdata('role') && $us['role'] == $this->session->userdata('role') && $us['status'] != 'Diterima' && $us['status'] != 'Ditolak') { ?>
-                          <a href="<?= base_url('perizinanCuti/editcuti/') . $us['id_cuti']; ?>" class="btn btn-light btn-sm mr-1"><i class="bi bi-pencil-square"></i> Edit</a>
                           <a href="<?= base_url('perizinanCuti/hapus/') . $us['id_cuti']; ?>" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Hapus</a>
                         <?php } elseif ($us['status'] == 'Diajukan') { ?>
                           -
                         <?php } else { ?>
-                          <button class="btn btn-light" data-toggle="modal" data-target="#modal<?= $us['id_cuti']; ?>">Detail</button>
+                          <button class="btn btn-light" data-toggle="modal" data-target="#modal<?= $us['id_cuti']; ?>"><i class="bi bi-info-circle-fill" style="color:light"></i> Detail</button>
                         <?php } ?>
                       </td>
                     </tr>

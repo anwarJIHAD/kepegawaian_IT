@@ -71,6 +71,45 @@ class Profile extends CI_Controller
 			redirect('Profile');
 		}
 	}
+
+
+	public function update_profile()
+{
+    $data['pegawai'] = $this->db->get_where('pegawai', ['id' => $this->session->userdata['id']])->row_array();
+
+    $config['upload_path']          = './template/assets/img/profil/';
+    $config['allowed_types']        = 'gif|jpg|png|PNG|jpeg';
+    $config['max_size']             = 10000;
+    $config['max_width']            = 10000;
+    $config['max_height']           = 10000;
+
+    $this->load->library('upload', $config);
+
+    if ( ! $this->upload->do_upload('gambar'))
+    {
+        // Tambahkan pesan kesalahan untuk debugging
+        $error = $this->upload->display_errors();
+        $this->session->set_flashdata('message', '<script type="text/javascript">swal("Error!", "'. $error .'", "error");</script>');
+        redirect('Profile');
+    } 
+    else 
+    {
+        $gambar = $this->upload->data();
+        $gambar = $gambar['file_name'];
+
+        $data = [
+            'gambar' => $gambar,
+        ];
+
+        $user = $this->db->get_where('pegawai', ['niy' => $this->session->userdata('niy')])->row_array();
+        $id = $user['id'];
+        $this->Pegawai_model->update(['id' => $id], $data);
+        $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+        redirect('Profile');
+    }
+}
+
+
 	public function check_passwords($new_password)
 	{
 		$confirm_password = $this->input->post('pass_baru2');
@@ -117,5 +156,12 @@ class Profile extends CI_Controller
 				}
 			}
 		}
+	}
+
+	public function testing()
+	{
+		$this->load->view('layout/header');
+		$this->load->view('Auth/vw_profile2');
+		$this->load->view('layout/footer');
 	}
 }
