@@ -20,6 +20,11 @@
                   <tr class="table-success">
                     <th>No</th>
                     <th>Nama Pegawai</th>
+                    <th>Tanggal Izin</th>
+                    <th>Hingga Tanggal</th>
+                    <th>Waktu Izin</th>
+                    <th>Hingga Waktu</th>
+                    <th>Lama Izin</th>
                     <th>Jenis Izin</th>
                     <th>Tujuan Izin</th>
                     <th>Alasan Izin</th>
@@ -33,6 +38,11 @@
                     <tr>
                       <td> <?= $i; ?>.</td>
                       <td><?= $us['nama']; ?></td>
+                      <td><?= $us['tgl_izin']; ?></td>
+                      <td><?= $us['hingga_tgl']; ?></td>
+                      <td><?= $us['waktu_izin']; ?></td>
+                      <td><?= $us['hingga_waktu']; ?></td>
+                      <td><?= $us['lama_izin']; ?></td>
                       <td><?= $us['jenis_izin']; ?></td>
                       <td><?= $us['tujuan_izin']; ?></td>
                       <td><?= $us['alasan_izin']; ?></td>
@@ -46,7 +56,6 @@
                         <?php } ?>
                       </td>
                       <td> <?php if ($pegawai['role'] ==  $this->session->userdata('role') && $us['role'] == $this->session->userdata('role') && $us['status'] != 'Diterima' && $us['status'] != 'Ditolak') { ?>
-                          <a href="<?= base_url('PengajuanIzin/editizin/') . $us['id_izin']; ?>" class="btn btn-light btn-sm mr-1"><i class="bi bi-pencil-square"></i> Edit</a>
                           <a href="<?= base_url('PengajuanIzin/hapus/') . $us['id_izin']; ?>" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Hapus</a>
                         <?php } elseif ($us['status'] == 'Diajukan') { ?>
                           -

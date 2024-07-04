@@ -24,6 +24,37 @@
               </div>
             </div>
             <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Tanggal Izin</label>
+              <div class="col-sm-4">
+                <input type="date" class="form-control" id="tgl_izin" name="tgl_izin" value="<?= $izin['tgl_izin']; ?>" placeholder="Tanggal Izin">
+                <?= form_error('tgl_izin', '<small class="text-danger pl-3">', '</small>'); ?>
+              </div>
+              <label class="col-sm-1 col-form-label">Hingga</label>
+              <div class="col-sm-4">
+                <input type="date" class="form-control" id="hingga_tgl" name="hingga_tgl" value="<?= $izin['hingga_tgl']; ?>">
+                <?= form_error('hingga_tgl', '<small class="text-danger pl-3">', '</small>'); ?>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Waktu Izin</label>
+              <div class="col-sm-4">
+                <input type="time" class="form-control" id="waktu_izin" name="waktu_izin" value="<?= $izin['waktu_izin']; ?>" placeholder="Waktu Izin" >
+                <?= form_error('waktu_izin', '<small class="text-danger pl-3">', '</small>'); ?>
+              </div>
+              <label class="col-sm-1 col-form-label">Hingga</label>
+              <div class="col-sm-4">
+                <input type="time" class="form-control" id="hingga_waktu" name="hingga_waktu" value="<?= $izin['hingga_waktu']; ?>">
+                <?= form_error('hingga_waktu', '<small class="text-danger pl-3">', '</small>'); ?>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Lama Izin</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="lama_izin" name="lama_izin" value="<?= $izin['lama_izin']; ?>" readonly>
+                <?= form_error('lama_izin', '<small class="text-danger pl-3">', '</small>'); ?>
+              </div>
+            </div>
+            <div class="form-group row">
               <label class="col-sm-3 col-form-label">Jenis Izin</label>
               <div class="col-sm-4">
                 <div class="form-check">
@@ -45,14 +76,14 @@
               <div class="col-sm-9">
 
                 <?php
-                  $jenis_tujuan_izin = [
-                    'Tidak Hadir ke Sekolah',
-                    'Terlambat Hadir ke Sekolah',
-                    'Izin Keluar',
-                    'Pulang Cepat',
-                    'Terlambat Hadir Rapat',
-                    'Tidak Ikut Rapat'
-                  ];
+                $jenis_tujuan_izin = [
+                  'Tidak Hadir ke Sekolah',
+                  'Terlambat Hadir ke Sekolah',
+                  'Izin Keluar',
+                  'Pulang Cepat',
+                  'Terlambat Hadir Rapat',
+                  'Tidak Ikut Rapat'
+                ];
                 ?>
                 <select class="form-control" id="tujuan_izin" name="tujuan_izin" onchange="checkOtherOption()">
                   <option <?= $izin['tujuan_izin'] == 'Tidak Hadir ke Sekolah' ? 'selected' : '' ?>>Tidak Hadir ke Sekolah</option>

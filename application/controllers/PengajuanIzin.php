@@ -21,6 +21,21 @@ class PengajuanIzin extends CI_Controller {
         
         public function tambahizin() 
 	{
+                    $this->form_validation->set_rules('tgl_izin', 'tgl_izin', 'required|trim', [
+                        'required' => 'Tanggal Izin Wajib di isi'
+                    ]);
+                    $this->form_validation->set_rules('hingga_tgl', 'hingga_tgl', 'required|trim', [
+                        'required' => 'Tanggal Izin Wajib di isi'
+                    ]);
+                    $this->form_validation->set_rules('waktu_izin', 'waktu_izin', 'required|trim', [
+                        'required' => 'Waktu Izin Wajib di isi'
+                    ]);
+                    $this->form_validation->set_rules('hingga_waktu', 'hingga_waktu', 'required|trim', [
+                        'required' => 'Waktu Izin Wajib di isi'
+                    ]);
+                    $this->form_validation->set_rules('lama_izin', 'lama_izin', 'required|trim',[
+                        'required' => 'Lama Izin Wajib di isi'
+                    ]);
                     $this->form_validation->set_rules('jenis_izin', 'jenis_izin', 'required|trim',[
                         'required' => 'Jenis Izin Wajib di isi'
                     ]);
@@ -43,6 +58,11 @@ class PengajuanIzin extends CI_Controller {
                         $tujuan_izin = htmlspecialchars($this->input->post('other_input', true));
                     }
                     $data = [
+                        'tgl_izin' => htmlspecialchars($this->input->post('tgl_izin', true)),
+                        'hingga_tgl' => htmlspecialchars($this->input->post('hingga_tgl', true)),
+                        'waktu_izin' => htmlspecialchars($this->input->post('waktu_izin', true)),
+                        'hingga_waktu' => htmlspecialchars($this->input->post('hingga_waktu', true)),
+                        'lama_izin' => htmlspecialchars($this->input->post('lama_izin', true)),
                         'jenis_izin' => htmlspecialchars($this->input->post('jenis_izin', true)),
                         'tujuan_izin' => $tujuan_izin,
                         'alasan_izin' => htmlspecialchars($this->input->post('alasan_izin', true)),
@@ -71,6 +91,15 @@ public function editizin($id)
     $data['pegawai'] = $this->db->get_where('pegawai', ['id' => $this->session->userdata('id')])->row_array();
     $data['izin'] = $this->Perizinan_model->getById($id);
 
+    $this->form_validation->set_rules('tgl_izin', 'tgl_izin', 'required|trim',[
+        'required' => 'Tanggal Izin Wajib di isi'
+    ]);
+    $this->form_validation->set_rules('waktu_izin', 'waktu_izin', 'required|trim',[
+        'required' => 'Waktu Izin Wajib di isi'
+    ]);
+    $this->form_validation->set_rules('lama_izin', 'lama_izin', 'required|trim',[
+        'required' => 'Lama Izin Wajib di isi'
+    ]);
     $this->form_validation->set_rules('jenis_izin', 'jenis_izin', 'required|trim',[
         'required' => 'Jenis Izin Wajib di isi'
     ]);
@@ -92,6 +121,11 @@ public function editizin($id)
             $tujuan_izin = htmlspecialchars($this->input->post('other_input', true));
         }
         $data = [
+            'tgl_izin' => $this->input->post('tgl_izin'),
+            'hingga_tgl' => $this->input->post('hingga_tgl'),
+            'waktu_izin' => $this->input->post('waktu_izin'),
+            'hingga_waktu' => $this->input->post('hingga_waktu'),
+            'lama_izin' => $this->input->post('lama_izin'),
             'jenis_izin' => $this->input->post('jenis_izin'),
             'tujuan_izin' =>   $tujuan_izin,
             'alasan_izin' => $this->input->post('alasan_izin'),

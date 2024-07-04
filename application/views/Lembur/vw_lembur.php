@@ -10,7 +10,7 @@
                 <div class="card">
                 <div class="card-body">
                   <div style="margin-bottom: 20px;">
-                  <?php if ($pegawai['role'] == 'Admin' || $pegawai['role'] == 'guru' || $pegawai['role'] == 'pustakawati') { ?>
+                  <?php if ($pegawai['role'] == 'Admin') { ?>
                     <a href="<?= base_url() ?>Lembur/tambah_lembur" class="btn btn-outline-warning"><i class="bi bi-plus-circle"></i> Tambah Data</a> 
                     <?php } ?>
                   </div>
