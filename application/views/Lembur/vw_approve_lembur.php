@@ -18,26 +18,26 @@
                   <tr class="table-success">
                     <th>No</th>
                     <th>Nama Pegawai</th>
-                    <th>Tanggal Izin</th>
-                    <th>Hingga Tanggal</th>
-                    <th>No Hp Selama Izin</th>
-                    <th>Pemilik No Hp</th>
-                    <th>Keterangan Cuti</th>
+                    <th>Tanggal</th>
+                    <th>Masuk</th>
+                    <th>Pulang</th>
+                    <th>Lama Lembur</th>
+                    <th>Keterangan Lembur</th>
                     <th>Status</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php $i = 1; ?>
-                  <?php foreach ($approvecuti as $us) : ?>
+                  <?php foreach ($approve_lembur as $us) : ?>
                     <tr>
                       <td> <?= $i; ?>.</td>
                       <td><?= $us['nama']; ?></td>
-                      <td><?= $us['tgl_izin']; ?></td>
-                      <td><?= $us['hingga_tgl']; ?></td>
-                      <td><?= $us['no_hp']; ?></td>
-                      <td><?= $us['pemilik_nohp']; ?></td>
-                      <td><?= $us['ket_cuti']; ?></td>
+                      <td><?= $us['tanggal']; ?></td>
+                      <td><?= $us['masuk']; ?></td>
+                      <td><?= $us['pulang']; ?></td>
+                      <td><?= $us['lama_lembur']; ?></td>
+                      <td><?= $us['ket_lembur']; ?></td>
                       <td>
                         <?php if ($us['status'] == 'Diterima') { ?>
                           <span class="badge badge-success"><?= $us['status']; ?></span>
@@ -47,7 +47,7 @@
                           <span class="badge badge-warning"><?= $us['status']; ?></span>
                         <?php } ?>
                         </td>
-                      <td><button class="btn btn-light" data-toggle="modal" data-target="#modal<?= $us['id_cuti']; ?>"><i class="bi bi-pencil-square"></i> Ubah Status</button></td>
+                      <td><button class="btn btn-light" data-toggle="modal" data-target="#modal<?= $us['id_lembur']; ?>"><i class="bi bi-pencil-square"></i> Ubah Status</button></td>
                       </td>
                     </tr>
                     <?php $i++; ?>
@@ -68,23 +68,19 @@
 </div>
 
 <<!-- Modal -->
-  <?php foreach ($approvecuti as $us) : ?>
-    <div class="modal fade" tabindex="-1" role="dialog" id="modal<?= $us['id_cuti']; ?>">
+  <?php foreach ($approve_lembur as $us) : ?>
+    <div class="modal fade" tabindex="-1" role="dialog" id="modal<?= $us['id_lembur']; ?>">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Surat Perizinan Cuti</h5>
+            <h5 class="modal-title">Data Lembur</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <form method="POST" action="<?= base_url('PerizinanCuti/ubahstatus/') . $us['id_cuti']; ?>">
-              <input type="hidden" name="id" value="<?= $us['id_cuti'] ?>;">
-              <div class="form-group">
-                <label>Keterangan</label>
-                <textarea name="ket_kepsek" class="form-control"></textarea>
-              </div>
+            <form method="POST" action="<?= base_url('Lembur/ubahstatus/') . $us['id_lembur']; ?>">
+              <input type="hidden" name="id" value="<?= $us['id_lembur'] ?>;">
               <div class="form-group">
                 <label>Status</label>
                 <select name="status" class="form-control">
@@ -92,9 +88,9 @@
                   <option value="Ditolak">Ditolak</option>
                 </select>
               </div>
-              <a href="<?= base_url('Console/pegawai') ?>" class="btn btn-light">Tutup</a>
+              <a href="<?= base_url('lembur/approvelembur') ?>" class="btn btn-light">Tutup</a>
               <button type="submit" name="tambah" class="btn btn-primary float-right">Simpan</button>
-            </form>
+              </form>
           </div>
         </div>
       </div>
@@ -104,4 +100,34 @@
   </section>
   </div>
 
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+</div>
+
+</div>
+</div>
+<script>
+  function confirm_delete(question) {
+
+    if (confirm(question)) {
+
+      alert("Action to delete");
+
+    } else {
+      return false;
+    }
+
+  }
+</script>
  

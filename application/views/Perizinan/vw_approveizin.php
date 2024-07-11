@@ -14,13 +14,18 @@
             <table class="table table-bordered  nowrap" style="border-collapse: collapse; border-spacing: 0;width:100%;" id="table-1">
                 <thead>
                 <tr class="table-success">
-                    <th>No</th>
+                <th>No</th>
                     <th>Nama Pegawai</th>
-                    <th>Jenis Izin </th>
+                    <th>Tanggal Izin</th>
+                    <th>Hingga Tanggal</th>
+                    <th>Waktu Izin</th>
+                    <th>Hingga Waktu</th>
+                    <th>Lama Izin</th>
+                    <th>Jenis Izin</th>
                     <th>Tujuan Izin</th>
                     <th>Alasan Izin</th>
                     <th>Status</th>
-                    <th>Action</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -28,7 +33,12 @@
                   <?php foreach ($approveizin as $us) : ?>
                     <tr>
                       <td> <?= $i; ?>.</td>
-                      <td><?= $us['nama']; ?></td>
+                      <<td><?= $us['nama']; ?></td>
+                      <td><?= $us['tgl_izin']; ?></td>
+                      <td><?= $us['hingga_tgl']; ?></td>
+                      <td><?= $us['waktu_izin']; ?></td>
+                      <td><?= $us['hingga_waktu']; ?></td>
+                      <td><?= $us['lama_izin']; ?></td>
                       <td><?= $us['jenis_izin']; ?></td>
                       <td><?= $us['tujuan_izin']; ?></td>
                       <td><?= $us['alasan_izin']; ?></td>
@@ -82,7 +92,7 @@
             <option value="Ditolak">Ditolak</option>
             </select>
           </div>
-          <a href="<?= base_url('Console/pegawai') ?>" class="btn btn-light">Tutup</a>
+          <a href="<?= base_url('pengajuanizin/approveizin') ?>" class="btn btn-light">Tutup</a>
               <button type="submit" name="tambah" class="btn btn-primary float-right">Simpan</button>
             </form>
           </div>
