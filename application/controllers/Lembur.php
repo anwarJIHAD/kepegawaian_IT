@@ -7,6 +7,7 @@ class Lembur extends CI_Controller {
         parent::__construct();
         is_logged_in();
         $this->load->model('Lembur_model');
+        $this->load->model('Pegawai_model');
     }
 
 public function index()
@@ -36,19 +37,20 @@ public function tambah_lembur()
     ]);
     if ($this->form_validation->run() == false) {
         $data['title'] = 'Data Lembur';
+        $data['pegawai_data'] = $this->Pegawai_model->get();
     $data['pegawai'] = $this->db->get_where('pegawai', ['username' => $this->session->userdata['username']])->row_array();
     $this->load->view('layout/header',$data);
     $this->load->view('Lembur/vw_tambah_lembur',$data);
     $this->load->view('layout/footer',$data);
 } else {
-            $niy = $this->session->userdata('niy');
             $data = [
                 'tanggal' => htmlspecialchars($this->input->post('tanggal', true)),
                 'masuk' => htmlspecialchars($this->input->post('masuk', true)),
                 'pulang' => htmlspecialchars($this->input->post('pulang', true)),
                 'lama_lembur' => htmlspecialchars($this->input->post('lama_lembur', true)),
                 'ket_lembur' => htmlspecialchars($this->input->post('ket_lembur', true)),
-                'niy' => $niy,
+                'niy' => htmlspecialchars($this->input->post('niy', true)),
+                'status' => 'Diajukan',
             ];
             $this->Lembur_model->insert($data);
             $this->session->set_flashdata('message', '<script type="text/javascript">swal("Berhasil ditambahkan!", "Success!", "success");</script>');
@@ -100,5 +102,27 @@ public function edit_lembur($id)
         $this->Lembur_model->delete($id);
         $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
         redirect('Lembur');
+    }
+
+public function approvelembur()
+    {
+        $data['pegawai'] = $this->db->get_where('pegawai', ['id' => $this->session->userdata['id']])->row_array();
+        $data['approve_lembur'] = $this->Lembur_model->get();
+        $this->load->view('layout/header', $data);
+        $this->load->view('Lembur/vw_approve_lembur', $data);
+        $this->load->view('layout/footer', $data);
+    }
+    public function ubahstatus($id)
+    {
+        $data['pegawai'] = $this->db->get_where('pegawai', ['id' => $this->session->userdata['id']])->row_array();
+        $data['lembur'] = $this->Lembur_model->getById($id);
+
+        $data = [
+            'status' => $this->input->post('status'),
+        ];
+        $id = $this->input->post('id');
+        $this->Lembur_model->update(['id' => $id], $data);
+        $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+        redirect('Lembur/approvelembur');
     }
 }

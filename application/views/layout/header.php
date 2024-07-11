@@ -117,7 +117,12 @@
             <li ><a class="nav-link" href="<?= base_url() ?>Pegawai"><i class="fa fa-users" aria-hidden="true"></i> <span>Data Pegawai</span></a></li>
             <?php } ?>
             <li ><a class="nav-link" href="#"><i class="fa fa-address-book" aria-hidden="true"></i> <span>Absensi</span></a></li>
-            <li ><a class="nav-link" href="<?= base_url() ?>Lembur"><i class="fa fa-calendar" aria-hidden="true"></i> <span>Lembur</span></a></li>
+            <?php if ($pegawai['role'] == 'kepala sekolah' ) { ?>
+            <li ><a class="nav-link" href="<?= base_url() ?>Lembur/approvelembur"><i class="fa fa-calendar" aria-hidden="true"></i> <span>Lembur</span></a></li>
+            <?php } ?>
+            <?php if ($pegawai['role'] == 'Admin' || $pegawai['role'] == 'guru' || $pegawai['role'] == 'pustakawati' ) { ?>
+              <li ><a class="nav-link" href="<?= base_url() ?>Lembur"><i class="fa fa-calendar" aria-hidden="true"></i> <span>Lembur</span></a></li>
+              <?php } ?>
             <li class="dropdown">
               <a href="#" class="nav-link has-dropdown"><i class="fa fa-envelope" aria-hidden="true"></i> <span>Perizinan</span></a>
               <ul class="dropdown-menu">
