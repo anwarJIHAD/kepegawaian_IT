@@ -91,63 +91,6 @@
 				</form>
 				<ul class="navbar-nav navbar-right">
 
-<<<<<<< HEAD
-=======
-          <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user d-flex align-items-center">
-           <img alt="image" src="<?= base_url('template/assets/img/profil/') . $pegawai['gambar']?>" class="rounded-circle mr-1">
-            <div class="d-sm-none d-lg-inline-block"><?= $pegawai['nama']; ?> </div></a>
-            <div class="dropdown-menu dropdown-menu-right">
-              <a href="<?= base_url() ?>Profile" class="dropdown-item has-icon">
-                <i class="far fa-user"></i> Profile
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="<?= site_url('Auth/logout') ?>" class="dropdown-item has-icon text-danger">
-                <i class="fas fa-sign-out-alt"></i> Logout
-              </a>
-            </div>
-          </li>
-        </ul>
-      </nav>
-      <div class="main-sidebar" style="background-color:#FFFFFF;">
-        <aside id="sidebar-wrapper">
-          <div class="sidebar-brand">
-          <img alt="image" src="<?= base_url() ?>/template/assets/img/logo_it.png" width = "30" height = "30" class="rounded-circle mr-1"><a href="<?= base_url() ?>Dashboard">Kepegawaian IT</a>
-          </div>
-          <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">IT</a>
-          </div>
-          <ul class="sidebar-menu">
-            <li class="menu-header">Dashboard</li>
-            <li class="dropdown">
-              <a href="<?= base_url() ?>Dashboard" class="nav-link "><i class="fas fa-th-large test"></i><span>Dashboard</span></a>
-            <li class="menu-header">Kepegawaian</li>
-            <?php if ($pegawai['role'] == 'Admin' || $pegawai['role'] == 'kepala sekolah') { ?>
-            <li ><a class="nav-link" href="<?= base_url() ?>Pegawai"><i class="fa fa-users" aria-hidden="true"></i> <span>Data Pegawai</span></a></li>
-            <?php } ?>
-            <li ><a class="nav-link" href="#"><i class="fa fa-address-book" aria-hidden="true"></i> <span>Absensi</span></a></li>
-            <?php if ($pegawai['role'] == 'kepala sekolah' ) { ?>
-            <li ><a class="nav-link" href="<?= base_url() ?>Lembur/approvelembur"><i class="fa fa-calendar" aria-hidden="true"></i> <span>Lembur</span></a></li>
-            <?php } ?>
-            <?php if ($pegawai['role'] == 'Admin' || $pegawai['role'] == 'guru' || $pegawai['role'] == 'pustakawati' ) { ?>
-              <li ><a class="nav-link" href="<?= base_url() ?>Lembur"><i class="fa fa-calendar" aria-hidden="true"></i> <span>Lembur</span></a></li>
-              <?php } ?>
-            <li class="dropdown">
-              <a href="#" class="nav-link has-dropdown"><i class="fa fa-envelope" aria-hidden="true"></i> <span>Perizinan</span></a>
-              <ul class="dropdown-menu">
-              <?php if ($pegawai['role'] == 'Admin' || $pegawai['role'] == 'guru'|| $pegawai['role'] == 'pustakawati') { ?>
-                <li><a href="<?= base_url() ?>PerizinanCuti">Pengajuan Surat Cuti</a></li> 
-                <li><a href="<?= base_url() ?>PerizinanSakit">Pengajuan Surat Sakit</a></li> 
-                <li><a href="<?= base_url() ?>PengajuanIzin">Pengajuan Izin</a></li> 
-                <?php }?>
-                <?php if ($pegawai['role'] == 'kepala sekolah') { ?>
-                <li><a href="<?= base_url() ?>PerizinanCuti/approvecuti">Pengajuan Surat Cuti</a></li> 
-                <li><a href="<?= base_url() ?>PerizinanSakit/approvesakit">Pengajuan Surat Sakit</a></li> 
-                <li><a href="<?= base_url() ?>PengajuanIzin/approveizin">Pengajuan Izin</a></li> 
-                <?php } ?>
-              </ul>
-              <li ><a class="nav-link" href="<?= base_url() ?>Berkas"><i class="fa fa-file" aria-hidden="true"></i><span>Pengembangan Diri</span></a></li>
-            </li>
->>>>>>> c27a9bd93d10a1f56a7767a74f2917bf9b31d084
 
 					<li class="dropdown"><a href="#" data-toggle="dropdown"
 							class="nav-link dropdown-toggle nav-link-lg nav-link-user d-flex align-items-center">

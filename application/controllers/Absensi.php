@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
+require 'vendor/autoload.php';
 class Absensi extends CI_Controller
 {
 	public function __construct()
@@ -22,10 +22,9 @@ class Absensi extends CI_Controller
 	{
 		// Debugging: Lihat isi dari $_FILES
 		if (isset($_FILES['excelFile'])) {
-			$upload_file = $_FILES['myFile']['name'];
+			$upload_file = $_FILES['excelFile']['name'];
 			$extension = pathinfo($upload_file, PATHINFO_EXTENSION);
-			var_dump($extension);
-			die;
+
 			if ($extension == 'csv') {
 				$reader = new \PhpOffice\PhpSpreadsheet\Reader\Csv();
 			} else if ($extension == 'xls') {
@@ -35,7 +34,8 @@ class Absensi extends CI_Controller
 			}
 
 			try {
-				$spreadsheet = $reader->load($_FILES['myFile']['tmp_name']);
+				$spreadsheet = $reader->load($_FILES['excelFile']['tmp_name']);
+
 				$sheetdata = $spreadsheet->getActiveSheet()->toArray();
 				$sheetcount = count($sheetdata);
 
@@ -46,40 +46,41 @@ class Absensi extends CI_Controller
 				if ($sheetcount > 1) {
 					$data = array();
 					for ($i = 1; $i < $sheetcount; $i++) {
-						$id_alat = $sheetdata[$i][0];
-						$datetime = $sheetdata[$i][1];
-						$latitude = $sheetdata[$i][2];
-						$langitude = $sheetdata[$i][3];
-						$pm25 = $sheetdata[$i][4];
-						$speed = $sheetdata[$i][5];
-						$elevation = $sheetdata[$i][6];
-						$distance = $sheetdata[$i][7];
-						$bpm = $sheetdata[$i][8];
-						$sign = $sheetdata[$i][9];
+						$niy = $sheetdata[$i][0];
+						$nama = $sheetdata[$i][1];
+						$tanggal = $sheetdata[$i][2];
+						$waktu_masuk = $sheetdata[$i][3];
+						$waktu_pulang = $sheetdata[$i][4];
+						$telat = $sheetdata[$i][5];
+						$pulang_awal = $sheetdata[$i][6];
+						$waktu_kerja = $sheetdata[$i][7];
+						$status = $sheetdata[$i][8];
+						$keterangan = $sheetdata[$i][9];
+						$mulai_lembur = $sheetdata[$i][10];
+						$selesai_lembur = $sheetdata[$i][11];
+						$total_lembur = $sheetdata[$i][12];
 
 						$data[] = array(
-							'id_alat' => $id_alat,
-							'datetime' => $datetime,
-							'latitude' => $latitude,
-							'langitude' => $langitude,
-							'pm25' => $pm25,
-							'speed' => $speed,
-							'elevation' => $elevation,
-							'distance' => $distance,
-							'bpm' => $bpm,
-							'sign' => $sign,
-							'date_create' => $formattedDateTime,
+							'niy' => $niy,
+							'tanggal' => $tanggal,
+							'waktu_datang' => $waktu_masuk,
+							'waktu_pulang' => $waktu_pulang,
+							'pulang_awal' => $pulang_awal,
+							'waktu_kerja' => $waktu_kerja,
+							'status' => $status,
+							'keterangan' => $keterangan,
+
 						);
 					}
 					// var_dump($data);
 					// die;
-					$inserdata = $this->db_sensor->insert($data);
+					$inserdata = $this->Absensi_model->insert($data);
 					if ($inserdata) {
-						$this->session->set_flashdata('message', '<script type="text/javascript">swall("Good job!", "Success!", "success");</script>');
-						redirect('C_visual');
+						$this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+						redirect('Absensi');
 					} else {
-						$this->session->set_flashdata('message', '<script type="text/javascript">swall("Cannot add the data!", "Error!", "error");</script>');
-						redirect('C_Visual');
+						$this->session->set_flashdata('message', '<script type="text/javascript">swal("Cannot add the data!", "Error!", "error");</script>');
+						redirect('Absensi');
 					}
 				}
 			} catch (Exception $e) {
@@ -92,7 +93,7 @@ class Absensi extends CI_Controller
 	}
 
 
-	public function tambah_lembur()
+	public function tambah_absensi()
 	{
 		$this->form_validation->set_rules('tanggal', 'tanggal', 'required|trim', [
 			'required' => 'Tanggal Wajib di isi'
@@ -131,49 +132,43 @@ class Absensi extends CI_Controller
 		}
 
 	}
-	public function edit_lembur($id)
+	public function edit_absensi($id)
 	{
 		$data['pegawai'] = $this->db->get_where('pegawai', ['id' => $this->session->userdata['id']])->row_array();
-		$data['lembur'] = $this->Lembur_model->getById($id);
+		$data['absensi'] = $this->Absensi_model->getById($id);
+		// $this->form_validation->set_rules('nama', 'nama', 'required|trim', [
+		// 	'required' => 'nama Wajib di isi'
+		// ]);
 		$this->form_validation->set_rules('tanggal', 'tanggal', 'required|trim', [
-			'required' => 'Tanggal Wajib di isi'
-		]);
-		$this->form_validation->set_rules('masuk', 'masuk', 'required|trim', [
-			'required' => 'Masuk Wajib di isi'
-		]);
-		$this->form_validation->set_rules('pulang', 'pulang', 'required|trim', [
-			'required' => 'Pulang Wajib di isi'
-		]);
-		$this->form_validation->set_rules('lama_lembur', 'lama_lembur', 'required|trim', [
-			'required' => 'Lama Lembur Wajib di isi'
-		]);
-		$this->form_validation->set_rules('ket_lembur', 'ket_lembur', 'required|trim', [
-			'required' => 'Keterangan Lembur Wajib di isi'
+			'required' => 'tanggal Wajib di isi'
 		]);
 
 		if ($this->form_validation->run() == false) {
 			$this->load->view('layout/header', $data);
-			$this->load->view('Lembur/vw_edit_lembur', $data);
+			$this->load->view('Absensi/vw_edit_absensi', $data);
 			$this->load->view('layout/footer', $data);
 		} else {
 			$data = [
+				'niy' => $this->input->post('niy'),
 				'tanggal' => $this->input->post('tanggal'),
-				'masuk' => $this->input->post('masuk'),
-				'pulang' => $this->input->post('pulang'),
-				'lama_lembur' => $this->input->post('lama_lembur'),
-				'ket_lembur' => $this->input->post('ket_lembur'),
+				'waktu_datang' => $this->input->post('waktu_datang'),
+				'waktu_pulang' => $this->input->post('waktu_pulang'),
+				'pulang_awal' => $this->input->post('pulang_awal'),
+				'waktu_kerja' => $this->input->post('waktu_kerja'),
+				'status' => $this->input->post('status'),
+				'keterangan' => $this->input->post('keterangan'),
 			];
 			$id = $this->input->post('id');
-			$this->Lembur_model->update(['id' => $id], $data);
+			$this->Absensi_model->update(['id' => $id], $data);
 			$this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
-			redirect('Lembur');
+			redirect('Absensi');
 		}
 	}
 
 	public function hapus($id)
 	{
-		$this->Lembur_model->delete($id);
+		$this->Absensi_model->delete($id);
 		$this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
-		redirect('Lembur');
+		redirect('Absensi');
 	}
 }
