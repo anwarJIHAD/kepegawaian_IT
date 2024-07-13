@@ -8,6 +8,7 @@ class Absensi extends CI_Controller
 		parent::__construct();
 		is_logged_in();
 		$this->load->model('Lembur_model');
+		$this->load->helper(array('url', 'download'));
 		$this->load->model('Absensi_model');
 	}
 
