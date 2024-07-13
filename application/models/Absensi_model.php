@@ -22,10 +22,23 @@ class Absensi_model extends CI_Model
 			$this->db->select('pegawai.*, absensi.id AS id_absensi, absensi.*');
 			$this->db->from($this->table);
 			$this->db->join('pegawai', 'absensi.niy = pegawai.niy', 'left');
-			$this->db->where('absensi.niy', $logged_in_user_id);								
+			$this->db->where('absensi.niy', $logged_in_user_id);
 			$query = $this->db->get();
 		}
 		return $query->result_array();
+	}
+	public function byDate($niy, $tanggal)
+	{
+		$this->db->from($this->table);
+		$this->db->where('niy', $niy);
+		$this->db->where('tanggal', $tanggal);
+		$query = $this->db->get();
+		$result = $query->row_array();
+		if (empty($result)) {
+			return [];
+		}
+		return $result;
+
 	}
 	public function getById($id)
 	{
