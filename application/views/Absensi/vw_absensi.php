@@ -181,8 +181,8 @@
 										}
 
 										// Handle form submit
-										uploadForm.addEventListener('submit', (e) => {
-											if (!fileInput.files.length) {
+										fileInput.addEventListener('submit', (e) => {
+											if (!uploadForm.files.length) {
 												e.preventDefault();
 												alert('Please select a file before submitting.');
 											}

@@ -7,7 +7,7 @@ class Absensi extends CI_Controller
 	{
 		parent::__construct();
 		is_logged_in();
-        $this->load->helper(array('url','download'));	
+		$this->load->model('Lembur_model');
 		$this->load->model('Absensi_model');
 	}
 
@@ -46,6 +46,7 @@ class Absensi extends CI_Controller
 
 				if ($sheetcount > 1) {
 					$data = array();
+					$lembur = array();
 					for ($i = 1; $i < $sheetcount; $i++) {
 						$niy = $sheetdata[$i][0];
 						$nama = $sheetdata[$i][1];
@@ -72,9 +73,23 @@ class Absensi extends CI_Controller
 							'keterangan' => $keterangan,
 
 						);
+						if ($mulai_lembur != '') {
+							$lembur[] = array(
+								'niy' => $niy,
+								'tanggal' => $tanggal,
+								'masuk' => $mulai_lembur,
+								'pulang' => $selesai_lembur,
+								'lama_lembur' => $total_lembur,
+								'ket_lembur' => 'lembur',
+								'status' => 'Diajukan',
+							);
+						}
 					}
 					// var_dump($data);
 					// die;
+					if (!empty($lembur)) {
+						$this->Lembur_model->insert_batch($lembur);
+					}
 					$inserdata = $this->Absensi_model->insert($data);
 					if ($inserdata) {
 						$this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
@@ -85,11 +100,14 @@ class Absensi extends CI_Controller
 					}
 				}
 			} catch (Exception $e) {
-				echo "Error loading file: " . $e->getMessage();
+				$this->session->set_flashdata('message', '<script type="text/javascript">swal("Error loading file: File Kosong", "Error!", "error");</script>');
+				redirect('Absensi');
+				// echo "Error loading file: " . $e->getMessage();
 			}
 		} else {
 			$error = isset($_FILES['file']['error']) ? $_FILES['file']['error'] : 'File not uploaded.';
-			echo "Upload failed with error: " . $error;
+			$this->session->set_flashdata('message', '<script type="text/javascript">swal("' . $error . '", "Error!", "error");</script>');
+			redirect('Absensi');
 		}
 	}
 
