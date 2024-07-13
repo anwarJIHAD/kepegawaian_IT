@@ -15,14 +15,14 @@ class Absensi_model extends CI_Model
 		if ($role == 'Admin' || $role == 'kepala sekolah') {
 			$this->db->select('pegawai.*, absensi.id AS id_absensi, absensi.*');
 			$this->db->from($this->table);
-			$this->db->join('pegawai', 'absensi.niy = pegawai.niy', 'inner');
+			$this->db->join('pegawai', 'absensi.niy = pegawai.niy', 'left');
 			$query = $this->db->get();
 		} else {
 			$logged_in_user_id = $this->session->userdata('niy');
 			$this->db->select('pegawai.*, absensi.id AS id_absensi, absensi.*');
 			$this->db->from($this->table);
-			$this->db->join('pegawai', 'absensi.niy = pegawai.niy', 'inner');
-			$this->db->where('absensi.niy', $logged_in_user_id);
+			$this->db->join('pegawai', 'absensi.niy = pegawai.niy', 'left');
+			$this->db->where('absensi.niy', $logged_in_user_id);								
 			$query = $this->db->get();
 		}
 		return $query->result_array();

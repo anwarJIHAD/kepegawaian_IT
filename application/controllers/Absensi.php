@@ -171,4 +171,8 @@ class Absensi extends CI_Controller
 		$this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
 		redirect('Absensi');
 	}
+	public function getTemplate()
+	{
+		force_download('./template/assets/template_absensi.xlsx', NULL);
+	}
 }
