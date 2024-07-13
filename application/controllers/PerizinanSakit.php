@@ -199,7 +199,7 @@ class PerizinanSakit extends CI_Controller
 						'niy' => $izin['niy'],
 						'tanggal' => $tanggal,
 						'status' => 'Tidak Hadir',
-						'keterangan' => 'Izin Sakit ' . $izin['ket_sakit'],
+						'keterangan' => 'Izin Sakit ',
 					);
 				}
 

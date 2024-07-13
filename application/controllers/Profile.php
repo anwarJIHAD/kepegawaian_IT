@@ -61,8 +61,8 @@ class Profile extends CI_Controller
 				'no_hp' => $this->input->post('no_hp'),
 			];
 
-			if ($this->input->post('password')) {
-				$data['password'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+			if ($this->input->post('pass_lama')) {
+				$data['password'] = password_hash($this->input->post('pass_baru'), PASSWORD_DEFAULT);
 			}
 			$user = $this->db->get_where('pegawai', ['niy' => $this->session->userdata('niy')])->row_array();
 			$id = $user['id'];
@@ -74,40 +74,37 @@ class Profile extends CI_Controller
 
 
 	public function update_profile()
-{
-    $data['pegawai'] = $this->db->get_where('pegawai', ['id' => $this->session->userdata['id']])->row_array();
+	{
+		$data['pegawai'] = $this->db->get_where('pegawai', ['id' => $this->session->userdata['id']])->row_array();
 
-    $config['upload_path']          = './template/assets/img/profil/';
-    $config['allowed_types']        = 'gif|jpg|png|PNG|jpeg';
-    $config['max_size']             = 10000;
-    $config['max_width']            = 10000;
-    $config['max_height']           = 10000;
+		$config['upload_path'] = './template/assets/img/profil/';
+		$config['allowed_types'] = 'gif|jpg|png|PNG|jpeg';
+		$config['max_size'] = 10000;
+		$config['max_width'] = 10000;
+		$config['max_height'] = 10000;
 
-    $this->load->library('upload', $config);
+		$this->load->library('upload', $config);
 
-    if ( ! $this->upload->do_upload('gambar'))
-    {
-        // Tambahkan pesan kesalahan untuk debugging
-        $error = $this->upload->display_errors();
-        $this->session->set_flashdata('message', '<script type="text/javascript">swal("Error!", "'. $error .'", "error");</script>');
-        redirect('Profile');
-    } 
-    else 
-    {
-        $gambar = $this->upload->data();
-        $gambar = $gambar['file_name'];
+		if (!$this->upload->do_upload('gambar')) {
+			// Tambahkan pesan kesalahan untuk debugging
+			$error = $this->upload->display_errors();
+			$this->session->set_flashdata('message', '<script type="text/javascript">swal("Error!", "' . $error . '", "error");</script>');
+			redirect('Profile');
+		} else {
+			$gambar = $this->upload->data();
+			$gambar = $gambar['file_name'];
 
-        $data = [
-            'gambar' => $gambar,
-        ];
+			$data = [
+				'gambar' => $gambar,
+			];
 
-        $user = $this->db->get_where('pegawai', ['niy' => $this->session->userdata('niy')])->row_array();
-        $id = $user['id'];
-        $this->Pegawai_model->update(['id' => $id], $data);
-        $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
-        redirect('Profile');
-    }
-}
+			$user = $this->db->get_where('pegawai', ['niy' => $this->session->userdata('niy')])->row_array();
+			$id = $user['id'];
+			$this->Pegawai_model->update(['id' => $id], $data);
+			$this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+			redirect('Profile');
+		}
+	}
 
 
 	public function check_passwords($new_password)
