@@ -29,11 +29,6 @@
                 <input type="date" class="form-control" id="tgl_izin" name="tgl_izin" value="<?= $izin['tgl_izin']; ?>" placeholder="Tanggal Izin">
                 <?= form_error('tgl_izin', '<small class="text-danger pl-3">', '</small>'); ?>
               </div>
-              <label class="col-sm-1 col-form-label">Hingga</label>
-              <div class="col-sm-4">
-                <input type="date" class="form-control" id="hingga_tgl" name="hingga_tgl" value="<?= $izin['hingga_tgl']; ?>">
-                <?= form_error('hingga_tgl', '<small class="text-danger pl-3">', '</small>'); ?>
-              </div>
             </div>
             <div class="form-group row">
               <label class="col-sm-3 col-form-label">Waktu Izin</label>

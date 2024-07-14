@@ -93,7 +93,7 @@ class Lembur extends CI_Controller
 			];
 			$id = $this->input->post('id');
 			$this->Lembur_model->update(['id' => $id], $data);
-			$this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+			$this->session->set_flashdata('message', '<script type="text/javascript">swal("Berhasil diubah!", "Success!", "success");</script>');
 			redirect('Lembur');
 		}
 	}
@@ -101,7 +101,7 @@ class Lembur extends CI_Controller
 	public function hapus($id)
 	{
 		$this->Lembur_model->delete($id);
-		$this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+		$this->session->set_flashdata('message', '<script type="text/javascript">swal("Berhasil dihapus!", "Success!", "success");</script>');
 		redirect('Lembur');
 	}
 

@@ -48,7 +48,7 @@ public function index()
 }
 
     $this->Berkas_model->insert($data, $upload_image);
-    $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+    $this->session->set_flashdata('message', '<script type="text/javascript">swal("Berhasil ditambahkan!", "Success!", "success");</script>');
     redirect('Berkas');
 }    
 }
@@ -56,7 +56,7 @@ public function index()
 public function hapus($id)
 {
     $this->Berkas_model->delete($id);
-    $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+    $this->session->set_flashdata('message', '<script type="text/javascript">swal("Berhasil dihapus!", "Success!", "success");</script>');
     redirect('Berkas');
 }
 }

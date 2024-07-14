@@ -24,9 +24,6 @@ class PengajuanIzin extends CI_Controller {
                     $this->form_validation->set_rules('tgl_izin', 'tgl_izin', 'required|trim', [
                         'required' => 'Tanggal Izin Wajib di isi'
                     ]);
-                    $this->form_validation->set_rules('hingga_tgl', 'hingga_tgl', 'required|trim', [
-                        'required' => 'Tanggal Izin Wajib di isi'
-                    ]);
                     $this->form_validation->set_rules('waktu_izin', 'waktu_izin', 'required|trim', [
                         'required' => 'Waktu Izin Wajib di isi'
                     ]);
@@ -59,7 +56,6 @@ class PengajuanIzin extends CI_Controller {
                     }
                     $data = [
                         'tgl_izin' => htmlspecialchars($this->input->post('tgl_izin', true)),
-                        'hingga_tgl' => htmlspecialchars($this->input->post('hingga_tgl', true)),
                         'waktu_izin' => htmlspecialchars($this->input->post('waktu_izin', true)),
                         'hingga_waktu' => htmlspecialchars($this->input->post('hingga_waktu', true)),
                         'lama_izin' => htmlspecialchars($this->input->post('lama_izin', true)),
@@ -82,7 +78,7 @@ class PengajuanIzin extends CI_Controller {
                         'izin_id' => $izin_id, // Menyimpan ID izin ke dalam notifikasi
                     ];
                     $this->Notifikasi_model->insert($notif);
-                    $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+                    $this->session->set_flashdata('message', '<script type="text/javascript">swal("Berhasil ditambahkan!", "Success!", "success");</script>');
                     redirect('PengajuanIzin');
                 }    
 }
@@ -95,6 +91,9 @@ public function editizin($id)
         'required' => 'Tanggal Izin Wajib di isi'
     ]);
     $this->form_validation->set_rules('waktu_izin', 'waktu_izin', 'required|trim',[
+        'required' => 'Waktu Izin Wajib di isi'
+    ]);
+    $this->form_validation->set_rules('hingga_waktu', 'hingga_waktu', 'required|trim',[
         'required' => 'Waktu Izin Wajib di isi'
     ]);
     $this->form_validation->set_rules('lama_izin', 'lama_izin', 'required|trim',[
@@ -122,7 +121,6 @@ public function editizin($id)
         }
         $data = [
             'tgl_izin' => $this->input->post('tgl_izin'),
-            'hingga_tgl' => $this->input->post('hingga_tgl'),
             'waktu_izin' => $this->input->post('waktu_izin'),
             'hingga_waktu' => $this->input->post('hingga_waktu'),
             'lama_izin' => $this->input->post('lama_izin'),
@@ -132,7 +130,7 @@ public function editizin($id)
         ];
         
         $this->Perizinan_model->update(['id' => $izin_id], $data);
-        $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+        $this->session->set_flashdata('message', '<script type="text/javascript">swal("Berhasil diubah!", "Success!", "success");</script>');
         redirect('PengajuanIzin');
     }
 }
@@ -140,7 +138,7 @@ public function editizin($id)
     public function hapus($id)
     {
         $this->Perizinan_model->delete($id);
-        $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+        $this->session->set_flashdata('message', '<script type="text/javascript">swal("Berhasil dihapus!", "Success!", "success");</script>');
         redirect('PengajuanIzin');
     }
     

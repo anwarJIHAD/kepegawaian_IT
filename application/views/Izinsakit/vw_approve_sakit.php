@@ -21,7 +21,7 @@
                     <th>Keterangan Sakit</th>
                     <th>File Surat Sakit</th>
                     <th>Status</th>
-                    <th>Action</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>

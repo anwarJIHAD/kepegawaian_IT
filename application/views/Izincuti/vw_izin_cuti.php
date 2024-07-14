@@ -56,7 +56,7 @@
                         <?php } elseif ($us['status'] == 'Diajukan') { ?>
                           -
                         <?php } else { ?>
-                          <button class="btn btn-light" data-toggle="modal" data-target="#modal<?= $us['id_cuti']; ?>"><i class="bi bi-info-circle-fill" style="color:light"></i> Detail</button>
+                          <button class="btn btn-light" data-toggle="modal" data-target="#modal<?= $us['id_cuti']; ?>"><i class="bi bi-info-circle-fill" style="color:darkolivegreen"></i> Detail</button>
                         <?php } ?>
                       </td>
                     </tr>

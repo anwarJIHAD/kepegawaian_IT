@@ -21,7 +21,6 @@
                     <th>No</th>
                     <th>Nama Pegawai</th>
                     <th>Tanggal Izin</th>
-                    <th>Hingga Tanggal</th>
                     <th>Waktu Izin</th>
                     <th>Hingga Waktu</th>
                     <th>Lama Izin</th>
@@ -39,7 +38,6 @@
                       <td> <?= $i; ?>.</td>
                       <td><?= $us['nama']; ?></td>
                       <td><?= $us['tgl_izin']; ?></td>
-                      <td><?= $us['hingga_tgl']; ?></td>
                       <td><?= $us['waktu_izin']; ?></td>
                       <td><?= $us['hingga_waktu']; ?></td>
                       <td><?= $us['lama_izin']; ?></td>

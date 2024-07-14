@@ -100,7 +100,7 @@ class Absensi extends CI_Controller
 					}
 					$inserdata = $this->Absensi_model->insert($data);
 					if ($inserdata) {
-						$this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+						$this->session->set_flashdata('message', '<script type="text/javascript">swal("Berhasil ditambahkan!", "Success!", "success");</script>');
 						redirect('Absensi');
 					} else {
 						$this->session->set_flashdata('message', '<script type="text/javascript">swal("Cannot add the data!", "Error!", "error");</script>');
@@ -187,7 +187,7 @@ class Absensi extends CI_Controller
 			];
 			$id = $this->input->post('id');
 			$this->Absensi_model->update(['id' => $id], $data);
-			$this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+			$this->session->set_flashdata('message', '<script type="text/javascript">swal("Berhasil diubah!", "Success!", "success");</script>');
 			redirect('Absensi');
 		}
 	}
@@ -195,7 +195,7 @@ class Absensi extends CI_Controller
 	public function hapus($id)
 	{
 		$this->Absensi_model->delete($id);
-		$this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+		$this->session->set_flashdata('message', '<script type="text/javascript">swal("Berhasil dihapus!", "Success!", "success");</script>');
 		redirect('Absensi');
 	}
 	public function getTemplate()

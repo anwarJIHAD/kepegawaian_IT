@@ -86,7 +86,7 @@ class Pegawai extends CI_Controller
                 'status' => htmlspecialchars($this->input->post('status', true)),
             ];
             $this->Pegawai_model->insert($data);
-            $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+            $this->session->set_flashdata('message', '<script type="text/javascript">swal("Berhasil ditambahkan!", "Success!", "success");</script>');
             redirect('Pegawai');
         }
     }
@@ -147,7 +147,7 @@ class Pegawai extends CI_Controller
             ];
             $id = $this->input->post('id');
             $this->Pegawai_model->update(['id' => $id], $data);
-            $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+            $this->session->set_flashdata('message', '<script type="text/javascript">swal("Berhasil diubah!", "Success!", "success");</script>');
             redirect('Pegawai');
         }
     }
@@ -155,7 +155,7 @@ class Pegawai extends CI_Controller
     public function hapus($id)
     {
         $this->Pegawai_model->delete($id);
-        $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+        $this->session->set_flashdata('message', '<script type="text/javascript">swal("Berhasil dihapus!", "Success!", "success");</script>');
             redirect('Pegawai');
     }
 

@@ -90,7 +90,7 @@ class PerizinanSakit extends CI_Controller
 				'izin_sakit_id' => $izin_id, // Menyimpan ID izin ke dalam notifikasi
 			];
 			$this->Notifikasi_model->insert($notif);
-			$this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+			$this->session->set_flashdata('message', '<script type="text/javascript">swal("Berhasil ditambahkan!", "Success!", "success");</script>');
 			redirect('PerizinanSakit');
 		}
 	}
@@ -154,14 +154,14 @@ class PerizinanSakit extends CI_Controller
 
 			// Memperbarui data di database melalui model
 			$this->PerizinanSakit_model->update(['id' => $id], $data, $upload_image);
-			$this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+			$this->session->set_flashdata('message', '<script type="text/javascript">swal("Berhasil diubah!", "Success!", "success");</script>');
 			redirect('PerizinanSakit');
 		}
 	}
 	public function hapus($id)
 	{
 		$this->PerizinanSakit_model->delete($id);
-		$this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+		$this->session->set_flashdata('message', '<script type="text/javascript">swal("Berhasil dihapus!", "Success!", "success");</script>');
 		redirect('PerizinanSakit');
 	}
 
