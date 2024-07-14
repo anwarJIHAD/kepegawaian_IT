@@ -71,9 +71,16 @@ class Absensi extends CI_Controller
 							'pulang_awal' => $pulang_awal,
 							'waktu_kerja' => $waktu_kerja,
 							'status' => $status,
-							'keterangan' => $keterangan,
+							// 'keterangan' => $keterangan,
 
 						);
+						// var_dump($waktu_masuk);
+						// die;
+						if ($waktu_masuk > '7:10') {
+							$data[$i - 1]['keterangan'] = 'Telat';
+						} else {
+							$data[$i - 1]['keterangan'] = 'Tepat Waktu';
+						}
 						if ($mulai_lembur != '') {
 							$lembur[] = array(
 								'niy' => $niy,
