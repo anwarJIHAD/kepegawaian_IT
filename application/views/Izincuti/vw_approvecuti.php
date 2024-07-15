@@ -5,7 +5,7 @@
     <div class="section-header">
       <h5>Surat Perizinan</h5>
     </div>
-    <!-- <?= $this->session->flashdata('message'); ?> -->
+    <?= $this->session->flashdata('message'); ?> 
     <div class="section-body">
       <div class="row">
         <div class="col">
@@ -81,7 +81,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form method="POST" action="<?= base_url('PerizinanCuti/ubahstatus/') . $us['id_cuti']; ?>">
+            <form id="myForm<?= $us['id_cuti']; ?>" method="POST" action="<?= base_url('PerizinanCuti/ubahstatus/') . $us['id_cuti']; ?>">
               <input type="hidden" name="id" value="<?= $us['id_cuti'] ?>;">
               <div class="form-group">
                 <label>Keterangan</label>
@@ -95,7 +95,7 @@
                 </select>
               </div>
               <a href="<?= base_url('perizinancuti/approvecuti') ?>" class="btn btn-light">Tutup</a>
-              <button type="submit" name="tambah" class="btn btn-primary float-right">Simpan</button>
+              <button type="button" name="tambah" class="btn btn-primary float-right" onclick="confirmSubmit(<?= $us['id_cuti']; ?>)">Simpan</button>
             </form>
           </div>
         </div>
@@ -106,33 +106,21 @@
   </section>
   </div>
 
-  <!-- </button> 
-      </div>
-      <div class="modal-body">
-      <div class="form-group">
-              <label>Alasan Penolakan</label>
-              <textarea class="form-control"></textarea>
-            </div>
-      </div>
-      <div class="modal-footer bg-whitesmoke br">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-info">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-<script>
-  function confirm_delete(question) {
-
-    if (confirm(question)) {
-
-      alert("Action to delete");
-
-    } else {
-      return false;
+  <script>
+   function confirmSubmit(id) {
+  Swal.fire({
+    title: 'Konfirmasi',
+    text: "Apakah anda yakin?",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Ya, lanjutkan!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      document.getElementById('myForm' + id).submit(); // Submit the form with the unique id
     }
-
-  }
+  })
+}
 </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

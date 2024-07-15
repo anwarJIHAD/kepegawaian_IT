@@ -5,7 +5,7 @@
     <div class="section-header">
       <h5>Surat Perizinan</h5>
     </div>
-    <!-- <?= $this->session->flashdata('message'); ?> -->
+    <?= $this->session->flashdata('message'); ?>
     <div class="section-body">
       <div class="row">
         <div class="col">
@@ -87,7 +87,7 @@
 
 <!-- Modal -->
 <?php foreach ($approvesakit as $us) : ?>
-<div class="modal fade" tabindex="-1" role="dialog" id="modal<?= $us['id_sakit']; ?>">
+  <div class="modal fade" tabindex="-1" role="dialog" id="modal<?= $us['id_sakit']; ?>">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -97,7 +97,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="<?= base_url('PerizinanSakit/ubahstatus/') . $us['id_sakit']; ?>">
+        <form id="myForm<?= $us['id_sakit']; ?>" method="POST" action="<?= base_url('PerizinanSakit/ubahstatus/') . $us['id_sakit']; ?>">
         <input type="hidden" name="id" value="<?= $us['id_sakit'] ?>;">
           <div class="form-group">
             <label for="status">Status</label>
@@ -107,7 +107,7 @@
             </select>
           </div>
           <a href="<?= base_url('perizinansakit/approvesakit') ?>" class="btn btn-light">Tutup</a>
-              <button type="submit" name="tambah" class="btn btn-primary float-right">Simpan</button>
+          <button type="button" name="tambah" class="btn btn-primary float-right" onclick="confirmSubmit(<?= $us['id_sakit']; ?>)">Simpan</button>
             </form>
           </div>
         </div>
@@ -148,3 +148,22 @@
 
   }
 </script>
+
+<script>
+  function confirmSubmit(id) {
+  Swal.fire({
+    title: 'Konfirmasi',
+    text: "Apakah anda yakin?",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Ya, lanjutkan!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      document.getElementById('myForm' + id).submit(); // Submit the form with the unique id
+    }
+  })
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

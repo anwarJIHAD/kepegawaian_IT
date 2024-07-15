@@ -5,7 +5,7 @@
     <div class="section-header">
       <h5>Surat Perizinan</h5>
     </div>
-    <!-- <?= $this->session->flashdata('message'); ?> -->
+    <?= $this->session->flashdata('message'); ?> 
     <div class="section-body">
       <div class="row">
         <div class="col">
@@ -32,7 +32,7 @@
                   <?php foreach ($approveizin as $us) : ?>
                     <tr>
                       <td> <?= $i; ?>.</td>
-                      <<td><?= $us['nama']; ?></td>
+                      <td><?= $us['nama']; ?></td>
                       <td><?= $us['tgl_izin']; ?></td>
                       <td><?= $us['waktu_izin']; ?></td>
                       <td><?= $us['hingga_waktu']; ?></td>
@@ -81,30 +81,26 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="<?= base_url('PengajuanIzin/ubahstatus/') . $us['id_izin']; ?>">
-        <input type="hidden" name="id" value="<?= $us['id_izin'] ?>;">
+        <form id="myForm<?= $us['id_izin']; ?>" method="POST" action="<?= base_url('PengajuanIzin/ubahstatus/') . $us['id_izin']; ?>">
+          <input type="hidden" name="id" value="<?= $us['id_izin']; ?>">
           <div class="form-group">
             <label for="status">Status</label>
             <select class="form-control" id="status" name="status">
-            <option value="Diterima">Diterima</option>
-            <option value="Ditolak">Ditolak</option>
+              <option value="Diterima">Diterima</option>
+              <option value="Ditolak">Ditolak</option>
             </select>
           </div>
           <a href="<?= base_url('pengajuanizin/approveizin') ?>" class="btn btn-light">Tutup</a>
-              <button type="submit" name="tambah" class="btn btn-primary float-right">Simpan</button>
-            </form>
-          </div>
-        </div>
+          <button type="button" name="tambah" class="btn btn-primary float-right" onclick="confirmSubmit(<?= $us['id_izin']; ?>)">Simpan</button>
+        </form>
       </div>
     </div>
-  <?php endforeach; ?>
-
-  </section>
   </div>
-
-
+</div>
+<?php endforeach; ?>
+</section>
+</div>
 </tr>
-
 </tbody>
 </table>
 </div>
@@ -112,23 +108,35 @@
 </div>
 </div>
 </div>
-
 </div>
 </section>
 </div>
+</div>
+</div>
 
-</div>
-</div>
 <script>
-  function confirm_delete(question) {
-
-    if (confirm(question)) {
-
-      alert("Action to delete");
-
-    } else {
-      return false;
-    }
-
+function confirm_delete(question) {
+  if (confirm(question)) {
+    alert("Action to delete");
+  } else {
+    return false;
   }
+}
+
+function confirmSubmit(id) {
+  Swal.fire({
+    title: 'Konfirmasi',
+    text: "Apakah anda yakin?",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Ya, lanjutkan!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      document.getElementById('myForm' + id).submit(); // Submit the form with the unique id
+    }
+  })
+}
 </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

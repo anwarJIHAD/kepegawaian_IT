@@ -183,7 +183,8 @@
 										<div class="row">
 											<div class="col-6">
 												<div class="details">
-													<div><?= $us['message']; ?></div>
+													<div><a href="<?= base_url() ?>PerizinanCuti/approvecuti">
+													<?= $us['message']; ?></a></div>
 												</div>
 											</div>
 											<div class="col">
@@ -208,7 +209,8 @@
 										<div class="row">
 											<div class="col-6">
 												<div class="details">
-													<div><?= $us['message']; ?></div>
+												<div><a href="<?= base_url() ?>PerizinanSakit/approvesakit">
+												<?= $us['message']; ?></a></div>
 												</div>
 											</div>
 											<div class="col">
@@ -233,7 +235,8 @@
 										<div class="row">
 											<div class="col-6">
 												<div class="details">
-													<div><?= $us['message']; ?></div>
+												<div><a href="<?= base_url() ?>PengajuanIzin/approveizin">
+												<?= $us['message']; ?></a></div>
 												</div>
 											</div>
 											<div class="col">

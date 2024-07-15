@@ -5,7 +5,7 @@
     <div class="section-header">
       <h5>Data Lembur</h5>
     </div>
-    <!-- <?= $this->session->flashdata('message'); ?> -->
+     <?= $this->session->flashdata('message'); ?>
     <div class="section-body">
       <div class="row">
         <div class="col">
@@ -79,7 +79,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form method="POST" action="<?= base_url('Lembur/ubahstatus/') . $us['id_lembur']; ?>">
+            <form id="myForm<?= $us['id_lembur']; ?>" method="POST" action="<?= base_url('Lembur/ubahstatus/') . $us['id_lembur']; ?>">
               <input type="hidden" name="id" value="<?= $us['id_lembur'] ?>;">
               <div class="form-group">
                 <label>Status</label>
@@ -89,7 +89,7 @@
                 </select>
               </div>
               <a href="<?= base_url('lembur/approvelembur') ?>" class="btn btn-light">Tutup</a>
-              <button type="submit" name="tambah" class="btn btn-primary float-right">Simpan</button>
+              <button type="button" name="tambah" class="btn btn-primary float-right" onclick="confirmSubmit(<?= $us['id_lembur']; ?>)">Simpan</button>
               </form>
           </div>
         </div>
@@ -131,3 +131,21 @@
   }
 </script>
  
+<script>
+ function confirmSubmit(id) {
+  Swal.fire({
+    title: 'Konfirmasi',
+    text: "Apakah anda yakin?",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Ya, lanjutkan!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      document.getElementById('myForm' + id).submit(); // Submit the form with the unique id
+    }
+  })
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
