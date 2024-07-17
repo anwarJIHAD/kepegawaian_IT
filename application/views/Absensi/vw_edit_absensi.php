@@ -76,8 +76,8 @@
 									value="<?= $absensi['waktu_kerja']; ?>">
 							</div>
 						</div>
-						<a href="<?= base_url('Console/absensi') ?>" class="btn btn-light">Tutup</a>
-						<button type="submit" name="edit" class="btn btn-success float-right">Simpan</button>
+						<a href="<?= base_url('Absensi') ?>" class="btn btn-light">Tutup</a>
+						<button type="submit" name="edit" class="btn btn-primary float-right">Simpan</button>
 
 					</form>
 				</div>

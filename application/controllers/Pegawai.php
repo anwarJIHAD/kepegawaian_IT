@@ -162,6 +162,7 @@ class Pegawai extends CI_Controller
 
     public function loadfile()
     {
+        if (isset($_FILES['myFile'])) {
         $upload_file = $_FILES['myFile']['name'];
         $extension = pathinfo($upload_file, PATHINFO_EXTENSION);
         if ($extension == 'csv') {
@@ -171,6 +172,7 @@ class Pegawai extends CI_Controller
         } else {
             $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
         }
+        try{
         $spreadsheet = $reader->load($_FILES['myFile']['tmp_name']);
         $sheetdata = $spreadsheet->getActiveSheet()->toArray();
         $sheetcount = count($sheetdata);
@@ -207,7 +209,17 @@ class Pegawai extends CI_Controller
                 redirect('Pegawai');
             }
         }
-    }
+    } catch (Exception $e) {
+        $this->session->set_flashdata('message', '<script type="text/javascript">swal("Error loading file: File Kosong", "Error!", "error");</script>');
+        redirect('Pegawai');
+        // echo "Error loading file: " . $e->getMessage();
+    } 
+} else {
+    $error = isset($_FILES['file']['error']) ? $_FILES['file']['error'] : 'File not uploaded.';
+    $this->session->set_flashdata('message', '<script type="text/javascript">swal("' . $error . '", "Error!", "error");</script>');
+    redirect('Pegawai');
+}
+}
     public function getTemplate(){
         force_download('./template/assets/datapegawai.xlsx',NULL);
       }

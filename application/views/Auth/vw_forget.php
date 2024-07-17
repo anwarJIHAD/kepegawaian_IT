@@ -38,12 +38,12 @@
                 <div class="row">
                     <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                         <div class="login-brand">
-                            <img src="<?= base_url() ?>/template/assets/img/logo_it.png" alt="logo" width="250" class="shadow-light">
+                            <img src="<?= base_url() ?>/template/assets/img/logo_it.png" alt="logo" width="250">
                         </div>
 
                         <div class="card card-primary" style="border-top: 2px solid #27a53c;">
                             <div class="text-center mt-3">
-                                <h4>Forgot Password</h4>
+                                <h4>Lupa Password</h4>
                             </div>
 
                             <div class="card-body">
@@ -73,7 +73,7 @@
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-success btn-lg btn-block" style="background-color: #27a53c;" tabindex="4">
-                                           Change Password
+                                           Ubah Password
                                         </button>
                                         <!-- <div class="float-right">
                                             <a href="<?= base_url('auth/forgetpass') ?>" class="text-small">

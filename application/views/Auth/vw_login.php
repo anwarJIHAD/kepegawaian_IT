@@ -64,16 +64,14 @@
                     </button>
                     <div class="float-right">
                         <a href="<?= base_url('auth/forgetpass')?>" class="text-small">
-                          Forgot Password?
+                          Lupa Password?
                         </a>
                       </div>
                   </div>
                 </form>
               </div>
             </div>
-            <div class="mt-5 text-muted text-center">
-              Don't have an account? <a href="auth-register.html">Create One</a>
-            </div>
+           
             <div class="simple-footer">
               Copyright &copy; Kepegawaian IT
             </div>

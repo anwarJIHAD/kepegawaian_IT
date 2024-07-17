@@ -65,7 +65,7 @@
                 <div style="margin-bottom: 20px;">
                 <?php if ($pegawai['role'] == 'Admin') { ?>
                     <a href="<?= base_url() ?>Pegawai/tambah_pegawai" class="btn btn-outline-warning"><i class="bi bi-plus-circle"></i> Tambah Data</a> 
-                   <button  class="btn btn-outline-warning" data-target="#exampleModal" data-toggle="modal"><i class="bi bi-file-earmark-ruled"></i> Export Excel</button> 
+                   <button  class="btn btn-outline-warning" data-target="#exampleModal" data-toggle="modal"><i class="bi bi-file-earmark-ruled"></i> Import Excel</button> 
                     <?php } ?>
                 </div>
                     <div class="table-responsive">
@@ -121,7 +121,7 @@
 <div class="modal fade" tabindex="-1" role="dialog" id="exampleModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <form action="<?= base_url() ?>Pegawai/loadfile" enctype="multipart/form-data" method="POST">
+      <form action="<?= base_url() ?>Pegawai/loadfile" enctype="multipart/form-data" method="POST" id="uploadForm">
       <div class="modal-header">
         <h5 class="modal-title">Upload Excel</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -129,9 +129,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="drop-zone" style="margin-bottom: 15px;">
+        <div class="drop-zone" style="margin-bottom: 15px;"  id="dropArea">
           <span>Drop file here or click to upload</span>
-          <input type="file" name="myFile" class="drop-zone__input" >
+          <input type="file" name="myFile" class="drop-zone__input" accept=".csv,.xls,.xlsx" id="excelFileInput">
         </div>
         <div>
           <span>Download Excel template <a href="<?= base_url() ?>pegawai/getTemplate" style="color:#b55050;">here</a></span>

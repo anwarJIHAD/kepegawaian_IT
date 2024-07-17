@@ -53,6 +53,7 @@
                             ";
                           }
                           ?>
+                          <?php if($us['file_sakit']): ?>
                           <div class="chocolat-parent">
                             <a href="<?= base_url('template/assets/img/suratsakit/')  . $us['file_sakit']; ?>" class="chocolat-image" title="<?= $us['file_sakit']; ?>">
                               <div>
@@ -60,6 +61,11 @@
                               </div>
                             </a>
                           </div>
+                          <?php elseif(!$us['file_sakit']): ?>
+                            <div>
+                                Belum Upload
+                              </div>
+                              <?php endif ?>
                         </td>
                         <td>
                           <?php if ($us['status'] == 'Disetujui') { ?>
@@ -72,7 +78,9 @@
                         </td>
                         <td>
                           <?php if ($pegawai['role'] ==  $this->session->userdata('role') && $us['role'] == $this->session->userdata('role') && $us['status'] != 'Disetujui' && $us['status'] != 'Ditolak') { ?>
-
+                            <?php if(!$us['file_sakit']): ?>
+                            <a href="<?= base_url('perizinanSakit/editsakit/') . $us['id_sakit']; ?>" class="btn btn-light btn-sm mr-2"><i class="bi bi-pencil-square"></i> Upload File</a>
+                            <?php endif ?>
                             <a href="<?= base_url('perizinanSakit/hapus/') . $us['id_sakit']; ?>" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Hapus</a>
                           <?php } elseif ($us['status'] == 'Diajukan') { ?>
                             -

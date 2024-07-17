@@ -131,8 +131,8 @@
                             </div>
             <div class="form-group row">
               <div class="col-sm-12">
-                <a href="<?= base_url('Console/pegawai') ?>" class="btn btn-light">Tutup</a>
-                <button type="submit" name="tambah" class="btn btn-success float-right">Simpan</button>
+                <a href="<?= base_url('Pegawai') ?>" class="btn btn-light">Tutup</a>
+                <button type="submit" name="tambah" class="btn btn-primary float-right">Simpan</button>
               </div>
             </div>
           </form>

@@ -80,7 +80,7 @@
 								<i class="bi bi-plus-circle" onclick="tampilkan()">Uploud Excel</i>
 							</button> -->
 							<button class="btn btn-outline-warning" data-target="#exampleModal" data-toggle="modal"><i
-									class="bi bi-file-earmark-ruled"></i> Export Excel</button>
+									class="bi bi-file-earmark-ruled"></i> Import Excel</button>
 
 						<?php } ?>
 					</div>

@@ -99,26 +99,13 @@ class PerizinanSakit extends CI_Controller
 	{
 		$data['pegawai'] = $this->db->get_where('pegawai', ['id' => $this->session->userdata['id']])->row_array();
 		$data['izin_sakit'] = $this->PerizinanSakit_model->getById($id);
-
-		$this->form_validation->set_rules('tgl_izin', 'tgl_izin', 'required|trim', [
-			'required' => 'Tanggal Wajib di isi'
-		]);
-		$this->form_validation->set_rules('hingga_tgl', 'hingga_tgl', 'required|trim', [
-			'required' => 'Tanggal Wajib di isi'
-		]);
-		$this->form_validation->set_rules('ket_sakit', 'ket_sakit', 'required|trim', [
-			'required' => 'Keterangan Sakit Wajib di isi'
-		]);
+		$this->form_validation->set_rules('file_sakit', 'File Sakit', 'callback_file_check'); // Example callback for file validation
 		if ($this->form_validation->run() == false) {
 			$this->load->view('layout/header', $data);
 			$this->load->view('Izinsakit/vw_edit_sakit', $data);
 			$this->load->view('layout/footer', $data);
 		} else {
-			$data = [
-				'tgl_izin' => $this->input->post('tgl_izin'),
-				'hingga_tgl' => $this->input->post('hingga_tgl'),
-				'ket_sakit' => $this->input->post('ket_sakit'),
-			];
+			$data = [];
 			$upload_image = $_FILES['file_sakit']['name'];
 			if ($upload_image) {
 				// Konfigurasi upload file
@@ -156,6 +143,15 @@ class PerizinanSakit extends CI_Controller
 			$this->PerizinanSakit_model->update(['id' => $id], $data, $upload_image);
 			$this->session->set_flashdata('message', '<script type="text/javascript">swal("Berhasil diubah!", "Success!", "success");</script>');
 			redirect('PerizinanSakit');
+		}
+	}
+	public function file_check($str) {
+		// Custom file validation logic
+		if (empty($_FILES['file_sakit']['name'])) {
+			$this->form_validation->set_message('file_check', 'The {field} field is required.');
+			return FALSE;
+		} else {
+			return TRUE;
 		}
 	}
 	public function hapus($id)

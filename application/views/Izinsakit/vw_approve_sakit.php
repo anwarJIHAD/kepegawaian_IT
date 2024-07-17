@@ -47,6 +47,7 @@
                             ";
                           }
                           ?>
+                         <?php if($us['file_sakit']): ?>
                           <div class="chocolat-parent">
                             <a href="<?= base_url('template/assets/img/suratsakit/')  . $us['file_sakit']; ?>" class="chocolat-image" title="<?= $us['file_sakit']; ?>">
                               <div>
@@ -54,6 +55,11 @@
                               </div>
                             </a>
                           </div>
+                          <?php elseif(!$us['file_sakit']): ?>
+                            <div>
+                                Belum Upload
+                              </div>
+                              <?php endif ?>
                         </td>
                         <td>
                         

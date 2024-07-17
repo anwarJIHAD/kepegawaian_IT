@@ -12,7 +12,7 @@
           <h4>Form Surat Perizinan</h4>
         </div>
         <div class="card-body">
-          <form id="myForm" method="POST" action="<?= base_url('perizinansakit/tambahsakit') ?>" enctype="multipart/form-data">
+          <form method="POST" action="<?= base_url('perizinansakit/tambahsakit') ?>" enctype="multipart/form-data">
             <div class="form-group row">
               <label class="col-sm-3 col-form-label">Nama Pegawai</label>
               <div class="col-sm-9">
@@ -49,7 +49,7 @@
               </div>
             </div>
             <a href="<?= base_url('PerizinanSakit') ?>" class="btn btn-light">Tutup</a>
-            <button type="button" name="tambah" class="btn btn-primary float-right" onclick="confirmSubmit()">Simpan</button>
+            <button type="submit" name="tambah" class="btn btn-primary float-right">Simpan</button>
           </form>
         </div>
       </div>
@@ -59,21 +59,3 @@
  </div>
   </div>
 
-<script>
-  function confirmSubmit() {
-    Swal.fire({
-      title: 'Konfirmasi Aksi',
-      text: "Aksi ini tidak dapat di ubah, apakah anda yakin?",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Ya, lanjutkan!'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        document.getElementById('myForm').submit(); // Submit the form
-      }
-    })
-  }
-</script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
