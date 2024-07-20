@@ -12,7 +12,7 @@ class Dashboard_model extends CI_Model
 	{
 		$this->db->select('COUNT(*) as jumlah');
 		$this->db->from('pegawai');
-		$this->db->where('jabatan <>', 'Kepala Sekolah');
+		// $this->db->where('jabatan <>', 'Kepala Sekolah');
 		$query = $this->db->get();
 		return $query->row()->jumlah;
 	}
@@ -28,11 +28,32 @@ class Dashboard_model extends CI_Model
 	{
 		return $this->db->count_all('lembur');
 	}
-	public function jumlah_cuti_pegawai()
+	public function jumlah_cuti_pegawai($tahun = '')
 	{
 		$this->db->select('COUNT(*) as jumlah');
 		$this->db->from('izin_cuti');
 		$this->db->where('niy', $this->session->userdata['niy']);
+		$this->db->where('jenis_cuti', 'Cuti');
+		if ($tahun != '') {
+			$this->db->where('YEAR(tgl_izin)', $tahun);
+		}
+		$this->db->where('status', 'Diterima');
+		$query = $this->db->get();
+		return $query->row()->jumlah;
+	}
+	public function jumlah_cuti_diterima($tahun = '')
+	{
+		$this->db->select('COUNT(*) as jumlah');
+		$this->db->from('izin_cuti');
+		$this->db->where('status', 'Diterima');
+		$query = $this->db->get();
+		return $query->row()->jumlah;
+	}
+	public function jumlah_cuti_ditolak($tahun = '')
+	{
+		$this->db->select('COUNT(*) as jumlah');
+		$this->db->from('izin_cuti');
+		$this->db->where('status', 'Ditolak');
 		$query = $this->db->get();
 		return $query->row()->jumlah;
 	}

@@ -25,6 +25,26 @@
 		border-radius: 5px;
 		font-size: 12px;
 	}
+
+	.judul-diterima {
+		font-size: 10px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		color: green;
+		margin-right: 10px;
+	}
+
+	.judul-ditolak {
+		font-size: 10px;
+		margin-top: 5px;
+		color: red;
+		margin-right: 10px;
+	}
+
+	.value {
+		font-size: 10px;
+		margin-top: 5px;
+	}
 </style>
 <!-- <div class="main-content">
 		<section class="section">
@@ -135,7 +155,33 @@
 									<h4>Jumlah Izin Cuti</h4>
 								</div>
 								<div class="card-body">
-									<?php echo $jumlah_cuti; ?>
+									<div class="row">
+										<div class="col">
+											<?php echo $jumlah_cuti; ?>
+											<hr>
+										</div>
+										<div class="col">
+											<div class="row status">
+												<div class="judul-diterima">
+													Diterima:
+												</div>
+												<div class="value">
+													<?php echo $jumlah_cuti_diterima; ?>
+												</div>
+											</div>
+											<div class="row status">
+												<div class="judul-ditolak" style="color:red">
+													Ditolak:
+												</div>
+												<div class="value">
+													<?php echo $jumlah_cuti_ditolak; ?>
+												</div>
+											</div>
+
+										</div>
+									</div>
+
+
 								</div>
 							</div>
 						</div>
@@ -184,7 +230,7 @@
 											<div class="col-6">
 												<div class="details">
 													<div><a href="<?= base_url() ?>PerizinanCuti/approvecuti">
-													<?= $us['message']; ?></a></div>
+															<?= $us['message']; ?></a></div>
 												</div>
 											</div>
 											<div class="col">
@@ -209,8 +255,8 @@
 										<div class="row">
 											<div class="col-6">
 												<div class="details">
-												<div><a href="<?= base_url() ?>PerizinanSakit/approvesakit">
-												<?= $us['message']; ?></a></div>
+													<div><a href="<?= base_url() ?>PerizinanSakit/approvesakit">
+															<?= $us['message']; ?></a></div>
 												</div>
 											</div>
 											<div class="col">
@@ -235,8 +281,8 @@
 										<div class="row">
 											<div class="col-6">
 												<div class="details">
-												<div><a href="<?= base_url() ?>PengajuanIzin/approveizin">
-												<?= $us['message']; ?></a></div>
+													<div><a href="<?= base_url() ?>PengajuanIzin/approveizin">
+															<?= $us['message']; ?></a></div>
 												</div>
 											</div>
 											<div class="col">
@@ -260,10 +306,36 @@
 									</div>
 									<div class="card-wrap">
 										<div class="card-header">
-											<h4>Jumlah Izin Cuti (Total)</h4>
+											<h4>Jumlah Izin Cuti</h4>
 										</div>
 										<div class="card-body">
-										<?php echo $jumlah_cuti_pegawai; ?>
+											<div class="row">
+												<div class="col">
+												<?php echo $jumlah_cuti; ?>
+													<hr>
+												</div>
+												<div class="col">
+													<div class="row status">
+														<div class="judul-diterima">
+															Diterima:
+														</div>
+														<div class="value">
+														<?php echo $jumlah_cuti_diterima; ?>
+														</div>
+													</div>
+													<div class="row status">
+														<div class="judul-ditolak" style="color:red">
+															Ditolak:
+														</div>
+														<div class="value">
+														<?php echo $jumlah_cuti_ditolak; ?>
+														</div>
+													</div>
+
+												</div>
+											</div>
+
+
 										</div>
 									</div>
 								</div>
@@ -372,7 +444,7 @@
 														</option>
 												<?php endforeach; ?>>
 												</select>
-												</div>
+											</div>
 											<p class="d-flex flex-column">
 											</p>
 											<p class="ml-auto d-flex flex-column text-right">
@@ -463,7 +535,33 @@
 											<h4>Jumlah Izin Cuti</h4>
 										</div>
 										<div class="card-body">
-									<?php echo $jumlah_cuti; ?>
+											<div class="row">
+												<div class="col">
+											<?php echo $jumlah_cuti; ?>
+													<hr>
+												</div>
+												<div class="col">
+													<div class="row status">
+														<div class="judul-diterima">
+															Diterima:
+														</div>
+														<div class="value">
+													<?php echo $jumlah_cuti_diterima; ?>
+														</div>
+													</div>
+													<div class="row status">
+														<div class="judul-ditolak" style="color:red">
+															Ditolak:
+														</div>
+														<div class="value">
+													<?php echo $jumlah_cuti_ditolak; ?>
+														</div>
+													</div>
+
+												</div>
+											</div>
+
+
 										</div>
 									</div>
 								</div>
@@ -507,7 +605,7 @@
 											<h4 class="card-title">Jumlah Perizinan</h4>
 										</div>
 									</div>
-									<div class="card-body" >
+									<div class="card-body">
 										<div class="d-flex- flex-row-reverse col-sm-4 ml-auto">
 											<div class="input-group">
 												<select style="width:20%;" id="Psearch1" name="keyword" class="form-control"
@@ -542,12 +640,12 @@
 							</div>
 							<div class="col-lg-6">
 								<div class="card">
-									<div class="card-header border-0" >
+									<div class="card-header border-0">
 										<div class="d-flex justify-content-between">
 											<h4 class="card-title">Absensi</h4>
 										</div>
 									</div>
-									<div class="card-body" >
+									<div class="card-body">
 										<div class="d-flex- flex-row-reverse col-sm-4 ml-auto">
 											<div class="input-group">
 												<select style="width:20%;" id="tahun_absen" name="keyword" class="form-control"
@@ -1196,6 +1294,7 @@
 						var month_10_ = response['month_10_']
 						var month_11_ = response['month_11_']
 						var month_12_ = response['month_12_']
+						var sisa_cuti = response['sisa_cuti']
 
 						google.charts.load('current', {
 							'packages': ['bar']
@@ -1227,7 +1326,7 @@
 							};
 							let terpakai = month_1_ + month_2_ + month_3_ + month_4_ + month_5_ + month_6_ + month_7_ + month_8_ + month_9_ + month_10_ + month_11_ + month_12_;
 							var sisa = document.getElementById('sisa')
-							var sisaCuti = 22 - terpakai;
+							var sisaCuti = 22 - sisa_cuti;
 
 							// Isi teks dari elemen div
 							sisa.textContent = sisaCuti;

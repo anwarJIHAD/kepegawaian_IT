@@ -13,12 +13,14 @@
 						<?php if ($pegawai['role'] == 'Admin') { ?>
 							<a href="<?= base_url() ?>Lembur/tambah_lembur" class="btn btn-outline-warning"><i
 									class="bi bi-plus-circle"></i> Tambah Data</a>
+							<a href="<?= base_url() ?>Lembur/export" class="btn btn-outline-success"><i
+									class="bi bi-plus-circle"></i> Export Excel</a>
 						<?php } ?>
 					</div>
 
 					<div class="table-responsive">
-						<table class="table table-bordered nowrap" style="border-collapse: collapse; border-spacing: 0;width:100%;"
-							id="table-1">
+						<table class="table table-bordered nowrap"
+							style="border-collapse: collapse; border-spacing: 0;width:100%;" id="table-1">
 							<thead>
 								<tr class="table-success">
 									<th>No</th>
@@ -56,8 +58,8 @@
 											<?php if (
 												$pegawai['role'] == 'Admin' && $us['status'] != 'Diterima' && $us['status'] != 'Ditolak'
 											) { ?>
-												<a href="<?= base_url('Lembur/hapus/') . $us['id_lembur']; ?>" class="btn btn-danger btn-sm"><i
-														class="bi bi-trash"></i> Hapus</a>
+												<a href="<?= base_url('Lembur/hapus/') . $us['id_lembur']; ?>"
+													class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Hapus</a>
 											<?php } elseif ($us['status'] == 'Diajukan') { ?>
 												-
 											<?php } else { ?>

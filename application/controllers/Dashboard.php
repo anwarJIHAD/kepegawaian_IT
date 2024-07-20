@@ -26,6 +26,8 @@ class Dashboard extends CI_Controller
 		$data['jumlah_sakit_pegawai'] = $this->Dashboard_model->jumlah_sakit_pegawai();
 		$data['jumlah_lembur_pegawai'] = $this->Dashboard_model->jumlah_lembur_pegawai();
 		$data['jumlah_cuti_pegawai'] = $this->Dashboard_model->jumlah_cuti_pegawai();
+		$data['jumlah_cuti_diterima'] = $this->Dashboard_model->jumlah_cuti_diterima();
+		$data['jumlah_cuti_ditolak'] = $this->Dashboard_model->jumlah_cuti_ditolak();
 		$data['notif_cuti'] = $this->Notifikasi_model->getcuti();
 		$data['notif_sakit'] = $this->Notifikasi_model->getsakit();
 		$data['notif_izin'] = $this->Notifikasi_model->getizin();
@@ -121,6 +123,7 @@ class Dashboard extends CI_Controller
 			$data['month_10_'] = $this->PerizinanCuti_model->getDataByYearId($tahun, $month_10);
 			$data['month_11_'] = $this->PerizinanCuti_model->getDataByYearId($tahun, $month_11);
 			$data['month_12_'] = $this->PerizinanCuti_model->getDataByYearId($tahun, $month_12);
+			$data['sisa_cuti'] = $this->Dashboard_model->jumlah_cuti_pegawai($tahun);
 
 			// Kirim data dalam format JSON
 			header('Content-Type: application/json');

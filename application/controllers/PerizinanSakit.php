@@ -1,5 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+require 'vendor/autoload.php';
+// Include librari PhpSpreadsheet
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class PerizinanSakit extends CI_Controller
 {
@@ -145,7 +149,8 @@ class PerizinanSakit extends CI_Controller
 			redirect('PerizinanSakit');
 		}
 	}
-	public function file_check($str) {
+	public function file_check($str)
+	{
 		// Custom file validation logic
 		if (empty($_FILES['file_sakit']['name'])) {
 			$this->form_validation->set_message('file_check', 'The {field} field is required.');
@@ -200,7 +205,7 @@ class PerizinanSakit extends CI_Controller
 				}
 
 			}
-		
+
 			if (!empty($sakit)) {
 				$this->Absensi_model->insert($sakit);
 			}
@@ -210,5 +215,99 @@ class PerizinanSakit extends CI_Controller
 		$this->PerizinanSakit_model->update(['id' => $id], $data);
 		$this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
 		redirect('PerizinanSakit/approvesakit');
+	}
+	public function export()
+	{
+		$spreadsheet = new Spreadsheet();
+		$sheet = $spreadsheet->getActiveSheet();
+		// Buat sebuah variabel untuk menampung pengaturan style dari header tabel
+		$style_col = [
+			'font' => ['bold' => true],
+			'alignment' => [
+				'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+				'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER
+			],
+			'borders' => [
+				'top' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
+				'right' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
+				'bottom' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
+				'left' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN]
+			]
+		];
+		// Buat sebuah variabel untuk menampung pengaturan style dari isi tabel
+		$style_row = [
+			'alignment' => [
+				'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+				'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER
+			],
+			'borders' => [
+				'top' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
+				'right' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
+				'bottom' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
+				'left' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN]
+			]
+		];
+		//style judul
+		$style_judul = [
+			'font' => ['bold' => true, 'size' => 15],
+			'alignment' => [
+				'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+				'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER
+			]
+		];
+		$sheet->setCellValue('A1', "Laporan Data Izin Sakit");
+		$sheet->mergeCells('A1:H1');
+		$sheet->getStyle('A1')->getFont()->setBold(true);
+
+		// Buat header tabel pada baris ke 4
+		$sheet->setCellValue('A4', "NO");
+		$sheet->setCellValue('B4', "Nama Pegawai");
+		$sheet->setCellValue('C4', "Tanggal Izin");
+		$sheet->setCellValue('D4', "Hingga Tanggal");
+		$sheet->setCellValue('E4', "Keterangan");
+		$sheet->setCellValue('F4', "Status");
+
+		// Apply style header ke masing-masing kolom header
+		$sheet->getStyle('A1')->applyFromArray($style_judul);
+		$sheet->getStyle('A4:F4')->applyFromArray($style_col);
+
+		// Panggil function view yang ada di SiswaModel untuk menampilkan semua data siswanya
+		$numrow = 5; // Start from row 5
+		$no = 1;
+		$penempatan = $this->PerizinanSakit_model->get();
+		foreach ($penempatan as $us) {
+			$sheet->setCellValue('A' . $numrow, $no);
+			$sheet->setCellValue('B' . $numrow, $us['nama']);
+			$sheet->setCellValue('C' . $numrow, $us['tgl_izin']);
+			$sheet->setCellValue('D' . $numrow, $us['hingga_tgl']);
+			$sheet->setCellValue('E' . $numrow, $us['ket_sakit']);
+			$sheet->setCellValue('F' . $numrow, $us['status']);
+			$sheet->getStyle('A' . $numrow . ':F' . $numrow)->applyFromArray($style_row);
+			$numrow++;
+			$no++;
+		}
+
+		// Set width kolom
+		$sheet->getColumnDimension('A')->setWidth(5);
+		$sheet->getColumnDimension('B')->setWidth(15);
+		$sheet->getColumnDimension('C')->setWidth(25);
+		$sheet->getColumnDimension('D')->setWidth(20);
+		$sheet->getColumnDimension('E')->setWidth(20);
+		$sheet->getColumnDimension('F')->setWidth(20);
+
+
+		// Set height semua kolom menjadi auto
+		$sheet->getDefaultRowDimension()->setRowHeight(-1);
+		// Set orientasi kertas jadi LANDSCAPE
+		$sheet->getPageSetup()->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_LANDSCAPE);
+		// Set judul file excel
+		$sheet->setTitle("Laporan Data Pengajuan Sakit");
+
+		// Proses file excel
+		header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+		header('Content-Disposition: attachment; filename="Laporan Pengajuan Sakit.xlsx"');
+		header('Cache-Control: max-age=0');
+		$writer = new Xlsx($spreadsheet);
+		$writer->save('php://output');
 	}
 }
