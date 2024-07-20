@@ -33,7 +33,7 @@ class Dashboard extends CI_Controller
 		$tahun_range = range($tahun_sekarang, $tahun_sekarang - 20, -1);
 		$data['tahun'] = $tahun_range;
 		$this->load->view('layout/header', $data);
-		$this->load->view('Dashboard/vw_test2', $data);
+		$this->load->view('Dashboard/vw_dashboard', $data);
 		$this->load->view('layout/footer', $data);
 	}
 	public function getPerizinan()

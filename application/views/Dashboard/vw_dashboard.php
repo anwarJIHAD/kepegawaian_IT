@@ -372,7 +372,7 @@
 														</option>
 												<?php endforeach; ?>>
 												</select>
-											</div>
+												</div>
 											<p class="d-flex flex-column">
 											</p>
 											<p class="ml-auto d-flex flex-column text-right">
@@ -507,7 +507,7 @@
 											<h4 class="card-title">Jumlah Perizinan</h4>
 										</div>
 									</div>
-									<div class="card-body">
+									<div class="card-body" >
 										<div class="d-flex- flex-row-reverse col-sm-4 ml-auto">
 											<div class="input-group">
 												<select style="width:20%;" id="Psearch1" name="keyword" class="form-control"
@@ -542,12 +542,12 @@
 							</div>
 							<div class="col-lg-6">
 								<div class="card">
-									<div class="card-header border-0">
+									<div class="card-header border-0" >
 										<div class="d-flex justify-content-between">
 											<h4 class="card-title">Absensi</h4>
 										</div>
 									</div>
-									<div class="card-body">
+									<div class="card-body" >
 										<div class="d-flex- flex-row-reverse col-sm-4 ml-auto">
 											<div class="input-group">
 												<select style="width:20%;" id="tahun_absen" name="keyword" class="form-control"

@@ -28,9 +28,9 @@
                 <label class="col-sm-3 col-form-label">Jenis Cuti</label>
                 <div class="col-sm-9">
                   <select class="form-control" id="jenis_cuti" name="jenis_cuti" onchange="checkOtherOption()">
-                    <option>Cuti Biasa</option>
-                    <option>Cuti Bulanan</option>
-                    <option>Cuti Tahunan</option>
+                    <option>Cuti</option>
+                    <option>Cuti Melahirkan</option>
+                    <option>Cuti Kondisional</option>
                   </select>
                 </div>
               </div>
