@@ -111,9 +111,9 @@
 								<div class="card-header">
 									<h4>Jumlah Izin Cuti</h4>
 								</div>
-								<div class="card-body">
+								<div class="card-body" >
 									<div class="row">
-										<div class="col">
+										<div class="col" style="margin-left:-15px;">
 											<?php echo $jumlah_cuti; ?>
 										</div>
 										<div class="col">
@@ -153,7 +153,7 @@
 								</div>
 								<div class="card-body">
 									<div class="row">
-										<div class="col">
+										<div class="col" style="margin-left:-15px;">
 											<?php echo $jumlah_sakit; ?>
 										</div>
 										<div class="col">
@@ -288,7 +288,7 @@
 										</div>
 										<div class="card-body">
 											<div class="row">
-												<div class="col d-flex ">
+												<div class="col d-flex " style="margin-left:-15px;">
 												<?php echo $jumlah_cuti; ?>
 												</div>
 												<div class="col">
@@ -1222,7 +1222,7 @@
 
 					function drawChart() {
 						var data = google.visualization.arrayToDataTable([
-							['Bulan', 'Sakit'],
+							['Bulan', 'Cuti'],
 							['Januari', month_1_],
 							['Februari', month_2_],
 							['Maret', month_3_],
