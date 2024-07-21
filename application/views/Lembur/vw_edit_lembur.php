@@ -1,7 +1,6 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <style>
 </style>
-
 <!-- Main Content -->
 <?= $this->session->flashdata('message'); ?>
 <div class="main-content">
@@ -22,8 +21,7 @@
 						<div class="form-group row">
 							<label class="col-sm-3 col-form-label">Nama Pegawai</label>
 							<div class="col-sm-9">
-								<input type="text" class="form-control" id="nama" name="nama" value="<?= $pegawai['nama']; ?>"
-									placeholder="Nama Pegawai" disabled>
+								<input type="text" class="form-control" id="nama" name="nama" value="<?= $pegawai['nama']; ?>" placeholder="Nama Pegawai" disabled>
 								<?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
 							</div>
 						</div>
@@ -51,8 +49,7 @@
 						<div class="form-group row">
 							<label class="col-sm-3 col-form-label">Lama Lembur</label>
 							<div class="col-sm-9">
-								<input type="text" class="form-control" id="lama_lembur" name="lama_lembur"
-									value="<?= $lembur['lama_lembur']; ?>" readonly>
+								<input type="text" class="form-control" id="lama_lembur" name="lama_lembur" value="<?= $lembur['lama_lembur']; ?>" readonly>
 								<?= form_error('lama_lembur', '<small class="text-danger pl-3">', '</small>'); ?>
 							</div>
 						</div>
@@ -65,7 +62,6 @@
 						</div>
 						<a href="<?= base_url('Console/lembur') ?>" class="btn btn-light">Tutup</a>
 						<button type="submit" name="tambah" class="btn btn-success float-right">Simpan</button>
-
 					</form>
 				</div>
 			</div>
@@ -76,7 +72,7 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
-	$(document).ready(function () {
+	$(document).ready(function() {
 		function calculateLembur() {
 			let masuk = $('#masuk').val();
 			let pulang = $('#pulang').val();

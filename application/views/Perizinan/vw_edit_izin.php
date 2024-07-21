@@ -7,7 +7,6 @@
     <div class="section-header">
       <h1>Surat Perizinan</h1>
     </div>
-
     <div class="section-body">
       <div class="card">
         <div class="card-header">
@@ -33,7 +32,7 @@
             <div class="form-group row">
               <label class="col-sm-3 col-form-label">Waktu Izin</label>
               <div class="col-sm-4">
-                <input type="time" class="form-control" id="waktu_izin" name="waktu_izin" value="<?= $izin['waktu_izin']; ?>" placeholder="Waktu Izin" >
+                <input type="time" class="form-control" id="waktu_izin" name="waktu_izin" value="<?= $izin['waktu_izin']; ?>" placeholder="Waktu Izin">
                 <?= form_error('waktu_izin', '<small class="text-danger pl-3">', '</small>'); ?>
               </div>
               <label class="col-sm-1 col-form-label">Hingga</label>
@@ -69,7 +68,6 @@
             <div class="form-group row">
               <label class="col-sm-3 col-form-label">Tujuan Izin</label>
               <div class="col-sm-9">
-
                 <?php
                 $jenis_tujuan_izin = [
                   'Tidak Hadir ke Sekolah',
@@ -89,13 +87,7 @@
                   <option <?= $izin['tujuan_izin'] == 'Tidak Ikut Rapat' ? 'selected' : '' ?>>Tidak Ikut Rapat</option>
                   <option <?= (!in_array($izin['tujuan_izin'], $jenis_tujuan_izin)) ? 'selected' : '' ?> id="option-other">Others</option>
                 </select>
-
-
                 <input type="text" class="form-control" id="other_input" name="other_input" value="<?= (!in_array($izin['tujuan_izin'], $jenis_tujuan_izin)) ? $izin['tujuan_izin'] : '' ?>" />
-
-
-
-
               </div>
             </div>
             <div class="form-group row">

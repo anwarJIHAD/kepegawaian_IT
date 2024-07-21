@@ -128,9 +128,9 @@
 									<span>Lembur</span></a></li>
 						<?php } ?>
 						<?php if ($pegawai['role'] == 'Admin' || $pegawai['role'] == 'guru' || $pegawai['role'] == 'pustakawati') { ?>
-						<li><a class="nav-link" href="<?= base_url() ?>Lembur"><i class="fa fa-calendar" aria-hidden="true"></i>
-								<span>Lembur</span></a></li>
-								<?php } ?>
+							<li><a class="nav-link" href="<?= base_url() ?>Lembur"><i class="fa fa-calendar" aria-hidden="true"></i>
+									<span>Lembur</span></a></li>
+						<?php } ?>
 						<li class="dropdown">
 							<a href="#" class="nav-link has-dropdown"><i class="fa fa-envelope" aria-hidden="true"></i>
 								<span>Perizinan</span></a>

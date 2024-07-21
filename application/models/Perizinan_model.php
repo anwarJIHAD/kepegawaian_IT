@@ -7,7 +7,6 @@ class Perizinan_model extends CI_Model
 	public function __construct()
 	{
 		parent::__construct();
-
 	}
 	public function get()
 	{
@@ -33,7 +32,6 @@ class Perizinan_model extends CI_Model
 		$this->db->where('id', $id);
 		$query = $this->db->get();
 		return $query->row_array();
-
 	}
 	public function update($where, $data)
 	{
@@ -51,5 +49,4 @@ class Perizinan_model extends CI_Model
 		$this->db->delete($this->table);
 		return $this->db->affected_rows();
 	}
-	
 }

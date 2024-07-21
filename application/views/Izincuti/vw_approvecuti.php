@@ -5,7 +5,7 @@
     <div class="section-header">
       <h5>Surat Perizinan</h5>
     </div>
-    <?= $this->session->flashdata('message'); ?> 
+    <?= $this->session->flashdata('message'); ?>
     <div class="section-body">
       <div class="row">
         <div class="col">
@@ -13,7 +13,7 @@
           </div>
           <div class="card-body">
             <div class="table-responsive">
-            <table class="table table-bordered nowrap" style="border-collapse: collapse; border-spacing: 0;width:100%;" id="table-1">
+              <table class="table table-bordered nowrap" style="border-collapse: collapse; border-spacing: 0;width:100%;" id="table-1">
                 <thead>
                   <tr class="table-success">
                     <th>No</th>
@@ -48,7 +48,7 @@
                         <?php } else { ?>
                           <span class="badge badge-warning"><?= $us['status']; ?></span>
                         <?php } ?>
-                        </td>
+                      </td>
                       <td><button class="btn btn-light" data-toggle="modal" data-target="#modal<?= $us['id_cuti']; ?>"><i class="bi bi-pencil-square"></i> Ubah Status</button></td>
                       </td>
                     </tr>
@@ -61,11 +61,9 @@
         </div>
       </div>
     </div>
-
 </div>
 </section>
 </div>
-
 </div>
 </div>
 
@@ -102,25 +100,24 @@
       </div>
     </div>
   <?php endforeach; ?>
-
   </section>
   </div>
 
   <script>
-   function confirmSubmit(id) {
-  Swal.fire({
-    title: 'Konfirmasi',
-    text: "Apakah anda yakin?",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Ya, lanjutkan!'
-  }).then((result) => {
-    if (result.isConfirmed) {
-      document.getElementById('myForm' + id).submit(); // Submit the form with the unique id
+    function confirmSubmit(id) {
+      Swal.fire({
+        title: 'Konfirmasi',
+        text: "Apakah anda yakin?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, lanjutkan!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          document.getElementById('myForm' + id).submit(); // Submit the form with the unique id
+        }
+      })
     }
-  })
-}
-</script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

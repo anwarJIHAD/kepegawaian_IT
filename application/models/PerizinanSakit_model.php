@@ -7,7 +7,6 @@ class PerizinanSakit_model extends CI_Model
 	public function __construct()
 	{
 		parent::__construct();
-
 	}
 	public function get()
 	{
@@ -33,7 +32,6 @@ class PerizinanSakit_model extends CI_Model
 		$this->db->where('id', $id);
 		$query = $this->db->get();
 		return $query->row_array();
-
 	}
 	public function update($where, $data)
 	{
@@ -76,5 +74,4 @@ class PerizinanSakit_model extends CI_Model
 		$query = $this->db->get();
 		return $query->num_rows();
 	}
-
 }

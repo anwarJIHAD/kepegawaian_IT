@@ -50,71 +50,69 @@
 </style>
 <!-- Main Content -->
 <div class="main-content">
-    <section class="section">
-        <div class="section-header">
-            <h5>Data Pegawai</h5>
-        </div>
-        <div class="section-body">
-        <div class="row">
-              <div class="col">
-                <div class="card">
-                <?= $this->session->flashdata('message'); ?>
-
-
-                <div class="card-body">
-                <div style="margin-bottom: 20px;">
+  <section class="section">
+    <div class="section-header">
+      <h5>Data Pegawai</h5>
+    </div>
+    <div class="section-body">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <?= $this->session->flashdata('message'); ?>
+            <div class="card-body">
+              <div style="margin-bottom: 20px;">
                 <?php if ($pegawai['role'] == 'Admin') { ?>
-                    <a href="<?= base_url() ?>Pegawai/tambah_pegawai" class="btn btn-outline-warning"><i class="bi bi-plus-circle"></i> Tambah Data</a> 
-                   <button  class="btn btn-outline-warning" data-target="#exampleModal" data-toggle="modal"><i class="bi bi-file-earmark-ruled"></i> Import Excel</button> 
-                    <?php } ?>
-                </div>
-                    <div class="table-responsive">
-                      <table class="table table-bordered nowrap" style="border-collapse: collapse; border-spacing: 0;width:100%;" id="table-1">
-                        <thead>                                 
-                          <tr class="table-success">
-                            <th>No</th>
-                            <th>Nama</th>
-                            <th>NIY</th>
-                            <th>Tempat Lahir</th>
-                            <th>Tanggal Lahir</th>
-                            <th>Pendidikan Terakhir</th>
-                            <th>Jurusan</th>
-                            <th>Jabatan</th>
-                            <th>No Handphone</th>
-                            <th>Status</th>
-                            <th> <?php if ($pegawai['role'] == 'Admin') { ?>Aksi<?php }?></th>
-                          </tr>
-                        </thead>
-                        <tbody> 
-                        <?php $i = 1; ?>
-                        <?php foreach ($pegawai_m as $us) : ?>                                
-                          <tr>
-                          <td> <?= $i; ?>.</td>
-                                <td><?= $us['nama']; ?></td>
-                                <td><?= $us['niy']; ?></td>
-                                <td><?= $us['tmpt_lahir']; ?></td>
-                                <td><?= $us['tgl_lahir']; ?></td>
-                                <td><?= $us['pnd_trkhr']; ?></td>
-                                <td><?= $us['jurusan']; ?></td>
-                                <td><?= $us['jabatan']; ?></td>
-                                <td><?= $us['no_hp']; ?></td>
-                                <td><?= $us['status']; ?></td>
-                            <td> <?php if ($pegawai['role'] == 'Admin') { ?>
-                              <a href="<?= base_url('Pegawai/edit_pegawai/') . $us['id']; ?>" class="btn btn-light btn-sm mr-1"><i class="bi bi-pencil-square"></i> Edit</a>
-                              <a href="<?= base_url('Pegawai/hapus/') . $us['id']; ?>" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Hapus</a><?php }?></td>
-                          </tr>
-                          <?php $i++; ?>
-                        <?php endforeach; ?>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
+                  <a href="<?= base_url() ?>Pegawai/tambah_pegawai" class="btn btn-outline-warning"><i class="bi bi-plus-circle"></i> Tambah Data</a>
+                  <button class="btn btn-outline-warning" data-target="#exampleModal" data-toggle="modal"><i class="bi bi-file-earmark-ruled"></i> Import Excel</button>
+                <?php } ?>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-bordered nowrap" style="border-collapse: collapse; border-spacing: 0;width:100%;" id="table-1">
+                  <thead>
+                    <tr class="table-success">
+                      <th>No</th>
+                      <th>Nama</th>
+                      <th>NIY</th>
+                      <th>Tempat Lahir</th>
+                      <th>Tanggal Lahir</th>
+                      <th>Pendidikan Terakhir</th>
+                      <th>Jurusan</th>
+                      <th>Jabatan</th>
+                      <th>No Handphone</th>
+                      <th>Status</th>
+                      <th> <?php if ($pegawai['role'] == 'Admin') { ?>Aksi<?php } ?></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php $i = 1; ?>
+                    <?php foreach ($pegawai_m as $us) : ?>
+                      <tr>
+                        <td> <?= $i; ?>.</td>
+                        <td><?= $us['nama']; ?></td>
+                        <td><?= $us['niy']; ?></td>
+                        <td><?= $us['tmpt_lahir']; ?></td>
+                        <td><?= $us['tgl_lahir']; ?></td>
+                        <td><?= $us['pnd_trkhr']; ?></td>
+                        <td><?= $us['jurusan']; ?></td>
+                        <td><?= $us['jabatan']; ?></td>
+                        <td><?= $us['no_hp']; ?></td>
+                        <td><?= $us['status']; ?></td>
+                        <td> <?php if ($pegawai['role'] == 'Admin') { ?>
+                            <a href="<?= base_url('Pegawai/edit_pegawai/') . $us['id']; ?>" class="btn btn-light btn-sm mr-1"><i class="bi bi-pencil-square"></i> Edit</a>
+                            <a href="<?= base_url('Pegawai/hapus/') . $us['id']; ?>" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Hapus</a><?php } ?>
+                        </td>
+                      </tr>
+                      <?php $i++; ?>
+                    <?php endforeach; ?>
+                  </tbody>
+                </table>
               </div>
             </div>
-
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 </div>
 
 <!-- modal -->
@@ -122,24 +120,24 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <form action="<?= base_url() ?>Pegawai/loadfile" enctype="multipart/form-data" method="POST" id="uploadForm">
-      <div class="modal-header">
-        <h5 class="modal-title">Upload Excel</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="drop-zone" style="margin-bottom: 15px;"  id="dropArea">
-          <span>Drop file here or click to upload</span>
-          <input type="file" name="myFile" class="drop-zone__input" accept=".csv,.xls,.xlsx" id="excelFileInput">
+        <div class="modal-header">
+          <h5 class="modal-title">Upload Excel</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-        <div>
-          <span>Download Excel template <a href="<?= base_url() ?>Pegawai/getTemplate" style="color:#b55050;">here</a></span>
+        <div class="modal-body">
+          <div class="drop-zone" style="margin-bottom: 15px;" id="dropArea">
+            <span>Drop file here or click to upload</span>
+            <input type="file" name="myFile" class="drop-zone__input" accept=".csv,.xls,.xlsx" id="excelFileInput">
+          </div>
+          <div>
+            <span>Download Excel template <a href="<?= base_url() ?>Pegawai/getTemplate" style="color:#b55050;">here</a></span>
+          </div>
         </div>
-      </div>
-      <div class="modal-footer bg-whitesmoke br">
-        <button type="submit" class="btn btn-outline-dark">Upload</button>
-      </div>
+        <div class="modal-footer bg-whitesmoke br">
+          <button type="submit" class="btn btn-outline-dark">Upload</button>
+        </div>
       </form>
     </div>
   </div>
@@ -216,6 +214,4 @@
     }
 
   }
-
-
 </script>

@@ -1,7 +1,6 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <style>
 </style>
-
 <!-- Main Content -->
 <?= $this->session->flashdata('message'); ?>
 <div class="main-content">
@@ -9,7 +8,6 @@
     <div class="section-header">
       <h1>Data Lembur</h1>
     </div>
-
     <div class="section-body">
       <div class="card">
         <div class="card-header">
@@ -57,7 +55,6 @@
                 <?= form_error('lama_lembur', '<small class="text-danger pl-3">', '</small>'); ?>
               </div>
             </div>
-
             <div class="form-group row">
               <label class="col-sm-3 col-form-label">Keterangan Lembur</label>
               <div class="col-sm-9">
@@ -65,7 +62,6 @@
                 <?= form_error('ket_lembur', '<small class="text-danger pl-3">', '</small>'); ?>
               </div>
             </div>
-
             <a href="<?= base_url('Lembur') ?>" class="btn btn-light">Tutup</a>
             <button type="submit" name="tambah" class="btn btn-primary float-right" onclick="confirmSubmit()">Simpan</button>
           </form>

@@ -40,12 +40,10 @@
                         <div class="login-brand">
                             <img src="<?= base_url() ?>/template/assets/img/logo_it.png" alt="logo" width="250">
                         </div>
-
                         <div class="card card-primary" style="border-top: 2px solid #27a53c;">
                             <div class="text-center mt-3">
                                 <h4>Lupa Password</h4>
                             </div>
-
                             <div class="card-body">
                                 <?= $this->session->flashdata('message'); ?>
                                 <form method="post" action="" enctype="multipart/form-data">
@@ -73,7 +71,7 @@
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-success btn-lg btn-block" style="background-color: #27a53c;" tabindex="4">
-                                           Ubah Password
+                                            Ubah Password
                                         </button>
                                         <!-- <div class="float-right">
                                             <a href="<?= base_url('Auth/forgetpass') ?>" class="text-small">
@@ -82,9 +80,6 @@
                                         </div> -->
                                     </div>
                                 </form>
-
-
-
                             </div>
                         </div>
                         <!-- <div class="mt-5 text-muted text-center">

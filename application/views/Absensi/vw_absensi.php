@@ -1,7 +1,6 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- Main Content -->
-<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 <style>
 	.drop-zone {
 		max-width: 500px;
@@ -67,7 +66,6 @@
 				}
 
 			}
-
 		</script>
 		<?= $this->session->flashdata('message'); ?>
 		<div class="section-body">
@@ -79,8 +77,7 @@
 							<!-- <button class="btn btn-outline-warning" data-bs-target="#exampleModal">
 								<i class="bi bi-plus-circle" onclick="tampilkan()">Uploud Excel</i>
 							</button> -->
-							<button class="btn btn-outline-warning" data-target="#exampleModal" data-toggle="modal"><i
-									class="bi bi-file-earmark-ruled"></i> Import Excel</button>
+							<button class="btn btn-outline-warning" data-target="#exampleModal" data-toggle="modal"><i class="bi bi-file-earmark-ruled"></i> Import Excel</button>
 
 						<?php } ?>
 					</div>
@@ -94,21 +91,17 @@
 							<div class="card mb-4" style="background-color:#a8f5b4">
 								<h5 class="card-header text-center">Masukkan Data Absensi</h5>
 								<div class="card-body">
-									<form id="uploadForm" action="Absensi/upload" method="POST"
-										enctype="multipart/form-data">
+									<form id="uploadForm" action="Absensi/upload" method="POST" enctype="multipart/form-data">
 										<div class="drop-area" id="dropArea">
 											<p>Drag and drop Excel file here, or click to choose file</p>
-											<input type="file" id="excelFileInput" name="excelFile"
-												accept=".csv,.xls,.xlsx" style="display: none;">
+											<input type="file" id="excelFileInput" name="excelFile" accept=".csv,.xls,.xlsx" style="display: none;">
 										</div>
 										<div class="d-flex justify-content-center">
 											<div class="file-preview" id="filePreview"></div>
 										</div>
 										<div class="d-flex justify-content-center">
-											<button type="submit"
-												class="btn rounded-pill btn-primary submit-btn ml-3">Upload</button>
-											<button onclick="tampilkan()" type="button"
-												class="btn rounded-pill btn-warning submit-btn ml-3">Cancel</button>
+											<button type="submit" class="btn rounded-pill btn-primary submit-btn ml-3">Upload</button>
+											<button onclick="tampilkan()" type="button" class="btn rounded-pill btn-warning submit-btn ml-3">Cancel</button>
 										</div>
 									</form>
 									<script>
@@ -195,8 +188,7 @@
 					</div>
 
 					<div class="table-responsive">
-						<table class="table table-bordered nowrap"
-							style="border-collapse: collapse; border-spacing: 0;width:100%;" id="table-1">
+						<table class="table table-bordered nowrap" style="border-collapse: collapse; border-spacing: 0;width:100%;" id="table-1">
 							<thead>
 								<tr class="table-success">
 									<th>No</th>
@@ -213,7 +205,7 @@
 							</thead>
 							<tbody>
 								<?php $i = 1; ?>
-								<?php foreach ($absensi as $us): ?>
+								<?php foreach ($absensi as $us) : ?>
 									<tr>
 										<td> <?= $i; ?>.</td>
 										<td><?= $us['nama']; ?></td>
@@ -225,11 +217,9 @@
 										<td><?= $us['status']; ?></td>
 										<td><?= $us['keterangan']; ?></td>
 										<td> <?php if ($pegawai['role'] == 'Admin') { ?>
-												<a href="<?= base_url('Absensi/edit_absensi/') . $us['id']; ?>"
-													class="btn btn-light btn-sm mr-1"><i class="bi bi-pencil-square"></i>
+												<a href="<?= base_url('Absensi/edit_absensi/') . $us['id']; ?>" class="btn btn-light btn-sm mr-1"><i class="bi bi-pencil-square"></i>
 													Edit</a>
-												<a href="<?= base_url('Absensi/hapus/') . $us['id']; ?>"
-													class="btn btn-danger btn-sm"><i class="bi bi-trash"></i>
+												<a href="<?= base_url('Absensi/hapus/') . $us['id']; ?>" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i>
 													Hapus</a><?php } else { ?> -<?php } ?>
 										</td>
 									</tr>
@@ -241,9 +231,7 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
-
 </div>
 </section>
 </div>
@@ -265,8 +253,7 @@
 						<input type="file" id="excelFileInput" name="excelFile" class="drop-zone__input">
 					</div>
 					<div>
-						<span>Download Excel template <a href="<?= base_url() ?>Absensi	/getTemplate"
-								style="color:#b55050;">here</a></span>
+						<span>Download Excel template <a href="<?= base_url() ?>Absensi	/getTemplate" style="color:#b55050;">here</a></span>
 					</div>
 				</div>
 				<div class="modal-footer bg-whitesmoke br">
@@ -294,13 +281,12 @@
 </script>
 
 <script>
-
-
 	document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
 
 		const fileInput = document.getElementById('excelFileInput');
 		const uploadForm = document.getElementById('uploadForm1');
 		const dropZoneElement = inputElement.closest(".drop-zone");
+
 		function validateAndPreviewFile(file) {
 
 			const allowedExtensions = /(\.xls|\.xlsx|\.csv)$/i;
@@ -395,6 +381,4 @@
 		}
 
 	}
-
-
 </script>

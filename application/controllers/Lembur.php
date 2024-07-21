@@ -61,7 +61,6 @@ class Lembur extends CI_Controller
 			$this->session->set_flashdata('message', '<script type="text/javascript">swal("Berhasil ditambahkan!", "Success!", "success");</script>');
 			redirect('Lembur');
 		}
-
 	}
 	public function edit_lembur($id)
 	{
@@ -229,6 +228,4 @@ class Lembur extends CI_Controller
 		$writer = new Xlsx($spreadsheet);
 		$writer->save('php://output');
 	}
-	
-
 }

@@ -13,8 +13,6 @@ class Dashboard extends CI_Controller
 		$this->load->model('Dashboard_model');
 		$this->load->model('Notifikasi_model');
 		$this->load->model('Absensi_model');
-
-
 	}
 	public function index()
 	{
@@ -24,6 +22,8 @@ class Dashboard extends CI_Controller
 		$data['jumlah_lembur'] = $this->Dashboard_model->jumlah_lembur();
 		$data['jumlah_cuti'] = $this->Dashboard_model->jumlah_cuti();
 		$data['jumlah_sakit_pegawai'] = $this->Dashboard_model->jumlah_sakit_pegawai();
+		$data['jumlah_sakit_disetujui'] = $this->Dashboard_model->jumlah_sakit_disetujui();
+		$data['jumlah_sakit_ditolak'] = $this->Dashboard_model->jumlah_sakit_ditolak();
 		$data['jumlah_lembur_pegawai'] = $this->Dashboard_model->jumlah_lembur_pegawai();
 		$data['jumlah_cuti_pegawai'] = $this->Dashboard_model->jumlah_cuti_pegawai();
 		$data['jumlah_cuti_diterima'] = $this->Dashboard_model->jumlah_cuti_diterima();
@@ -244,5 +244,4 @@ class Dashboard extends CI_Controller
 			echo json_encode(array('error' => $e->getMessage()));
 		}
 	}
-
 }

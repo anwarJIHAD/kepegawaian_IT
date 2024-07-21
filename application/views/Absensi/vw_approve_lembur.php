@@ -13,7 +13,7 @@
           </div>
           <div class="card-body">
             <div class="table-responsive">
-            <table class="table table-bordered nowrap" style="border-collapse: collapse; border-spacing: 0;width:100%;" id="table-1">
+              <table class="table table-bordered nowrap" style="border-collapse: collapse; border-spacing: 0;width:100%;" id="table-1">
                 <thead>
                   <tr class="table-success">
                     <th>No</th>
@@ -46,7 +46,7 @@
                         <?php } else { ?>
                           <span class="badge badge-warning"><?= $us['status']; ?></span>
                         <?php } ?>
-                        </td>
+                      </td>
                       <td><button class="btn btn-light" data-toggle="modal" data-target="#modal<?= $us['id_cuti']; ?>"><i class="bi bi-pencil-square"></i> Ubah Status</button></td>
                       </td>
                     </tr>
@@ -59,7 +59,6 @@
         </div>
       </div>
     </div>
-
 </div>
 </section>
 </div>
@@ -100,8 +99,5 @@
       </div>
     </div>
   <?php endforeach; ?>
-
   </section>
   </div>
-
- 

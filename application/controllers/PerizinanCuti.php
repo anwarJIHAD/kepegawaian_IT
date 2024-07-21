@@ -186,7 +186,6 @@ class PerizinanCuti extends CI_Controller
 						'keterangan' => $izin['jenis_cuti'],
 					);
 				}
-
 			}
 			if (!empty($cuti)) {
 				$this->Absensi_model->insert($cuti);

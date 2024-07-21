@@ -10,23 +10,15 @@
 			<div class="card">
 				<div class="card-body">
 					<div style="margin-bottom: 20px;">
-						<div class="row">
-							<?php if ($pegawai['role'] == 'Admin' || $pegawai['role'] == 'guru' || $pegawai['role'] == 'pustakawati') { ?>
-
-								<a href="<?= base_url() ?>PengajuanIzin/tambahizin" class="btn btn-outline-warning"><i
-										class="bi bi-plus-circle"></i> Ajukan Perizinan</a>
-								<?php if ($pegawai['role'] == 'Admin') { ?>
-									<a href="<?= base_url() ?>PengajuanIzin/export" class="btn btn-outline-success"
-										style="margin-left:20px;"><i class="bi bi-plus-circle"></i>
-										Export Excel</a>
-								<?php } ?>
+						<?php if ($pegawai['role'] == 'Admin' || $pegawai['role'] == 'guru' || $pegawai['role'] == 'pustakawati') { ?>
+							<a href="<?= base_url() ?>PengajuanIzin/tambahizin" class="btn btn-outline-warning"><i class="bi bi-plus-circle"></i> Ajukan Perizinan </a>
+							<?php if ($pegawai['role'] == 'Admin') { ?>
+								<a href="<?= base_url() ?>PengajuanIzin/export" class="btn btn-outline-warning"><i class="bi bi-plus-circle"></i> Export Excel </a>
 							<?php } ?>
-						</div>
-
+						<?php } ?>
 					</div>
 					<div class="table-responsive">
-						<table class="table table-bordered nowrap" style="border-collapse: collapse; border-spacing: 0;width:100%;"
-							id="table-1">
+						<table class="table table-bordered nowrap" style="border-collapse: collapse; border-spacing: 0;width:100%;" id="table-1">
 							<thead>
 								<tr class="table-success">
 									<th>No</th>
@@ -41,13 +33,13 @@
 									<th>Status</th>
 									<th>
 										<?php if ($pegawai['role'] == 'Admin' || $pegawai['role'] == 'guru' || $pegawai['role'] == 'pustakawati') { ?>Aksi
-										<?php } ?>
+									<?php } ?>
 									</th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php $i = 1; ?>
-								<?php foreach ($izin as $us): ?>
+								<?php foreach ($izin as $us) : ?>
 									<tr>
 										<td> <?= $i; ?>.</td>
 										<td><?= $us['nama']; ?></td>
@@ -69,8 +61,7 @@
 										</td>
 										<td>
 											<?php if ($pegawai['role'] == $this->session->userdata('role') && $us['role'] == $this->session->userdata('role') && $us['status'] != 'Diterima' && $us['status'] != 'Ditolak') { ?>
-												<a href="<?= base_url('PengajuanIzin/hapus/') . $us['id_izin']; ?>" class="btn btn-danger btn-sm"><i
-														class="bi bi-trash"></i> Hapus</a>
+												<a href="<?= base_url('PengajuanIzin/hapus/') . $us['id_izin']; ?>" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Hapus</a>
 											<?php } elseif ($us['status'] == 'Diajukan') { ?>
 												-
 											<?php } else { ?>
@@ -85,19 +76,15 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
-
 </div>
 </section>
 </div>
-
-
 </div>
 </div>
 
 <!-- Modal -->
-<?php foreach ($izin as $us): ?>
+<?php foreach ($izin as $us) : ?>
 	<div class="modal fade" tabindex="-1" role="dialog" id="modal<?= $us['id_izin']; ?>">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">

@@ -6,7 +6,6 @@ class Dashboard_model extends CI_Model
 	public function __construct()
 	{
 		parent::__construct();
-
 	}
 	public function jumlah_pegawai()
 	{
@@ -65,6 +64,22 @@ class Dashboard_model extends CI_Model
 		$query = $this->db->get();
 		return $query->row()->jumlah;
 	}
+	public function jumlah_sakit_disetujui($tahun = '')
+	{
+		$this->db->select('COUNT(*) as jumlah');
+		$this->db->from('izin_sakit');
+		$this->db->where('status', 'Disetujui');
+		$query = $this->db->get();
+		return $query->row()->jumlah;
+	}
+	public function jumlah_sakit_ditolak($tahun = '')
+	{
+		$this->db->select('COUNT(*) as jumlah');
+		$this->db->from('izin_sakit');
+		$this->db->where('status', 'Ditolak');
+		$query = $this->db->get();
+		return $query->row()->jumlah;
+	}
 	public function jumlah_lembur_pegawai()
 	{
 		$this->db->select('COUNT(*) as jumlah');
@@ -73,5 +88,4 @@ class Dashboard_model extends CI_Model
 		$query = $this->db->get();
 		return $query->row()->jumlah;
 	}
-
 }

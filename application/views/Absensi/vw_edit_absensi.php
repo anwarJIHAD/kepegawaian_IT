@@ -1,7 +1,6 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <style>
 </style>
-
 <!-- Main Content -->
 <?= $this->session->flashdata('message'); ?>
 <div class="main-content">
@@ -9,7 +8,6 @@
 		<div class="section-header">
 			<h1>Data absensi</h1>
 		</div>
-
 		<div class="section-body">
 			<div class="card">
 				<div class="card-header">
@@ -23,8 +21,7 @@
 						<div class="form-group row">
 							<label class="col-sm-3 col-form-label">Nama Pegawai</label>
 							<div class="col-sm-9">
-								<input type="text" class="form-control" id="nama" name="nama" value="<?= $pegawai['nama']; ?>"
-									placeholder="Nama Pegawai" readonly>
+								<input type="text" class="form-control" id="nama" name="nama" value="<?= $pegawai['nama']; ?>" placeholder="Nama Pegawai" readonly>
 								<?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
 							</div>
 						</div>
@@ -38,29 +35,25 @@
 						<div class="form-group row">
 							<label class="col-sm-3 col-form-label">Jam Datang</label>
 							<div class="col-sm-9">
-								<input type="time" class="form-control" id="waktu_datang" name="waktu_datang"
-									value="<?= $absensi['waktu_datang']; ?>">
+								<input type="time" class="form-control" id="waktu_datang" name="waktu_datang" value="<?= $absensi['waktu_datang']; ?>">
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-sm-3 col-form-label">Jam Pulang</label>
 							<div class="col-sm-9">
-								<input type="time" class="form-control" id="waktu_pulang" name="waktu_pulang"
-									value="<?= $absensi['waktu_pulang']; ?>">
+								<input type="time" class="form-control" id="waktu_pulang" name="waktu_pulang" value="<?= $absensi['waktu_pulang']; ?>">
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-sm-3 col-form-label">Pulang Awal</label>
 							<div class="col-sm-9">
-								<input type="time" class="form-control" id="pulang_awal" name="pulang_awal"
-									value="<?= $absensi['pulang_awal']; ?>">
+								<input type="time" class="form-control" id="pulang_awal" name="pulang_awal" value="<?= $absensi['pulang_awal']; ?>">
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-sm-3 col-form-label">Lama Kerja</label>
 							<div class="col-sm-9">
-								<input type="text" class="form-control" id="waktu_kerja" name="waktu_kerja"
-									value="<?= $absensi['waktu_kerja']; ?>" readonly>
+								<input type="text" class="form-control" id="waktu_kerja" name="waktu_kerja" value="<?= $absensi['waktu_kerja']; ?>" readonly>
 							</div>
 						</div>
 						<div class="form-group row">
@@ -72,8 +65,7 @@
 						<div class="form-group row">
 							<label class="col-sm-3 col-form-label">Keterangan Absensi</label>
 							<div class="col-sm-9">
-								<input type="text" class="form-control" id="keterangan" name="keterangan"
-									value="<?= $absensi['waktu_kerja']; ?>">
+								<input type="text" class="form-control" id="keterangan" name="keterangan" value="<?= $absensi['waktu_kerja']; ?>">
 							</div>
 						</div>
 						<a href="<?= base_url('Absensi') ?>" class="btn btn-light">Tutup</a>
@@ -84,13 +76,13 @@
 			</div>
 	</section>
 </div>
-
 </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
-	$(document).ready(function () {
+	$(document).ready(function() {
 		total_waktu();
+
 		function total_waktu() {
 			let total = $('#waktu_kerja').val();
 			let [totalHours, totalMinutes] = total.split(':');
@@ -100,6 +92,7 @@
 			}
 
 		}
+
 		function calculateabsensi() {
 			let masuk = $('#waktu_datang').val();
 			let pulang = $('#waktu_pulang').val();

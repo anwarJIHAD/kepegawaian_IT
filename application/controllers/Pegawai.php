@@ -14,7 +14,7 @@ class Pegawai extends CI_Controller
         parent::__construct();
         is_logged_in();
         $this->load->model('Pegawai_model');
-        $this->load->helper(array('url','download'));	
+        $this->load->helper(array('url', 'download'));
     }
 
     public function index()
@@ -156,86 +156,86 @@ class Pegawai extends CI_Controller
     {
         $this->Pegawai_model->delete($id);
         $this->session->set_flashdata('message', '<script type="text/javascript">swal("Berhasil dihapus!", "Success!", "success");</script>');
-            redirect('Pegawai');
+        redirect('Pegawai');
     }
 
 
     public function loadfile()
     {
         if (isset($_FILES['myFile'])) {
-        $upload_file = $_FILES['myFile']['name'];
-        $extension = pathinfo($upload_file, PATHINFO_EXTENSION);
-        if ($extension == 'csv') {
-            $reader = new \PhpOffice\PhpSpreadsheet\Reader\Csv();
-        } else if ($extension == 'xls') {
-            $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xls();
-        } else {
-            $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
-        }
-        try{
-        $spreadsheet = $reader->load($_FILES['myFile']['tmp_name']);
-        $sheetdata = $spreadsheet->getActiveSheet()->toArray();
-        $sheetcount = count($sheetdata);
-        if ($sheetcount > 1) {
-            $data = array();
-            for ($i = 1; $i < $sheetcount; $i++) {
-                $nama = $sheetdata[$i][0];
-                $niy = $sheetdata[$i][1];
-                $tmpt_lahir = $sheetdata[$i][2];
-                $tgl_lahir = $sheetdata[$i][3];
-                $pnd_trkhr = $sheetdata[$i][4];
-                $tmt_smait = $sheetdata[$i][5];
-                $jurusan= $sheetdata[$i][6];
-                $jabatan= $sheetdata[$i][7];
-                $no_hp= $sheetdata[$i][8];
-                $data[] = array(
-                    'nama' => $nama,
-                    'niy' => $niy,
-                    'tmpt_lahir' => $tmpt_lahir,
-                    'tgl_lahir' => $tgl_lahir,
-                    'pnd_trkhr' => $pnd_trkhr,
-                    'tmt_smait' => $tmt_smait,
-                    'jurusan' => $jurusan,
-                    'jabatan' => $jabatan,
-                    'no_hp' => $no_hp,
-                );
-            }
-            $inserdata = $this->Pegawai_model->insert_batch($data);
-            if ($inserdata) {
-                $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
-                redirect('Pegawai');
+            $upload_file = $_FILES['myFile']['name'];
+            $extension = pathinfo($upload_file, PATHINFO_EXTENSION);
+            if ($extension == 'csv') {
+                $reader = new \PhpOffice\PhpSpreadsheet\Reader\Csv();
+            } else if ($extension == 'xls') {
+                $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xls();
             } else {
-                $this->session->set_flashdata('message', '<script type="text/javascript">swal("Cannot add the data!", "Error!", "error");</script>');
+                $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+            }
+            try {
+                $spreadsheet = $reader->load($_FILES['myFile']['tmp_name']);
+                $sheetdata = $spreadsheet->getActiveSheet()->toArray();
+                $sheetcount = count($sheetdata);
+                if ($sheetcount > 1) {
+                    $data = array();
+                    for ($i = 1; $i < $sheetcount; $i++) {
+                        $nama = $sheetdata[$i][0];
+                        $niy = $sheetdata[$i][1];
+                        $tmpt_lahir = $sheetdata[$i][2];
+                        $tgl_lahir = $sheetdata[$i][3];
+                        $pnd_trkhr = $sheetdata[$i][4];
+                        $tmt_smait = $sheetdata[$i][5];
+                        $jurusan = $sheetdata[$i][6];
+                        $jabatan = $sheetdata[$i][7];
+                        $no_hp = $sheetdata[$i][8];
+                        $data[] = array(
+                            'nama' => $nama,
+                            'niy' => $niy,
+                            'tmpt_lahir' => $tmpt_lahir,
+                            'tgl_lahir' => $tgl_lahir,
+                            'pnd_trkhr' => $pnd_trkhr,
+                            'tmt_smait' => $tmt_smait,
+                            'jurusan' => $jurusan,
+                            'jabatan' => $jabatan,
+                            'no_hp' => $no_hp,
+                        );
+                    }
+                    $inserdata = $this->Pegawai_model->insert_batch($data);
+                    if ($inserdata) {
+                        $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+                        redirect('Pegawai');
+                    } else {
+                        $this->session->set_flashdata('message', '<script type="text/javascript">swal("Cannot add the data!", "Error!", "error");</script>');
+                        redirect('Pegawai');
+                    }
+                }
+            } catch (Exception $e) {
+                $this->session->set_flashdata('message', '<script type="text/javascript">swal("Error loading file: File Kosong", "Error!", "error");</script>');
                 redirect('Pegawai');
+                // echo "Error loading file: " . $e->getMessage();
             }
-        }
-    } catch (Exception $e) {
-        $this->session->set_flashdata('message', '<script type="text/javascript">swal("Error loading file: File Kosong", "Error!", "error");</script>');
-        redirect('Pegawai');
-        // echo "Error loading file: " . $e->getMessage();
-    } 
-} else {
-    $error = isset($_FILES['file']['error']) ? $_FILES['file']['error'] : 'File not uploaded.';
-    $this->session->set_flashdata('message', '<script type="text/javascript">swal("' . $error . '", "Error!", "error");</script>');
-    redirect('Pegawai');
-}
-}
-    public function getTemplate(){
-        force_download('./template/assets/datapegawai.xlsx',NULL);
-      }
-      public function ubahstatus($id) 
-      {
-      $data['pegawai'] = $this->db->get_where('pegawai', ['id' => $this->session->userdata['id']])->row_array();
-      $data['pegawai'] = $this->Pegawai_model->getById($id);
-  
-              $data = [
-                  'status' => $this->input->post('status'),
-                  
-              ];
-              $id = $this->input->post('id');
-                  $this->Pegawai_model->update(['id' => $id], $data);
-                  $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+        } else {
+            $error = isset($_FILES['file']['error']) ? $_FILES['file']['error'] : 'File not uploaded.';
+            $this->session->set_flashdata('message', '<script type="text/javascript">swal("' . $error . '", "Error!", "error");</script>');
             redirect('Pegawai');
-            }
-  }           
+        }
+    }
+    public function getTemplate()
+    {
+        force_download('./template/assets/datapegawai.xlsx', NULL);
+    }
+    public function ubahstatus($id)
+    {
+        $data['pegawai'] = $this->db->get_where('pegawai', ['id' => $this->session->userdata['id']])->row_array();
+        $data['pegawai'] = $this->Pegawai_model->getById($id);
 
+        $data = [
+            'status' => $this->input->post('status'),
+
+        ];
+        $id = $this->input->post('id');
+        $this->Pegawai_model->update(['id' => $id], $data);
+        $this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+        redirect('Pegawai');
+    }
+}

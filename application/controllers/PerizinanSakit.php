@@ -203,7 +203,6 @@ class PerizinanSakit extends CI_Controller
 						'keterangan' => 'Izin Sakit ',
 					);
 				}
-
 			}
 
 			if (!empty($sakit)) {

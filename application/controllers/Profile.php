@@ -8,7 +8,6 @@ class Profile extends CI_Controller
 		parent::__construct();
 		is_logged_in();
 		$this->load->model('Pegawai_model');
-
 	}
 
 	public function index()

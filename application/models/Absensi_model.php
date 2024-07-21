@@ -7,7 +7,6 @@ class Absensi_model extends CI_Model
 	public function __construct()
 	{
 		parent::__construct();
-
 	}
 	public function get()
 	{
@@ -56,7 +55,6 @@ class Absensi_model extends CI_Model
 			$query = $this->db->get();
 			return $query->num_rows();
 		}
-
 	}
 	public function getDataByYear2($tahun, $month)
 	{
@@ -129,7 +127,6 @@ class Absensi_model extends CI_Model
 			return [];
 		}
 		return $result;
-
 	}
 	public function getById($id)
 	{
@@ -137,7 +134,6 @@ class Absensi_model extends CI_Model
 		$this->db->where('id', $id);
 		$query = $this->db->get();
 		return $query->row_array();
-
 	}
 	public function update($where, $data)
 	{
@@ -154,5 +150,4 @@ class Absensi_model extends CI_Model
 		$this->db->delete($this->table);
 		return $this->db->affected_rows();
 	}
-
 }

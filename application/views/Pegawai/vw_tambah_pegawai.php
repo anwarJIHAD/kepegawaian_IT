@@ -1,7 +1,6 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <style>
 </style>
-
 <!-- Main Content -->
 <?= $this->session->flashdata('message'); ?>
 <div class="main-content">
@@ -9,7 +8,6 @@
     <div class="section-header">
       <h1>Data Pegawai</h1>
     </div>
-
     <div class="section-body">
       <div class="card">
         <div class="card-header">
@@ -118,12 +116,10 @@
       </div>
       <a href="<?= base_url('Pegawai') ?>" class="btn btn-light">Tutup</a>
       <button type="submit" name="tambah" class="btn btn-primary float-right">Simpan</button>
-
       </form>
     </div>
 </div>
 </section>
 </div>
-
 </div>
 </div>

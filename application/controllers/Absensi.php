@@ -120,7 +120,7 @@ class Absensi extends CI_Controller
 	}
 
 
-	
+
 	public function edit_absensi($id)
 	{
 		$data['pegawai'] = $this->db->get_where('pegawai', ['id' => $this->session->userdata['id']])->row_array();
@@ -162,6 +162,6 @@ class Absensi extends CI_Controller
 	}
 	public function getTemplate()
 	{
-		force_download('./template/assets/template_absensi.xlsx', NULL);
+		force_download('./template/assets/absensi.xlsx', NULL);
 	}
 }

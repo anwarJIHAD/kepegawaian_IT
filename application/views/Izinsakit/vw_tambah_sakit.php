@@ -5,7 +5,6 @@
     <div class="section-header">
       <h1>Surat Perizinan Sakit</h1>
     </div>
-
     <div class="section-body">
       <div class="card">
         <div class="card-header">
@@ -45,7 +44,6 @@
                 <input type="file" class="form-control" name="file_sakit" id="file_sakit">
                 <?= form_error('file_sakit', '<small class="text-danger pl-3">', '</small>'); ?>
                 <!--  <div class="custom-file-label" for="customFile"> -->
-
               </div>
             </div>
             <a href="<?= base_url('PerizinanSakit') ?>" class="btn btn-light">Tutup</a>

@@ -1,7 +1,6 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <style>
 </style>
-
 <!-- Main Content -->
 <?= $this->session->flashdata('message'); ?>
 <div class="main-content">
@@ -9,7 +8,6 @@
         <div class="section-header">
             <h1>Surat Perizinan</h1>
         </div>
-
         <div class="section-body">
             <div class="card">
                 <div class="card-header">
@@ -22,26 +20,22 @@
                             <label class="col-sm-3 col-form-label">Nama Pegawai</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="nama" name="nama" value="<?= $pegawai['nama']; ?>" placeholder="Nama Pegawai" disabled>
-
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Tanggal Izin</label>
                             <div class="col-sm-4">
                                 <input type="date" class="form-control" id="tgl_izin" name="tgl_izin" value="<?= $izin_sakit['tgl_izin']; ?>" placeholder="Tanggal Izin" disabled>
-
                             </div>
                             <label class="col-sm-1 col-form-label">Hingga</label>
                             <div class="col-sm-4">
                                 <input type="date" class="form-control" id="hingga_tgl" name="hingga_tgl" value="<?= $izin_sakit['hingga_tgl']; ?>" placeholder="Tanggal Izin" disabled>
-
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Keterangan Sakit</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="ket_sakit" name="ket_sakit" value="<?= $izin_sakit['ket_sakit']; ?>" placeholder="Keterangan Sakit" disabled>
-
                             </div>
                         </div>
                         <div class="form-group row">

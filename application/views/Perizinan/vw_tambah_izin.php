@@ -109,32 +109,32 @@
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script>
-        $(document).ready(function() {
-            function calculatePengajuanIzin() {
-                let waktu_izin = $('#waktu_izin').val();
-                let hingga_waktu = $('#hingga_waktu').val();
-                console.log(waktu_izin,hingga_waktu)
+<script>
+  $(document).ready(function() {
+    function calculatePengajuanIzin() {
+      let waktu_izin = $('#waktu_izin').val();
+      let hingga_waktu = $('#hingga_waktu').val();
+      console.log(waktu_izin, hingga_waktu)
 
-                if (waktu_izin && hingga_waktu) {
-                    let waktu_izinTime = new Date(`1970-01-01T${waktu_izin}:00`);
-                    let hingga_waktuTime = new Date(`1970-01-01T${hingga_waktu}:00`);
+      if (waktu_izin && hingga_waktu) {
+        let waktu_izinTime = new Date(`1970-01-01T${waktu_izin}:00`);
+        let hingga_waktuTime = new Date(`1970-01-01T${hingga_waktu}:00`);
 
-                    if (hingga_waktuTime < waktu_izinTime) {
-                        hingga_waktuTime.setDate(hingga_waktuTime.getDate() + 1);
-                    }
+        if (hingga_waktuTime < waktu_izinTime) {
+          hingga_waktuTime.setDate(hingga_waktuTime.getDate() + 1);
+        }
 
-                    let diff = hingga_waktuTime - waktu_izinTime;
-                    let hours = Math.floor(diff / 1000 / 60 / 60);
-                    let minutes = Math.floor((diff / 1000 / 60) % 60);
+        let diff = hingga_waktuTime - waktu_izinTime;
+        let hours = Math.floor(diff / 1000 / 60 / 60);
+        let minutes = Math.floor((diff / 1000 / 60) % 60);
 
-                    $('#lama_izin').val(`${hours} jam ${minutes} menit`);
-                }
-            }
+        $('#lama_izin').val(`${hours} jam ${minutes} menit`);
+      }
+    }
 
-            $('#waktu_izin, #hingga_waktu').on('change', calculatePengajuanIzin);
-        });
-    </script>
+    $('#waktu_izin, #hingga_waktu').on('change', calculatePengajuanIzin);
+  });
+</script>
 
 <script>
   function confirmSubmit() {
