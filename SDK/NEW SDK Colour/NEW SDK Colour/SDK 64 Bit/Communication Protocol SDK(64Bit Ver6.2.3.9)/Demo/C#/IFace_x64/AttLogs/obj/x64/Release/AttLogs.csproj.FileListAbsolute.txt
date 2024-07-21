@@ -1,1 +1,0 @@
-D:\C#\IFace_X64\AttLogs\obj\x64\Release\ResolveAssemblyReference.cache

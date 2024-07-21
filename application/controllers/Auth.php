@@ -71,7 +71,7 @@ class Auth extends CI_Controller
         $this->session->unset_userdata('role');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         Berhasii logout!</div>');
-        redirect('auth');
+        redirect('Auth');
     }
 
     public function forgetpass()

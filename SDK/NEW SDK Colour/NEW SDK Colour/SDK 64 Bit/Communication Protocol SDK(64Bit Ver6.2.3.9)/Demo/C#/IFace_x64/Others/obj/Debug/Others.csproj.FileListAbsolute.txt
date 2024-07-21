@@ -1,2 +1,0 @@
-E:\C#\IFace\Others\obj\Debug\Interop.zkemkeeper.dll
-E:\C#\IFace\Others\obj\Debug\Others.csproj.ResolveComReference.cache

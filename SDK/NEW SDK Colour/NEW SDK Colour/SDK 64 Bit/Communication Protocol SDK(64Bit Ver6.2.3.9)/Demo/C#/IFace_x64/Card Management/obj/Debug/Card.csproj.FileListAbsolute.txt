@@ -1,3 +1,0 @@
-E:\C#\IFace\Card Management\obj\Debug\Interop.zkemkeeper.dll
-E:\C#\IFace\Card Management\obj\Debug\AxInterop.zkemkeeper.dll
-E:\C#\IFace\Card Management\obj\Debug\Card.csproj.ResolveComReference.cache

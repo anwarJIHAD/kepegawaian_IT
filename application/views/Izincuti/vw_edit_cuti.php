@@ -85,7 +85,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-9 offset-sm-3">
-                                    <a href="<?= base_url('Console/perizinancuti') ?>" class="btn btn-light">Tutup</a>
+                                    <a href="<?= base_url('Perizinancuti') ?>" class="btn btn-light">Tutup</a>
                                     <button type="submit" name="tambah" class="btn btn-success float-right">Simpan</button>
                                 </div>
                             </div>

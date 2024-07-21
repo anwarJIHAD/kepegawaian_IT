@@ -16,7 +16,7 @@
           <h4>Tambah Data Pegawai</h4>
         </div>
         <div class="card-body">
-          <form method="POST" action="<?= base_url('pegawai/tambah_pegawai') ?>">
+          <form method="POST" action="<?= base_url('Pegawai/tambah_pegawai') ?>">
             <div class="form-group row">
               <label class="col-sm-3 col-form-label">Nama Pegawai</label>
               <div class="col-sm-9">
@@ -116,7 +116,7 @@
             </div>
         </div>
       </div>
-      <a href="<?= base_url('pegawai') ?>" class="btn btn-light">Tutup</a>
+      <a href="<?= base_url('Pegawai') ?>" class="btn btn-light">Tutup</a>
       <button type="submit" name="tambah" class="btn btn-primary float-right">Simpan</button>
 
       </form>

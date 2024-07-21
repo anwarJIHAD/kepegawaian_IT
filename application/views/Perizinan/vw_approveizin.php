@@ -90,7 +90,7 @@
               <option value="Ditolak">Ditolak</option>
             </select>
           </div>
-          <a href="<?= base_url('pengajuanizin/approveizin') ?>" class="btn btn-light">Tutup</a>
+          <a href="<?= base_url('Pengajuanizin/approveizin') ?>" class="btn btn-light">Tutup</a>
           <button type="button" name="tambah" class="btn btn-primary float-right" onclick="confirmSubmit(<?= $us['id_izin']; ?>)">Simpan</button>
         </form>
       </div>

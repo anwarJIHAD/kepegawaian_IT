@@ -16,7 +16,7 @@
                     <h4>Tambah Data Lembur</h4>
                   </div>
                   <div class="card-body">
-                  <form  method="POST" action="<?= base_url('lembur/tambah_lembur') ?>">
+                  <form  method="POST" action="<?= base_url('Lembur/tambah_lembur') ?>">
                     <div class="form-group row">
                       <label class="col-sm-3 col-form-label">Nama Pegawai</label>
                       <div class="col-sm-9">

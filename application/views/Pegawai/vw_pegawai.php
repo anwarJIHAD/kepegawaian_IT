@@ -100,7 +100,7 @@
                                 <td><?= $us['no_hp']; ?></td>
                                 <td><?= $us['status']; ?></td>
                             <td> <?php if ($pegawai['role'] == 'Admin') { ?>
-                              <a href="<?= base_url('pegawai/edit_pegawai/') . $us['id']; ?>" class="btn btn-light btn-sm mr-1"><i class="bi bi-pencil-square"></i> Edit</a>
+                              <a href="<?= base_url('Pegawai/edit_pegawai/') . $us['id']; ?>" class="btn btn-light btn-sm mr-1"><i class="bi bi-pencil-square"></i> Edit</a>
                               <a href="<?= base_url('Pegawai/hapus/') . $us['id']; ?>" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Hapus</a><?php }?></td>
                           </tr>
                           <?php $i++; ?>
@@ -134,7 +134,7 @@
           <input type="file" name="myFile" class="drop-zone__input" accept=".csv,.xls,.xlsx" id="excelFileInput">
         </div>
         <div>
-          <span>Download Excel template <a href="<?= base_url() ?>pegawai/getTemplate" style="color:#b55050;">here</a></span>
+          <span>Download Excel template <a href="<?= base_url() ?>Pegawai/getTemplate" style="color:#b55050;">here</a></span>
         </div>
       </div>
       <div class="modal-footer bg-whitesmoke br">

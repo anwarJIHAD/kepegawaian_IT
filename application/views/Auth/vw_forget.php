@@ -76,7 +76,7 @@
                                            Ubah Password
                                         </button>
                                         <!-- <div class="float-right">
-                                            <a href="<?= base_url('auth/forgetpass') ?>" class="text-small">
+                                            <a href="<?= base_url('Auth/forgetpass') ?>" class="text-small">
                                                 Forgot Password?
                                             </a>
                                         </div> -->

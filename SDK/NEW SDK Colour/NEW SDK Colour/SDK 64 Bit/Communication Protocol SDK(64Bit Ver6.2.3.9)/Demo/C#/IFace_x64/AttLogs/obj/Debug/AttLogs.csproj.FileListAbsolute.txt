@@ -1,3 +1,0 @@
-E:\C#\IFace\AttLogs\obj\Debug\ResolveAssemblyReference.cache
-E:\C#\IFace\AttLogs\obj\Debug\Interop.zkemkeeper.dll
-E:\C#\IFace\AttLogs\obj\Debug\AttLogs.csproj.ResolveComReference.cache

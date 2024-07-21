@@ -16,7 +16,7 @@
                     <h4>Form Surat Perizinan</h4>
                   </div>
                   <div class="card-body">
-                  <form id="myForm"  method="POST" action="<?= base_url('perizinancuti/tambahcuti') ?>"> 
+                  <form id="myForm"  method="POST" action="<?= base_url('Perizinancuti/tambahcuti') ?>"> 
                     <div class="form-group row">
                       <label class="col-sm-3 col-form-label">Nama Pegawai</label>
                       <div class="col-sm-9">

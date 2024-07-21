@@ -13,10 +13,10 @@
 						<div class="card-body">
 							<div style="margin-bottom: 20px;">
 								<?php if ($pegawai['role'] == 'Admin' || $pegawai['role'] == 'guru' || $pegawai['role'] == 'pustakawati' || $pegawai['role'] == 'kepala sekolah') { ?>
-									<a href="<?= base_url() ?>perizinansakit/tambahsakit" class="btn btn-outline-warning"><i
+									<a href="<?= base_url() ?>PerizinanSakit/tambahsakit" class="btn btn-outline-warning"><i
 											class="bi bi-plus-circle"></i> Ajukan Izin Sakit </a>
 									<?php if ($pegawai['role'] == 'Admin') { ?>
-										<a href="<?= base_url() ?>perizinansakit/export" class="btn btn-outline-success"
+										<a href="<?= base_url() ?>PerizinanSakit/export" class="btn btn-outline-success"
 											style="margin-left:20px;"><i class="bi bi-plus-circle"></i>
 											Export Excel</a>
 									<?php } ?>
@@ -90,10 +90,10 @@
 												<td>
 													<?php if ($pegawai['role'] == $this->session->userdata('role') && $us['role'] == $this->session->userdata('role') && $us['status'] != 'Disetujui' && $us['status'] != 'Ditolak') { ?>
 														<?php if (!$us['file_sakit']): ?>
-															<a href="<?= base_url('perizinanSakit/editsakit/') . $us['id_sakit']; ?>"
+															<a href="<?= base_url('PerizinanSakit/editsakit/') . $us['id_sakit']; ?>"
 																class="btn btn-light btn-sm mr-2"><i class="bi bi-pencil-square"></i> Upload File</a>
 														<?php endif ?>
-														<a href="<?= base_url('perizinanSakit/hapus/') . $us['id_sakit']; ?>"
+														<a href="<?= base_url('PerizinanSakit/hapus/') . $us['id_sakit']; ?>"
 															class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Hapus</a>
 													<?php } elseif ($us['status'] == 'Diajukan') { ?>
 														-

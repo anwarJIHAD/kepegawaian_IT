@@ -11,10 +11,10 @@
 				<div class="card-body">
 					<div style="margin-bottom: 20px;">
 						<?php if ($pegawai['role'] == 'Admin' || $pegawai['role'] == 'guru' || $pegawai['role'] == 'pustakawati') { ?>
-							<a href="<?= base_url() ?>perizinancuti/tambahcuti" class="btn btn-outline-warning"><i
+							<a href="<?= base_url() ?>Perizinancuti/tambahcuti" class="btn btn-outline-warning"><i
 									class="bi bi-plus-circle"></i> Ajukan Izin Cuti </a>
 							<?php if ($pegawai['role'] == 'Admin') { ?>
-								<a href="<?= base_url() ?>perizinancuti/export" class="btn btn-outline-success" style="margin-left:20px;"><i
+								<a href="<?= base_url() ?>Perizinancuti/export" class="btn btn-outline-success" style="margin-left:20px;"><i
 										class="bi bi-plus-circle"></i>
 									Export Excel</a>
 							<?php } ?>
@@ -63,7 +63,7 @@
 										</td>
 										<td>
 											<?php if ($pegawai['role'] == $this->session->userdata('role') && $us['role'] == $this->session->userdata('role') && $us['status'] != 'Diterima' && $us['status'] != 'Ditolak') { ?>
-												<a href="<?= base_url('perizinanCuti/hapus/') . $us['id_cuti']; ?>" class="btn btn-danger btn-sm"><i
+												<a href="<?= base_url('Perizinancuti/hapus/') . $us['id_cuti']; ?>" class="btn btn-danger btn-sm"><i
 														class="bi bi-trash"></i> Hapus</a>
 											<?php } elseif ($us['status'] == 'Diajukan') { ?>
 												-

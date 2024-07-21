@@ -1,2 +1,0 @@
-E:\C#\Black&White\Online Enroll\obj\Debug\Interop.zkemkeeper.dll
-E:\C#\Black&White\Online Enroll\obj\Debug\OnlineEnroll.csproj.ResolveComReference.cache
