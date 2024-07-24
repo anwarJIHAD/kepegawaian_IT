@@ -3,7 +3,7 @@
 <div class="main-content">
   <section class="section">
     <div class="section-header">
-      <h5>Data Berkas</h5>
+      <h5>Data Pengembangan Diri</h5>
     </div>
     <?= $this->session->flashdata('message'); ?>
     <div class="section-body">

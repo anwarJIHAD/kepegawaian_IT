@@ -61,7 +61,7 @@
 							</div>
 						</div>
 						<a href="<?= base_url('Console/lembur') ?>" class="btn btn-light">Tutup</a>
-						<button type="submit" name="tambah" class="btn btn-success float-right">Simpan</button>
+						<button type="submit" name="tambah" class="btn btn-primary float-right">Simpan</button>
 					</form>
 				</div>
 			</div>
