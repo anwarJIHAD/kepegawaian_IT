@@ -60,7 +60,7 @@
 								<?= form_error('ket_lembur', '<small class="text-danger pl-3">', '</small>'); ?>
 							</div>
 						</div>
-						<a href="<?= base_url('Console/lembur') ?>" class="btn btn-light">Tutup</a>
+						<a href="<?= base_url('Lembur') ?>" class="btn btn-light">Tutup</a>
 						<button type="submit" name="tambah" class="btn btn-primary float-right">Simpan</button>
 					</form>
 				</div>

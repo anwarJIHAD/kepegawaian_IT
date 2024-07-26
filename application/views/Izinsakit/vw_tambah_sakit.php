@@ -11,7 +11,7 @@
           <h4>Form Surat Perizinan</h4>
         </div>
         <div class="card-body">
-          <form method="POST" action="<?= base_url('Perizinansakit/tambahsakit') ?>" enctype="multipart/form-data">
+          <form method="POST" action="<?= base_url('PerizinanSakit/tambahsakit') ?>" enctype="multipart/form-data">
             <div class="form-group row">
               <label class="col-sm-3 col-form-label">Nama Pegawai</label>
               <div class="col-sm-9">

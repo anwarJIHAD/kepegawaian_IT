@@ -59,7 +59,7 @@
 										</td>
 										<td>
 											<?php if ($pegawai['role'] == $this->session->userdata('role') && $us['role'] == $this->session->userdata('role') && $us['status'] != 'Diterima' && $us['status'] != 'Ditolak') { ?>
-												<a href="<?= base_url('Perizinancuti/hapus/') . $us['id_cuti']; ?>" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Hapus</a>
+												<a href="<?= base_url('PerizinanCuti/hapus/') . $us['id_cuti']; ?>" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Hapus</a>
 											<?php } elseif ($us['status'] == 'Diajukan') { ?>
 												-
 											<?php } else { ?>
