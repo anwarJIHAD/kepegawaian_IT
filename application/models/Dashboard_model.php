@@ -1,3 +1,5 @@
+
+
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 class Dashboard_model extends CI_Model
@@ -17,15 +19,24 @@ class Dashboard_model extends CI_Model
 	}
 	public function jumlah_cuti()
 	{
-		return $this->db->count_all('izin_cuti');
+		if (in_array($this->session->userdata('role'), ['guru', 'pustakawati'])) {
+			$this->db->where('niy', $this->session->userdata('niy'));
+		}
+		return $this->db->count_all_results('izin_cuti');
 	}
 	public function jumlah_sakit()
 	{
-		return $this->db->count_all('izin_sakit');
+		if (in_array($this->session->userdata('role'), ['guru', 'pustakawati'])) {
+			$this->db->where('niy', $this->session->userdata('niy'));
+		}
+		return $this->db->count_all_results('izin_sakit');
 	}
 	public function jumlah_lembur()
 	{
-		return $this->db->count_all('lembur');
+		if (in_array($this->session->userdata('role'), ['guru', 'pustakawati'])) {
+			$this->db->where('niy', $this->session->userdata('niy'));
+		}
+		return $this->db->count_all_results('lembur');
 	}
 	public function jumlah_cuti_pegawai($tahun = '')
 	{
@@ -42,6 +53,9 @@ class Dashboard_model extends CI_Model
 	}
 	public function jumlah_cuti_diterima($tahun = '')
 	{
+		if (in_array($this->session->userdata('role'), ['guru', 'pustakawati'])) {
+			$this->db->where('niy', $this->session->userdata('niy'));
+		}
 		$this->db->select('COUNT(*) as jumlah');
 		$this->db->from('izin_cuti');
 		$this->db->where('status', 'Diterima');
@@ -50,6 +64,9 @@ class Dashboard_model extends CI_Model
 	}
 	public function jumlah_cuti_ditolak($tahun = '')
 	{
+		if (in_array($this->session->userdata('role'), ['guru', 'pustakawati'])) {
+			$this->db->where('niy', $this->session->userdata('niy'));
+		}
 		$this->db->select('COUNT(*) as jumlah');
 		$this->db->from('izin_cuti');
 		$this->db->where('status', 'Ditolak');
@@ -66,6 +83,9 @@ class Dashboard_model extends CI_Model
 	}
 	public function jumlah_sakit_disetujui($tahun = '')
 	{
+		if (in_array($this->session->userdata('role'), ['guru', 'pustakawati'])) {
+			$this->db->where('niy', $this->session->userdata('niy'));
+		}
 		$this->db->select('COUNT(*) as jumlah');
 		$this->db->from('izin_sakit');
 		$this->db->where('status', 'Disetujui');
@@ -74,6 +94,9 @@ class Dashboard_model extends CI_Model
 	}
 	public function jumlah_sakit_ditolak($tahun = '')
 	{
+		if (in_array($this->session->userdata('role'), ['guru', 'pustakawati'])) {
+			$this->db->where('niy', $this->session->userdata('niy'));
+		}
 		$this->db->select('COUNT(*) as jumlah');
 		$this->db->from('izin_sakit');
 		$this->db->where('status', 'Ditolak');
@@ -89,3 +112,4 @@ class Dashboard_model extends CI_Model
 		return $query->row()->jumlah;
 	}
 }
+
