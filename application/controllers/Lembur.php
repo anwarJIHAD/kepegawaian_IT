@@ -126,7 +126,7 @@ class Lembur extends CI_Controller
 		];
 		$id = $this->input->post('id');
 		$this->Lembur_model->update(['id' => $id], $data);
-		$this->session->set_flashdata('message', '<script type="text/javascript">swal("Good job!", "Success!", "success");</script>');
+		$this->session->set_flashdata('message', '<script type="text/javascript">swal("Berhasil dikonfirmasi!", "Success!", "success");</script>');
 		redirect('Lembur/approvelembur');
 	}
 
