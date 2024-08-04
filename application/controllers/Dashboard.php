@@ -83,7 +83,7 @@ class Dashboard extends CI_Controller
 			$data['month_10_'] = $this->PerizinanSakit_model->getDataByYear($tahun, $month_10);
 			$data['month_11_'] = $this->PerizinanSakit_model->getDataByYear($tahun, $month_11);
 			$data['month_12_'] = $this->PerizinanSakit_model->getDataByYear($tahun, $month_12);
-
+			
 			// Kirim data dalam format JSON
 			header('Content-Type: application/json');
 			echo json_encode($data);

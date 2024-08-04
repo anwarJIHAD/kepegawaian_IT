@@ -162,10 +162,12 @@ class Pegawai extends CI_Controller
 
     public function loadfile()
     {
+        // Memeriksa File Diunggah
         if (isset($_FILES['myFile'])) {
             $upload_file = $_FILES['myFile']['name'];
             $extension = pathinfo($upload_file, PATHINFO_EXTENSION);
             if ($extension == 'csv') {
+                // Menentukan Reader yang Tepat Berdasarkan Ekstensi File:
                 $reader = new \PhpOffice\PhpSpreadsheet\Reader\Csv();
             } else if ($extension == 'xls') {
                 $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xls();
@@ -173,10 +175,12 @@ class Pegawai extends CI_Controller
                 $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
             }
             try {
+                // Memuat dan Memproses Data dari File:
                 $spreadsheet = $reader->load($_FILES['myFile']['tmp_name']);
                 $sheetdata = $spreadsheet->getActiveSheet()->toArray();
                 $sheetcount = count($sheetdata);
                 if ($sheetcount > 1) {
+                    // Mengolah Data dan Menyimpannya ke Database
                     $data = array();
                     for ($i = 1; $i < $sheetcount; $i++) {
                         $nama = $sheetdata[$i][0];

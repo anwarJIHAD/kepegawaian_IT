@@ -584,13 +584,7 @@
 
 										</select>
 									</div>
-									<p class="d-flex flex-column">
-
-									</p>
-									<p class="ml-auto d-flex flex-column text-right">
-
-										<span class="text-muted"></span>
-									</p>
+									
 								</div>
 								<!-- /.d-flex -->
 

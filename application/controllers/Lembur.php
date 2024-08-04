@@ -169,6 +169,7 @@ class Lembur extends CI_Controller
 				'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER
 			]
 		];
+		// Menambahkan Judul dan Header Tabel
 		$sheet->setCellValue('A1', "Laporan Data Lembur");
 		$sheet->mergeCells('A1:H1');
 		$sheet->getStyle('A1')->getFont()->setBold(true);
@@ -186,7 +187,7 @@ class Lembur extends CI_Controller
 		$sheet->getStyle('A1')->applyFromArray($style_judul);
 		$sheet->getStyle('A4:H4')->applyFromArray($style_col);
 
-		// Panggil function view yang ada di SiswaModel untuk menampilkan semua data siswanya
+		// Mengambil dan Menambahkan Data ke Tabel
 		$numrow = 5; // Start from row 5
 		$no = 1;
 		$penempatan = $this->Lembur_model->get();
@@ -204,7 +205,7 @@ class Lembur extends CI_Controller
 			$no++;
 		}
 
-		// Set width kolom
+		// Mengatur Lebar Kolom dan Tinggi Baris
 		$sheet->getColumnDimension('A')->setWidth(5);
 		$sheet->getColumnDimension('B')->setWidth(15);
 		$sheet->getColumnDimension('C')->setWidth(25);

@@ -12,16 +12,18 @@ class Absensi_model extends CI_Model
 	{
 		$role = $this->session->userdata('role');
 		if ($role == 'Admin' || $role == 'kepala sekolah') {
-			$this->db->select('pegawai.*, absensi.id AS id_absensi, absensi.*');
-			$this->db->from($this->table);
-			$this->db->join('pegawai', 'absensi.niy = pegawai.niy', 'left');
+			$this->db->select('p.*, a.id AS id_absensi, a.*');
+			$this->db->from('absensi a');
+			$this->db->join('pegawai p', 'p.niy = a.niy', 'left');
+			$this->db->order_by('a.id', 'desc');
 			$query = $this->db->get();
 		} else {
 			$logged_in_user_id = $this->session->userdata('niy');
-			$this->db->select('pegawai.*, absensi.id AS id_absensi, absensi.*');
-			$this->db->from($this->table);
-			$this->db->join('pegawai', 'absensi.niy = pegawai.niy', 'left');
+			$this->db->select('p.*, a.id AS id_absensi, a.*');
+			$this->db->from('absensi a');
+			$this->db->join('pegawai p', 'p.niy = a.niy', 'left');
 			$this->db->where('absensi.niy', $logged_in_user_id);
+			$this->db->order_by('a.id', 'desc');
 			$query = $this->db->get();
 		}
 		return $query->result_array();
@@ -31,7 +33,7 @@ class Absensi_model extends CI_Model
 		$role = $this->session->userdata('role');
 		if ($role == 'Admin' || $role == 'kepala sekolah') {
 			$this->db->select('month(tanggal)');
-			$this->db->from('absensi'); // Ganti 'nama_tabel' dengan nama tabel Anda
+			$this->db->from('absensi'); 
 			if ($tahun != '') {
 				$this->db->where('YEAR(tanggal)', $tahun);
 			}
@@ -44,14 +46,14 @@ class Absensi_model extends CI_Model
 			$logged_in_user_id = $this->session->userdata('niy');
 
 			$this->db->select('month(tanggal)');
-			$this->db->from('absensi'); // Ganti 'nama_tabel' dengan nama tabel Anda
+			$this->db->from('absensi'); 
 			if ($tahun != '') {
 				$this->db->where('YEAR(tanggal)', $tahun);
 			}
 			$this->db->where('absensi.niy', $logged_in_user_id);
 			$this->db->where('status', 'hadir');
 			// 'tanggal' adalah nama kolom tanggal dalam tabel
-			$this->db->where('month(tanggal)', $month); // 'tanggal' adalah nama kolom tanggal dalam tabel
+			$this->db->where('month(tanggal)', $month); 
 			$query = $this->db->get();
 			return $query->num_rows();
 		}
@@ -61,7 +63,7 @@ class Absensi_model extends CI_Model
 		$role = $this->session->userdata('role');
 		if ($role == 'Admin' || $role == 'kepala sekolah') {
 			$this->db->select('month(tanggal)');
-			$this->db->from('absensi'); // Ganti 'nama_tabel' dengan nama tabel Anda
+			$this->db->from('absensi'); 
 			if ($tahun != '') {
 				$this->db->where('YEAR(tanggal)', $tahun);
 			}
@@ -74,14 +76,14 @@ class Absensi_model extends CI_Model
 			$logged_in_user_id = $this->session->userdata('niy');
 
 			$this->db->select('month(tanggal)');
-			$this->db->from('absensi'); // Ganti 'nama_tabel' dengan nama tabel Anda
+			$this->db->from('absensi'); 
 			if ($tahun != '') {
 				$this->db->where('YEAR(tanggal)', $tahun);
 			}
 			$this->db->where('absensi.niy', $logged_in_user_id);
 			$this->db->where('status', 'telat');
 			// 'tanggal' adalah nama kolom tanggal dalam tabel
-			$this->db->where('month(tanggal)', $month); // 'tanggal' adalah nama kolom tanggal dalam tabel
+			$this->db->where('month(tanggal)', $month); 
 			$query = $this->db->get();
 			return $query->num_rows();
 		}
@@ -91,7 +93,7 @@ class Absensi_model extends CI_Model
 		$role = $this->session->userdata('role');
 		if ($role == 'Admin' || $role == 'kepala sekolah') {
 			$this->db->select('month(tanggal)');
-			$this->db->from('absensi'); // Ganti 'nama_tabel' dengan nama tabel Anda
+			$this->db->from('absensi'); 
 			if ($tahun != '') {
 				$this->db->where('YEAR(tanggal)', $tahun);
 			}
@@ -104,7 +106,7 @@ class Absensi_model extends CI_Model
 			$logged_in_user_id = $this->session->userdata('niy');
 
 			$this->db->select('month(tanggal)');
-			$this->db->from('absensi'); // Ganti 'nama_tabel' dengan nama tabel Anda
+			$this->db->from('absensi'); 
 			if ($tahun != '') {
 				$this->db->where('YEAR(tanggal)', $tahun);
 			}
